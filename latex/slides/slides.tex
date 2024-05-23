@@ -1,34 +1,57 @@
 \documentclass[11pt, aspectratio=1610, xcolor={dvipsnames}]{beamer}
 
+% define custom footline
+\newcommand{\Ffootline}{%
+	\hfill
+	\insertframenumber/\inserttotalframenumber % The center
+	\hfill
+} 
+
+% packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{transparent}
 
+% theme and colours
 \usetheme{Montpellier}
-
 \setbeamercolor*{structure}{bg=PineGreen!10,fg=PineGreen}
+\setbeamercolor*{footline}{bg=PineGreen!10,fg=PineGreen}
 
+% paths
 \graphicspath{{../thesis/}}
 
 \begin{document}
 	
-	\title[Putting the GDR's Legacy Effect \linebreak under the Microscope]{Putting the GDR's Legacy Effect \linebreak under the Microscope:}
+	\title[Putting the GDR's Legacy Effect under the Microscope]{Putting the GDR's Legacy Effect \linebreak under the Microscope:}
 	\subtitle{Eastern Female STEM Professionals in Reunified Germany.}
 	
-	\author{Johannes Schütt}
+	\author{\href{mailto:johannes.schuett@fu-berlin.de}{Johannes Schütt}}
 	
-	\institute{Free University of Berlin \linebreak M. Sc. Public Economics \linebreak\linebreak Advisor: Prof. Natalia Danzer, Ph.D.}
+	\institute{Free University of Berlin \linebreak M. Sc. Public Economics \linebreak\linebreak Supervisor: Prof. Natalia Danzer, Ph.D.}
 	
 	\date{4 July 2024}
 	
+	% logo on cover page
 	\titlegraphic{
 		\vspace{5mm}
 		\includegraphics[width=3cm]{fu_logo.pdf}
 	}
 	
+	% set footline
 	\setbeamertemplate{navigation symbols}{}
+	\setbeamertemplate{footline}{%
+		\ifnum\thepage=1
+			\begin{beamercolorbox}[wd=\paperwidth,ht=0ex,dp=1ex]{footlinecolor}
+			\end{beamercolorbox}
+		\else
+			\begin{beamercolorbox}[wd=\paperwidth,ht=0ex,dp=1ex]{footlinecolor}%
+				\tiny\hspace*{4mm} \Ffootline \hspace*{4mm}
+			\end{beamercolorbox}
+		\fi
+	}
 	
+	% bottom right transparent logo
 	\logo{
 		{\transparent{0.6}
 			\includegraphics[width = 1cm]{fu_seal.pdf}
@@ -41,6 +64,57 @@
 		\maketitle
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{}
+		\tableofcontents
+	\end{frame}
+	
+	\section{Motivation}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Previous Literature}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Research Question}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\section{Empirical Approach}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Econometric Specification}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Data}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\section{Preliminary Results}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Main Findings}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Discussion}
+	\begin{frame}
+		\frametitle{}
+	\end{frame}
+	
+	\section{Conclusion}
 	\begin{frame}
 		\frametitle{}
 	\end{frame}
