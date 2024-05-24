@@ -308,3 +308,7 @@ TSWLatexianTemp*
 
 # Stata datasets
 *.dta
+
+# Stata log
+!stata/log/master_thesis.log
+

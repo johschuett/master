@@ -1,0 +1,685 @@
+----------------------------------------------------------------------------------------------------------------------
+      name:  master_thesis
+       log:  H:/master_thesis/stata/log/master_thesis_running.log
+  log type:  text
+ opened on:  24 May 2024, 17:21:52
+
+. 
+. 
+. 
+. *** preamble
+. {
+. 
+. /*--------------------------------------------------------
+> MASTER THESIS
+> -------------
+> 
+> PUTTING THE GDR'S LEGACY EFFECT UNDER THE MICROSCOPE:
+> EASTERN FEMALE STEM PROFESSIONALS IN REUNIFIED GERMANY.
+> 
+> JOHANNES SCHÜTT, 5574549
+> FREE UNIVERSITY OF BERLIN
+> 
+> M.SC. PUBLIC ECONOMICS
+> 
+> SUPERVISOR: PROF. NATALIA DANZER, PH.D.
+> 
+> SUMMER TERM 2024
+> 
+> --------------------------------------------------------*/
+. 
+. version 17
+. clear all
+. set more off, permanently
+(set more preference recorded)
+. set maxvar 7000
+
+. 
+. *** preamble END
+. }
+
+. 
+. 
+. 
+. * prepare data
+. do ${do}prepare_data.do
+
+. use ${v38}ppathl, clear
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+
+. keep if inrange(netto, 10, 19)
+(514,453 observations deleted)
+
+. 
+. * generate female dummy
+. recode sex (2 = 1) (1 = 0) (nonmissing = .), gen(female)
+(770609 differences between sex and female)
+
+. 
+. label variable female "Female"
+
+. 
+. label define female 0 "[0] Male", modify
+
+. label define female 1 "[1] Female", modify
+
+. 
+. label values female female
+
+. 
+. drop if mi(female)
+(23 observations deleted)
+
+. 
+. 
+. * mark western länder
+. merge m:1 hid syear using ${v38}regionl, keep(3) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                           770,586  
+    -----------------------------------------
+
+. 
+. recode bula (1/10 = 1) (11/16 = 0) (nonmissing = .), gen(west)
+(746261 differences between bula and west)
+
+. 
+. label variable west "Residence in West Germany"
+
+. 
+. label define west 0 "[0] Does not reside in West Germany", modify
+
+. label define west 1 "[1] Resides in West Germany", modify
+
+. 
+. label values west west
+
+. 
+. drop if mi(west)
+(4 observations deleted)
+
+. 
+. 
+. * mark eastern origin
+. recode loc1989 (1 = 1) (2 = 0) (nonmissing = .), gen(east_origin)
+(600487 differences between loc1989 and east_origin)
+
+. 
+. label variable east_origin "East German Origin"
+
+. 
+. label define east_origin 0 "[0] Does not have East German Origin", modify
+
+. label define east_origin 1 "[1] Has East German Origin", modify
+
+. 
+. label values east_origin east_origin
+
+. 
+. drop if mi(east_origin)
+(129,614 observations deleted)
+
+. 
+. 
+. * mark stem professions
+. merge 1:1 pid syear using ${v38}pl, keep(3) keepusing(p_isco88) nogen
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                           640,679  
+    -----------------------------------------
+
+. 
+. recode p_isco88 (1236 2111/2213 3111/3212 = 1) (min/0 = .) (nonmissing = 0), gen(stem)
+(640679 differences between p_isco88 and stem)
+
+. 
+. label variable stem "STEM Profession"
+
+. 
+. label define stem 0 "[0] Does not have a STEM Profession", modify
+
+. label define stem 1 "[1] Has a STEM Profession", modify
+
+. 
+. label values stem stem
+
+. 
+. drop if mi(stem)
+(438,701 observations deleted)
+
+. 
+. 
+. * get employment status
+. merge 1:1 pid syear using ${v38}pgen, keep(1 3) keepusing(pgemplst) nogen
+(variable syear was long, now double to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                           201,978  
+    -----------------------------------------
+
+. 
+. recode pgemplst (2 = 1) (1 3 4 5 6 = 0), gen(part_time)
+(201978 differences between pgemplst and part_time)
+
+. recode pgemplst (3 = 1) (1 2 4 5 6 = 0), gen(in_training)
+(201978 differences between pgemplst and in_training)
+
+. recode pgemplst (4 = 1) (1 2 3 5 6 = 0), gen(irregular_emp)
+(201978 differences between pgemplst and irregular_emp)
+
+. recode pgemplst (5 6 = 1) (1 2 3 4 = 0), gen(emp_other)
+(201978 differences between pgemplst and emp_other)
+
+. 
+. 
+. * generate interactions
+. gen east_origin_female   = east_origin * female
+
+. gen west_female          = west * female
+
+. gen part_time_female     = part_time * female
+
+. gen irregular_emp_female = irregular_emp * female
+
+. 
+. * age
+. gen age = syear - gebjahr
+
+. gen age_2 = age^2
+
+. 
+. 
+. * save dataset
+. compress
+  variable eintritt was float now int
+  variable erstbefr was float now int
+  variable austritt was float now int
+  variable letztbef was float now int
+  variable sampreg was float now byte
+  variable netto was float now byte
+  variable nett1 was float now byte
+  variable pop was float now byte
+  variable loc1989 was float now byte
+  variable locinfo was float now byte
+  variable birthregion was float now byte
+  variable birthregion_ew was float now byte
+  variable arefback was float now byte
+  variable arefinfo was float now byte
+  variable regbez was int now byte
+  variable ror96 was int now byte
+  variable kkz was int now byte
+  variable kkz_rek90 was int now byte
+  variable gkz was long now byte
+  variable plz was long now byte
+  variable nuts3 was int now byte
+  variable east_origin was float now byte
+  variable stem was int now byte
+  variable pgemplst was float now byte
+  variable part_time was float now byte
+  variable in_training was float now byte
+  variable irregular_emp was float now byte
+  variable emp_other was float now byte
+  variable east_origin_female was float now byte
+  variable west_female was float now byte
+  variable part_time_female was float now byte
+  variable irregular_emp_female was float now byte
+  variable age was float now byte
+  variable age_2 was float now int
+  variable syear was double now int
+  variable partner was double now byte
+  variable casemat was double now long
+  variable sexor was double now byte
+  variable sexorinfo was double now byte
+  variable kkz_rek was double now byte
+  variable kr_utmost was double now byte
+  variable kr_utmnord was double now byte
+  variable kr_uemprate was double now byte
+  variable kr_foreigner was double now byte
+  variable kr_emprate was double now byte
+  variable kr_popdens was double now byte
+  variable kr_area was double now byte
+  variable kr_population was double now byte
+  variable kr_hhinc was double now byte
+  variable kr_gdp_pem was double now byte
+  variable kr_gdp_pc was double now byte
+  (40,395,600 bytes saved)
+
+. save ${data}female_stem, replace
+file H:/master_thesis/stata/data/female_stem.dta saved
+
+. 
+end of do-file
+
+. * graphical pre-analysis
+. do ${do}graphical_analysis.do
+
+. * trend
+. use ${data}female_stem, clear
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+
+. 
+. collapse (mean) stem (count) pid, by(syear east_origin female)
+
+. 
+. * infos on bin sizes for notes
+. sum pid
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         pid |        124    1628.855    1400.239        188       5275
+
+. local size_mean = round(r(mean))
+
+. local size_sd   = round(r(sd))
+
+. 
+. local fmt_size_mean : di %5.0fc `size_mean'
+
+. local fmt_size_sd   : di %5.0fc `size_sd'
+
+. 
+. 
+. sum pid if female == 1 & inrange(syear, 1990, 1996)
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         pid |         14    1088.571    743.9094        211       2333
+
+. local size_mean_female = round(r(mean))
+
+. local size_sd_female   = round(r(sd))
+
+. 
+. local fmt_size_mean_female : di %5.0fc `size_mean_female'
+
+. local fmt_size_sd_female   : di %3.0fc `size_sd_female'
+
+. 
+. twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcolor(gs6) msymbol(O) lpattern(solid)) 
+> ///
+> ||     (connected stem syear if female == 0 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Oh) lpattern(dash)) 
+> ///
+> ||     (connected stem syear if female == 1 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) 
+> ///
+> ||     (connected stem syear if female == 1 & east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(soli
+> d)), ///
+> xline(1990, lcolor(gray) lpattern(dash)) ///
+> xtitle("Year") ///
+> ytitle("Avg. Prob. STEM Profession") ///
+> ylabel(0.05(0.05)0.2, format(%03.2f)) ///
+> legend(label(1 "East Origin, Male") ///
+>        label(2 "West Origin, Male") ///
+>            label(3 "West Origin, Female") ///
+>            label(4 "East Origin, Female") ///
+>            order(4 3 1 2)) ///
+> note("Avg. Bin Size (Std. Dev.): `fmt_size_mean' (`fmt_size_sd')") ///
+> name(trend, replace)
+
+. 
+. graph export "${figures}trend.pdf", replace
+file H:/master_thesis/stata/figures/trend.pdf saved as PDF format
+
+. 
+. 
+. * trend, zoomed
+. use ${data}female_stem, clear
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+
+. 
+. keep if inrange(syear, 1990, 1996)
+(167,473 observations deleted)
+
+. 
+. statsby stem=r(mean) lb=r(lb) ub=r(ub), by(syear east_origin female) clear: ci means stem
+(running ci on estimation sample)
+
+      Command: ci means stem
+         stem: r(mean)
+           lb: r(lb)
+           ub: r(ub)
+           By: syear east_origin female
+
+Statsby groups
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+............................
+
+. 
+. twoway (connected stem syear if female == 1 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) 
+> ///
+> ||     (connected stem syear if female == 1 & east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(soli
+> d)) ///
+> ||     (rcap lb ub syear if female == 1 & east_origin == 0, lcolor(gs6)) ///
+> ||     (rcap lb ub syear if female == 1 & east_origin == 1, lcolor(black)), ///
+> xtitle("Year") ///
+> ytitle("Avg. Prob. STEM Profession") ///
+> ylabel(0.05(0.05)0.2, format(%03.2f) nogrid) ///
+> legend(label(1 "West Origin, Female") ///
+>            label(2 "East Origin, Female") ///
+>            order(2 1)) ///
+> note("Avg. Bin Size (Std. Dev.): `fmt_size_mean_female' (`fmt_size_sd_female')") ///
+> name(trend_zoomed, replace)
+
+. 
+. graph export "${figures}trend_zoomed.pdf", replace
+file H:/master_thesis/stata/figures/trend_zoomed.pdf saved as PDF format
+
+. 
+end of do-file
+
+. * regression analysis
+. do ${do}regression_analysis.do
+
+. use ${data}female_stem, clear
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+
+. 
+. gen dist_reunification = syear - 1990
+
+. gen dist_reunification_female = dist_reunification * female
+
+. 
+. local baseline = "dist_reunification female dist_reunification_female"
+
+. 
+. * baseline
+. foreach com in reg logit probit {
+  2.     `com' stem `baseline' if east_origin == 1 & inrange(syear, 1990, 1996), vce(cluster hid)
+  3. }
+
+Linear regression                               Number of obs     =     14,632
+                                                F(3, 2362)        =      17.85
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0042
+                                                Root MSE          =     .28396
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0009332   .0017634    -0.53   0.597    -.0043913    .0025248
+                   female |  -.0048384   .0096695    -0.50   0.617    -.0238001    .0141233
+dist_reunification_female |  -.0094454   .0024539    -3.85   0.000    -.0142575   -.0046334
+                    _cons |   .1029124   .0068743    14.97   0.000     .0894321    .1163927
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4353.7468  
+Iteration 2:   log pseudolikelihood = -4353.1836  
+Iteration 3:   log pseudolikelihood = -4353.1834  
+
+Logistic regression                                     Number of obs = 14,632
+                                                        Wald chi2(3)  =  33.84
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4353.1834                       Pseudo R2     = 0.0078
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0103272   .0196094    -0.53   0.598     -.048761    .0281066
+                   female |  -.0275448   .1096645    -0.25   0.802    -.2424833    .1873938
+dist_reunification_female |  -.1499482   .0349514    -4.29   0.000    -.2184517   -.0814448
+                    _cons |  -2.165137    .074717   -28.98   0.000     -2.31158   -2.018695
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4353.6318  
+Iteration 2:   log pseudolikelihood =   -4353.46  
+Iteration 3:   log pseudolikelihood =   -4353.46  
+
+Probit regression                                       Number of obs = 14,632
+                                                        Wald chi2(3)  =  36.98
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4353.46                         Pseudo R2     = 0.0078
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0052636    .009984    -0.53   0.598    -.0248318    .0143045
+                   female |  -.0186139   .0560516    -0.33   0.740    -.1284729    .0912452
+dist_reunification_female |  -.0712918   .0167694    -4.25   0.000    -.1041593   -.0384244
+                    _cons |  -1.265152   .0383954   -32.95   0.000    -1.340406   -1.189899
+-------------------------------------------------------------------------------------------
+
+. 
+. * control for living in the west
+. foreach com in reg logit probit {
+  2.     `com' stem `baseline' west west_female if east_origin == 1 & inrange(syear, 1990, 1996), vce(cluster hid)
+  3. }
+
+Linear regression                               Number of obs     =     14,632
+                                                F(5, 2362)        =      11.63
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0055
+                                                Root MSE          =      .2838
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0029805   .0018265    -1.63   0.103    -.0065621    .0006012
+                   female |  -.0059046    .009647    -0.61   0.541     -.024822    .0130128
+dist_reunification_female |  -.0073265   .0025161    -2.91   0.004    -.0122606   -.0023925
+                     west |   .0622657   .0267293     2.33   0.020     .0098503    .1146811
+              west_female |  -.0644228   .0305906    -2.11   0.035    -.1244101   -.0044356
+                    _cons |   .1039417   .0068689    15.13   0.000      .090472    .1174113
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4347.6207  
+Iteration 2:   log pseudolikelihood = -4345.5551  
+Iteration 3:   log pseudolikelihood = -4345.5493  
+Iteration 4:   log pseudolikelihood = -4345.5493  
+
+Logistic regression                                     Number of obs = 14,632
+                                                        Wald chi2(5)  =  41.28
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4345.5493                       Pseudo R2     = 0.0096
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0338023   .0211175    -1.60   0.109    -.0751919    .0075873
+                   female |  -.0396539   .1090967    -0.36   0.716    -.2534795    .1741718
+dist_reunification_female |  -.1248446   .0365416    -3.42   0.001    -.1964649   -.0532243
+                     west |   .5892195   .2163856     2.72   0.006     .1651114    1.013328
+              west_female |  -.6415991   .3822621    -1.68   0.093    -1.390819    .1076208
+                    _cons |  -2.153757   .0742629   -29.00   0.000     -2.29931   -2.008204
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4346.3238  
+Iteration 2:   log pseudolikelihood = -4345.8536  
+Iteration 3:   log pseudolikelihood = -4345.8535  
+
+Probit regression                                       Number of obs = 14,632
+                                                        Wald chi2(5)  =  43.99
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4345.8535                       Pseudo R2     = 0.0095
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0169171   .0106077    -1.59   0.111    -.0377078    .0038737
+                   female |   -.024237   .0558038    -0.43   0.664    -.1336105    .0851366
+dist_reunification_female |  -.0587241   .0174146    -3.37   0.001    -.0928562   -.0245921
+                     west |   .3095634   .1167836     2.65   0.008     .0806718     .538455
+              west_female |  -.3394807   .1868066    -1.82   0.069    -.7056148    .0266535
+                    _cons |  -1.259917   .0382117   -32.97   0.000     -1.33481   -1.185023
+-------------------------------------------------------------------------------------------
+
+. 
+. * also control for person and household characteristica
+. foreach com in reg logit probit {
+  2.    `com' stem `baseline' west west_female if east_origin == 1 & inrange(syear, 1990, 1996), vce(cluster hid) 
+  3. }
+
+Linear regression                               Number of obs     =     14,632
+                                                F(5, 2362)        =      11.63
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0055
+                                                Root MSE          =      .2838
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0029805   .0018265    -1.63   0.103    -.0065621    .0006012
+                   female |  -.0059046    .009647    -0.61   0.541     -.024822    .0130128
+dist_reunification_female |  -.0073265   .0025161    -2.91   0.004    -.0122606   -.0023925
+                     west |   .0622657   .0267293     2.33   0.020     .0098503    .1146811
+              west_female |  -.0644228   .0305906    -2.11   0.035    -.1244101   -.0044356
+                    _cons |   .1039417   .0068689    15.13   0.000      .090472    .1174113
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4347.6207  
+Iteration 2:   log pseudolikelihood = -4345.5551  
+Iteration 3:   log pseudolikelihood = -4345.5493  
+Iteration 4:   log pseudolikelihood = -4345.5493  
+
+Logistic regression                                     Number of obs = 14,632
+                                                        Wald chi2(5)  =  41.28
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4345.5493                       Pseudo R2     = 0.0096
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0338023   .0211175    -1.60   0.109    -.0751919    .0075873
+                   female |  -.0396539   .1090967    -0.36   0.716    -.2534795    .1741718
+dist_reunification_female |  -.1248446   .0365416    -3.42   0.001    -.1964649   -.0532243
+                     west |   .5892195   .2163856     2.72   0.006     .1651114    1.013328
+              west_female |  -.6415991   .3822621    -1.68   0.093    -1.390819    .1076208
+                    _cons |  -2.153757   .0742629   -29.00   0.000     -2.29931   -2.008204
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4346.3238  
+Iteration 2:   log pseudolikelihood = -4345.8536  
+Iteration 3:   log pseudolikelihood = -4345.8535  
+
+Probit regression                                       Number of obs = 14,632
+                                                        Wald chi2(5)  =  43.99
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4345.8535                       Pseudo R2     = 0.0095
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0169171   .0106077    -1.59   0.111    -.0377078    .0038737
+                   female |   -.024237   .0558038    -0.43   0.664    -.1336105    .0851366
+dist_reunification_female |  -.0587241   .0174146    -3.37   0.001    -.0928562   -.0245921
+                     west |   .3095634   .1167836     2.65   0.008     .0806718     .538455
+              west_female |  -.3394807   .1868066    -1.82   0.069    -.7056148    .0266535
+                    _cons |  -1.259917   .0382117   -32.97   0.000     -1.33481   -1.185023
+-------------------------------------------------------------------------------------------
+
+. 
+. * also control for länder characteristica
+. foreach com in reg logit probit {
+  2.    `com' stem `baseline' west west_female if east_origin == 1 & inrange(syear, 1990, 1996), vce(cluster hid) 
+  3. }
+
+Linear regression                               Number of obs     =     14,632
+                                                F(5, 2362)        =      11.63
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0055
+                                                Root MSE          =      .2838
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0029805   .0018265    -1.63   0.103    -.0065621    .0006012
+                   female |  -.0059046    .009647    -0.61   0.541     -.024822    .0130128
+dist_reunification_female |  -.0073265   .0025161    -2.91   0.004    -.0122606   -.0023925
+                     west |   .0622657   .0267293     2.33   0.020     .0098503    .1146811
+              west_female |  -.0644228   .0305906    -2.11   0.035    -.1244101   -.0044356
+                    _cons |   .1039417   .0068689    15.13   0.000      .090472    .1174113
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4347.6207  
+Iteration 2:   log pseudolikelihood = -4345.5551  
+Iteration 3:   log pseudolikelihood = -4345.5493  
+Iteration 4:   log pseudolikelihood = -4345.5493  
+
+Logistic regression                                     Number of obs = 14,632
+                                                        Wald chi2(5)  =  41.28
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4345.5493                       Pseudo R2     = 0.0096
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0338023   .0211175    -1.60   0.109    -.0751919    .0075873
+                   female |  -.0396539   .1090967    -0.36   0.716    -.2534795    .1741718
+dist_reunification_female |  -.1248446   .0365416    -3.42   0.001    -.1964649   -.0532243
+                     west |   .5892195   .2163856     2.72   0.006     .1651114    1.013328
+              west_female |  -.6415991   .3822621    -1.68   0.093    -1.390819    .1076208
+                    _cons |  -2.153757   .0742629   -29.00   0.000     -2.29931   -2.008204
+-------------------------------------------------------------------------------------------
+
+Iteration 0:   log pseudolikelihood = -4387.5599  
+Iteration 1:   log pseudolikelihood = -4346.3238  
+Iteration 2:   log pseudolikelihood = -4345.8536  
+Iteration 3:   log pseudolikelihood = -4345.8535  
+
+Probit regression                                       Number of obs = 14,632
+                                                        Wald chi2(5)  =  43.99
+                                                        Prob > chi2   = 0.0000
+Log pseudolikelihood = -4345.8535                       Pseudo R2     = 0.0095
+
+                                             (Std. err. adjusted for 2,363 clusters in hid)
+-------------------------------------------------------------------------------------------
+                          |               Robust
+                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+       dist_reunification |  -.0169171   .0106077    -1.59   0.111    -.0377078    .0038737
+                   female |   -.024237   .0558038    -0.43   0.664    -.1336105    .0851366
+dist_reunification_female |  -.0587241   .0174146    -3.37   0.001    -.0928562   -.0245921
+                     west |   .3095634   .1167836     2.65   0.008     .0806718     .538455
+              west_female |  -.3394807   .1868066    -1.82   0.069    -.7056148    .0266535
+                    _cons |  -1.259917   .0382117   -32.97   0.000     -1.33481   -1.185023
+-------------------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. 
+. 
+. * erase tempfiles
+. erase ${data}female_stem.dta
+
+. 
+. * close log file
+. log close master_thesis
+      name:  master_thesis
+       log:  H:/master_thesis/stata/log/master_thesis_running.log
+  log type:  text
+ closed on:  24 May 2024, 17:30:37
+----------------------------------------------------------------------------------------------------------------------
