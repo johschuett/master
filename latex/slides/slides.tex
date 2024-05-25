@@ -7,10 +7,15 @@
 	\hfill
 } 
 
-% packages
+% font packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+
+% misc packages
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage{multirow}
 \usepackage{transparent}
 
 % theme and colours
@@ -71,27 +76,85 @@
 	
 	\section{Motivation}
 	\begin{frame}
+		\frametitle{Motivation}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\subsection{Previous Literature}
+	\begin{frame}
+		\frametitle{Previous Literature}
+	\end{frame}
+	
 	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\subsection{Research Question}
 	\begin{frame}
+		\frametitle{Research Question}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\section{Empirical Approach}
 	\begin{frame}
+		\frametitle{Empirical Approach}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{}
+		
+		{\small
+			\begin{table}[h]
+				\centering
+				\caption{Examples of Stem Professions (sorted by frequency)}
+				\label{tab:stem_examples}
+	
+				\begin{tabular}{l l}
+					\toprule
+					ISCO-88 Code & Professional title\\
+					\midrule
+					{[2149]} & Architects, engineers and related scientists \\
+					{[3152]} & Health, environmental and quality inspectors\\
+					{[3119]} & Materials and engineering specialists\\
+					{[2142]} & Civil engineers\\
+					{[3121]} & Data processing assistants\\
+					{[3111]} & Chemo- and physicotechnician\\
+					{[2145]} & Mechanical engineers\\
+					{[3114]} & Electronics and telecommunications technology\\
+					{[3120]} & Data processing specialists\\
+					{[2144]} & Electronics and telecommunications engineers\\
+					… &\\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
 	\end{frame}
 	
 	\subsection{Econometric Specification}
 	\begin{frame}
-		\frametitle{}
+		\frametitle{Econometric Specification}
+		
+			{\normalsize
+				\begin{align}
+					&\begin{aligned}
+						\label{eq:spec}
+						Stem_{itr} =& \beta_{0} + \beta_{1} Dist\_Reunification_{t} + \beta_{2} Female_{i} +\\
+						&\beta_{3} Dist\_Reunification \times Female_{it} + X_{itr} \gamma + \epsilon_{itr}
+					\end{aligned}
+				\end{align}
+				
+				\vspace{1cm}
+				
+				\hspace{6.2em} with $Dist\_Reunification_{t} = Survey\_Year_{t} - 1990$.
+			}
+		
 	\end{frame}
 	
 	\subsection{Data}
@@ -118,5 +181,10 @@
 	\begin{frame}
 		\frametitle{}
 	\end{frame}
-
+	
+	\section*{References}
+	\begin{frame}
+		\frametitle{References}
+	\end{frame}
+	
 \end{document}
