@@ -9,7 +9,7 @@
 \usepackage{booktabs}
 \usepackage{mathtools}
 \usepackage{multirow}
-\usepackage{silence}
+\usepackage[round]{natbib}
 \usepackage{transparent}
 
 % theme and colours
@@ -24,8 +24,10 @@
 \def\input@path{{../../stata/figures/pdf_tex/}}
 \makeatother
 
-
 \pdfsuppresswarningpagegroup=1
+
+% set apa style
+\bibliographystyle{apalike}
 
 
 %--- preamble
@@ -73,6 +75,19 @@
 		\vspace{1mm}
 	}
 }
+
+% sectiontitleframes
+\AtBeginSection[]{
+	\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=false]{title}
+			\usebeamerfont{title}\insertsectionhead\par%
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
+
 %--- preamble end
 
 
@@ -89,52 +104,14 @@
 	
 	\section{Motivation}
 	\begin{frame}
-		\frametitle{Motivation}
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{}
 		
-		\begin{figure}[h]
-			\centering
-			\caption{Time Trend (by Region and Gender), 1984--2017}
-			\label{fig:trend}
-			\resizebox{75mm}{!}{\input{trend.pdf_tex}}
-		\end{figure}
+		\textcolor{PineGreen}{\underline{Definition.}} STEM, field and curriculum centred on education in the disciplines of \textbf{S}cience, \textbf{T}echnology, \textbf{E}ngineering, and \textbf{M}athematics \citep{Hallinen2024}.
 		
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{}
-		
-		\begin{figure}[h]
-			\centering
-			\caption{Time Trend (by Region and Gender), 1984--2017}
-			\label{fig:trend_highlight}
-			\resizebox{75mm}{!}{\input{trend_highlight.pdf_tex}}
-		\end{figure}
-		
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{}
-		
-		\begin{figure}[h]
-			\centering
-			\caption{Time Trend (by Region and Gender), 1990--1996}
-			\label{fig:trend_zoomed}
-			\resizebox{75mm}{!}{\input{trend_zoomed.pdf_tex}}
-		\end{figure}
-	
-	\end{frame}
-		
 	\subsection{Previous Literature}
 	\begin{frame}
 		\frametitle{Previous Literature}
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{}
 	\end{frame}
 	
 	\subsection{Research Question}
@@ -142,13 +119,9 @@
 		\frametitle{Research Question}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{}
-	\end{frame}
-	
 	\section{Empirical Approach}
 	\begin{frame}
-		\frametitle{Empirical Approach}
+		\frametitle{}
 	\end{frame}
 	
 	\begin{frame}
@@ -207,17 +180,50 @@
 		\frametitle{Data}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{}
-	\end{frame}
-	
 	\section{Preliminary Results}
 	\begin{frame}
-		\frametitle{Preliminary Results}
+		\frametitle{}
+	\end{frame}
+	
+	\subsection{Validity}
+	\begin{frame}
+		\frametitle{Validity}
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Time Trend (by Region and Gender), 1984--2017}
+			\label{fig:trend}
+			\resizebox{75mm}{!}{\input{trend.pdf_tex}}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Time Trend (by Region and Gender), 1984--2017}
+			\label{fig:trend_highlight}
+			\resizebox{75mm}{!}{\input{trend_highlight.pdf_tex}}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Time Trend (by Region and Gender), 1990--1996}
+			\label{fig:trend_zoomed}
+			\resizebox{75mm}{!}{\input{trend_zoomed.pdf_tex}}
+		\end{figure}
+		
 	\end{frame}
 	
 	\subsection{Main Findings}
@@ -225,24 +231,12 @@
 		\frametitle{Main Findings}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{}
-	\end{frame}
-	
 	\subsection{Discussion}
 	\begin{frame}
 		\frametitle{Discussion}
 	\end{frame}
 	
-	\begin{frame}
-		\frametitle{}
-	\end{frame}
-	
 	\section{Conclusion}
-	\begin{frame}
-		\frametitle{Conclusion}
-	\end{frame}
-	
 	\begin{frame}
 		\frametitle{}
 	\end{frame}
@@ -250,10 +244,9 @@
 	\section*{References}
 	\begin{frame}
 		\frametitle{References}
-	\end{frame}
-	
-	\begin{frame}
-		\frametitle{}
+		
+		\bibliography{../references.bib}
+		
 	\end{frame}
 	
 \end{document}
