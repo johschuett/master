@@ -1,12 +1,5 @@
 \documentclass[11pt, aspectratio=1610, xcolor={dvipsnames}]{beamer}
 
-% define custom footline
-\newcommand{\Ffootline}{%
-	\hfill
-	\insertframenumber/\inserttotalframenumber % The center
-	\hfill
-} 
-
 % font packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{mathtools}
 \usepackage{multirow}
+\usepackage{silence}
 \usepackage{transparent}
 
 % theme and colours
@@ -24,46 +18,65 @@
 \setbeamercolor*{footline}{bg=PineGreen!10,fg=PineGreen}
 
 % paths
-\graphicspath{{../thesis/}}
+\graphicspath{{../thesis/} {../../stata/figures/pdf_tex/}}
+
+\makeatletter
+\def\input@path{{../../stata/figures/pdf_tex/}}
+\makeatother
+
+
+\pdfsuppresswarningpagegroup=1
+
+
+%--- preamble
+\title[Putting the GDR's Legacy Effect under the Microscope]{\texorpdfstring{Putting the GDR's Legacy Effect \linebreak under the Microscope:}{Putting the GDR's Legacy Effect under the Microscope:}}
+\subtitle{Eastern Female STEM Professionals in Reunified Germany.}
+
+%\author{\href{mailto:johannes.schuett@fu-berlin.de}{Johannes Schütt}}
+\author{\texorpdfstring{\href{mailto:johannes.schuett@fu-berlin.de}{Johannes Schütt}}{Johannes Schütt}}
+
+\institute{\texorpdfstring{Free University of Berlin \linebreak M.Sc. Public Economics \linebreak\linebreak Supervisor: Prof. Natalia Danzer, Ph.D.}{}}
+
+\date{4 July 2024}
+
+% logo on cover page
+\titlegraphic{
+	\vspace{5mm}
+	\includegraphics[width=3cm]{fu_logo.pdf}
+}
+
+% define custom footline
+\newcommand{\Ffootline}{%
+	\hfill
+	\insertframenumber/\inserttotalframenumber % The center
+	\hfill
+}
+
+% set footline
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+	\ifnum\thepage=1
+	\begin{beamercolorbox}[wd=\paperwidth,ht=0ex,dp=1ex]{footlinecolor}
+	\end{beamercolorbox}
+	\else
+	\begin{beamercolorbox}[wd=\paperwidth,ht=0ex,dp=1ex]{footlinecolor}%
+		\tiny\hspace*{4mm} \Ffootline \hspace*{4mm}
+	\end{beamercolorbox}
+	\fi
+}
+
+% bottom right transparent logo
+\logo{
+	{\transparent{0.6}
+		\includegraphics[width = 1cm]{fu_seal.pdf}
+		\hspace{1mm}
+		\vspace{1mm}
+	}
+}
+%--- preamble end
+
 
 \begin{document}
-	
-	\title[Putting the GDR's Legacy Effect under the Microscope]{Putting the GDR's Legacy Effect \linebreak under the Microscope:}
-	\subtitle{Eastern Female STEM Professionals in Reunified Germany.}
-	
-	\author{\href{mailto:johannes.schuett@fu-berlin.de}{Johannes Schütt}}
-	
-	\institute{Free University of Berlin \linebreak M.Sc. Public Economics \linebreak\linebreak Supervisor: Prof. Natalia Danzer, Ph.D.}
-	
-	\date{4 July 2024}
-	
-	% logo on cover page
-	\titlegraphic{
-		\vspace{5mm}
-		\includegraphics[width=3cm]{fu_logo.pdf}
-	}
-	
-	% set footline
-	\setbeamertemplate{navigation symbols}{}
-	\setbeamertemplate{footline}{%
-		\ifnum\thepage=1
-			\begin{beamercolorbox}[wd=\paperwidth,ht=0ex,dp=1ex]{footlinecolor}
-			\end{beamercolorbox}
-		\else
-			\begin{beamercolorbox}[wd=\paperwidth,ht=0ex,dp=1ex]{footlinecolor}%
-				\tiny\hspace*{4mm} \Ffootline \hspace*{4mm}
-			\end{beamercolorbox}
-		\fi
-	}
-	
-	% bottom right transparent logo
-	\logo{
-		{\transparent{0.6}
-			\includegraphics[width = 1cm]{fu_seal.pdf}
-			\hspace{1mm}
-			\vspace{1mm}
-		}
-	}
 	
 	\begin{frame}[plain]
 		\maketitle
@@ -81,8 +94,40 @@
 	
 	\begin{frame}
 		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Time Trend (by Region and Gender), 1984--2017}
+			\label{fig:trend}
+			\resizebox{75mm}{!}{\input{trend.pdf_tex}}
+		\end{figure}
+		
 	\end{frame}
 	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Time Trend (by Region and Gender), 1984--2017}
+			\label{fig:trend_highlight}
+			\resizebox{75mm}{!}{\input{trend_highlight.pdf_tex}}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Time Trend (by Region and Gender), 1990--1996}
+			\label{fig:trend_zoomed}
+			\resizebox{75mm}{!}{\input{trend_zoomed.pdf_tex}}
+		\end{figure}
+	
+	\end{frame}
+		
 	\subsection{Previous Literature}
 	\begin{frame}
 		\frametitle{Previous Literature}
@@ -159,25 +204,45 @@
 	
 	\subsection{Data}
 	\begin{frame}
+		\frametitle{Data}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\section{Preliminary Results}
+	\begin{frame}
+		\frametitle{Preliminary Results}
+	\end{frame}
+	
 	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\subsection{Main Findings}
 	\begin{frame}
+		\frametitle{Main Findings}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\subsection{Discussion}
 	\begin{frame}
+		\frametitle{Discussion}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{}
 	\end{frame}
 	
 	\section{Conclusion}
+	\begin{frame}
+		\frametitle{Conclusion}
+	\end{frame}
+	
 	\begin{frame}
 		\frametitle{}
 	\end{frame}
@@ -185,6 +250,10 @@
 	\section*{References}
 	\begin{frame}
 		\frametitle{References}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
 	\end{frame}
 	
 \end{document}
