@@ -33,7 +33,6 @@
 \bibliographystyle{apalike}
 
 
-%--- preamble
 \title[Putting the GDR's Legacy Effect under the Microscope]{\texorpdfstring{Putting the GDR's Legacy Effect \linebreak under the Microscope:}{Putting the GDR's Legacy Effect under the Microscope:}}
 \subtitle{Eastern Female STEM Professionals in Reunified Germany.}
 
@@ -96,8 +95,9 @@
 \newcommand{\todo}[1]{\textbf{\textcolor{red}{#1}}}
 
 % frame continuation for references
-\setbeamertemplate{frametitle continuation}[from second]
-%--- preamble end
+\makeatletter
+\setbeamertemplate{frametitle continuation}{\gdef\beamer@frametitle{}}
+\makeatother
 
 
 \begin{document}
@@ -130,6 +130,10 @@
 			\resizebox{75mm}{!}{\input{trend.pdf_tex}}
 		\end{figure}
 		
+		{\scriptsize
+			Source: \cite{SOEP2023}. Own calculations.
+		}
+		
 	\end{frame}
 	
 	\begin{frame}
@@ -142,6 +146,10 @@
 			\resizebox{75mm}{!}{\input{trend_highlight.pdf_tex}}
 		\end{figure}
 		
+		{\scriptsize
+			Source: \cite{SOEP2023}. Own calculations.
+		}
+		
 	\end{frame}
 	
 	\begin{frame}
@@ -153,6 +161,10 @@
 			\label{fig:trend_zoomed}
 			\resizebox{75mm}{!}{\input{trend_zoomed.pdf_tex}}
 		\end{figure}
+		
+		{\scriptsize
+			Source: \cite{SOEP2023}. Own calculations.
+		}
 		
 	\end{frame}
 	
@@ -168,7 +180,7 @@
 	\end{frame}
 	
 		\begin{frame}
-		\frametitle{Previous Literature}
+		\frametitle{}
 		
 		\begin{itemize}
 			\item Of the \highlight{female apprentices} who successfully passed their skilled labour examination (\emph{Facharbeiterprüfung}) in 1980, \highlight{17\%} were in the \highlight{STEM field} \textcolor{darkgray}{\citep[p. 293]{DDRJahrbuch1981}}.
@@ -193,7 +205,7 @@
 		\begin{itemize}
 			\item Compare East German females with East German males.
 			\begin{itemize}
-				\item East German males and females should have had the same probability\linebreak of becoming a STEM professional before the reunification.
+				\item East German males and females had the same probability\linebreak of working as a STEM professional in 1990 (what about before?).
 				\item Examine in what way they each were affected by the reunification.
 			\end{itemize}
 			\item Define the treatment as \textcolor{PineGreen}{years after unification $\times$ being female (binary)}.
@@ -208,7 +220,7 @@
 		{\linespread{1}\small
 			\begin{table}[h]
 				\centering
-				\caption{Examples of Stem Professions (sorted by frequency)}
+				\caption{Examples of STEM Professions (sorted by frequency)}
 				\label{tab:stem_examples}
 		
 				\begin{tabular}{l l}
@@ -266,6 +278,22 @@
 	\subsection{Validity}
 	\begin{frame}
 		\frametitle{Validity}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{figure}[h]
+			\centering
+			\caption{Cohorts (Start of Occupation by Gender), 1945--1990}
+			\label{fig:validity}
+			\resizebox{75mm}{!}{\input{validity.pdf_tex}}
+		\end{figure}
+		
+		{\scriptsize
+		Source: \cite{Mayer1995}. Own calculations.
+		}
+		
 	\end{frame}
 	
 	\subsection{Main Findings}

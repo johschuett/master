@@ -309,6 +309,12 @@ TSWLatexianTemp*
 # Stata datasets
 *.dta
 
+# Stata backup files
+*.do.stswp
+
 # Stata log
 !stata/log/master_thesis.log
+
+# LV-Ost Data
+stata/data/ZA2644_LVost/*
 

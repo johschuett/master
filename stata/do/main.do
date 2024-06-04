@@ -55,6 +55,8 @@ set maxvar 7000
 do ${do}prepare_data.do
 * graphical pre-analysis
 do ${do}graphical_analysis.do
+* validity analysis
+do ${do}validity.do
 * regression analysis
 do ${do}regression_analysis.do
 

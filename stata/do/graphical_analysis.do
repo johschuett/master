@@ -1,4 +1,3 @@
-* trend
 use ${data}female_stem, clear
 
 collapse (mean) stem (count) pid, by(syear east_origin female)
