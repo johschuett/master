@@ -1,6 +1,7 @@
 use ${v38}ppathl, clear
 keep if inrange(netto, 10, 19)
 
+
 * generate female dummy
 recode sex (2 = 1) (1 = 0) (nonmissing = .), gen(female)
 
@@ -12,6 +13,14 @@ label define female 1 "[1] Female", modify
 label values female female
 
 drop if mi(female)
+
+
+* regressors of interest
+gen dist_reunification = syear - 1990
+label variable dist_reunification "Years after Reunification"
+
+gen dist_reunification_female = dist_reunification * female
+label variable dist_reunification "Years after Reunification $\times$ Female"
 
 
 * mark western länder
@@ -34,8 +43,8 @@ recode loc1989 (1 = 1) (2 = 0) (nonmissing = .), gen(east_origin)
 
 label variable east_origin "East German Origin"
 
-label define east_origin 0 "[0] Does not have East German Origin", modify
-label define east_origin 1 "[1] Has East German Origin", modify
+label define east_origin 0 "[0] Does not have an East German Origin", modify
+label define east_origin 1 "[1] Has an East German Origin", modify
 
 label values east_origin east_origin
 
@@ -67,10 +76,12 @@ recode pgemplst (5 6 = 1) (1 2 3 4 = 0), gen(emp_other)
 
 
 * generate interactions
-gen east_origin_female   = east_origin * female
-gen west_female          = west * female
+gen west_female = west * female
+label variable west_female "Residence in West Germany $\times$ Female"
+
 gen part_time_female     = part_time * female
 gen irregular_emp_female = irregular_emp * female
+
 
 * age
 gen age = syear - gebjahr

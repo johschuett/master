@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+\midrule
+Years after Reunification $\times$ Female&     -0.0008         &     -0.0027         &     -0.0027         &     -0.0027         \\
+                    &    (0.0016)         &    (0.0017)         &    (0.0017)         &    (0.0017)         \\
+\addlinespace
+Female              &     -0.0022         &     -0.0032         &     -0.0032         &     -0.0032         \\
+                    &    (0.0088)         &    (0.0088)         &    (0.0088)         &    (0.0088)         \\
+\addlinespace
+dist\_reunification\_female&     -0.0121\sym{***}&     -0.0101\sym{***}&     -0.0101\sym{***}&     -0.0101\sym{***}\\
+                    &    (0.0028)         &    (0.0029)         &    (0.0029)         &    (0.0029)         \\
+\addlinespace
+Residence in West Germany&                     &      0.0474\sym{***}&      0.0474\sym{***}&      0.0474\sym{***}\\
+                    &                     &    (0.0174)         &    (0.0174)         &    (0.0174)         \\
+\addlinespace
+Residence in West Germany $\times$ Female&                     &     -0.0517\sym{*}  &     -0.0517\sym{*}  &     -0.0517\sym{*}  \\
+                    &                     &    (0.0309)         &    (0.0309)         &    (0.0309)         \\
+\midrule
+Observations        &       14632         &       14632         &       14632         &       14632         \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

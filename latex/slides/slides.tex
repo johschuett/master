@@ -99,6 +99,9 @@
 \setbeamertemplate{frametitle continuation}{\gdef\beamer@frametitle{}}
 \makeatother
 
+% table def
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
 
 \begin{document}
 	
@@ -291,7 +294,7 @@
 		\end{figure}
 		
 		{\scriptsize
-		\textcolor{darkgray}{Source: \cite{Mayer1995}. Own calculations.}
+			\textcolor{darkgray}{Source: \cite{Mayer1995}. Own calculations.}
 		}
 		
 	\end{frame}
@@ -299,8 +302,39 @@
 	\subsection{Main Findings}
 	\begin{frame}
 		\frametitle{Main Findings}
+		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Logit Regressions with y = Being a STEM Professional}
+				\label{tab:margins}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+					\midrule
+					Years after Reunification & -0.0008 & -0.0027 & -0.0027 & -0.0027 \\
+					& (0.0016) & (0.0017) & (0.0017) & (0.0017) \\
+					\addlinespace
+					Female & -0.0022  & -0.0032 & -0.0032 & -0.0032 \\
+					& (0.0088) & (0.0088) & (0.0088) & (0.0088) \\
+					\addlinespace
+					Years after Reunification $\times$ Female &     -0.0121\sym{***}&     -0.0101\sym{***}&     -0.0101\sym{***} &     -0.0101\sym{***}\\
+					&    (0.0028)         &    (0.0029)         &    (0.0029)         &    (0.0029) \\
+					\addlinespace
+					Residence in West Germany&                     &      0.0474\sym{***}&      0.0474\sym{***}&      0.0474\sym{***}\\
+					&                     &    (0.0174)         &    (0.0174)         &    (0.0174)         \\
+					\addlinespace
+					Resisdence in West Germany $\times$ Female         &                     &     -0.0517\sym{*} & -0.0517\sym{*} & -0.0517\sym{*} \\
+					& &    (0.0309)         &    (0.0309)         &    (0.0309) \\
+					\midrule
+					Observations        &       14,632         &       14,632         &       14,632         &       14,632         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
 	\end{frame}
-	
+		
 	\subsection{Discussion}
 	\begin{frame}
 		\frametitle{Discussion}

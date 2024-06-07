@@ -9,6 +9,7 @@ global data     = "${root}data/"
 global do       = "${root}do/"
 global log      = "${root}log/"
 global figures  = "${root}figures/"
+global tables    = "${root}../latex/tables/"
 
 ssc install scheme_tufte
 
