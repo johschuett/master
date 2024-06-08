@@ -1,3 +1,5 @@
+** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
+
 use ${data}female_stem, clear
 
 collapse (mean) stem (count) pid, by(syear east_origin female)

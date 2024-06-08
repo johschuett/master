@@ -1,3 +1,5 @@
+** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
+
 use ${v38}ppathl, clear
 keep if inrange(netto, 10, 19)
 
@@ -94,6 +96,24 @@ merge m:1 hid syear using ${v38}hbrutto, keep(3) keepusing(hhgr) nogen
 gen hhgr_female = hhgr * female
 label variable hhgr "Household Size"
 label variable hhgr_female "Household Size $\times$ Female"
+
+
+* save dataset
+compress
+save ${data}female_stem, replace
+
+
+* state controls
+do ${do}state_controls.do
+
+use ${data}female_stem, clear
+merge m:1 bula syear using ${data}state, keep(3) nogen
+
+gen unemprate_female = unemprate * female
+label variable unemprate_female "Unemployment Rate $\times$ Female"
+
+gen share_female_unemp = unemp_female / (unemp_female + unemp_male)
+label variable share_female_unemp "Share of Unemployed Females in all Unemployed (\emph{Bundesland})"
 
 * save dataset
 compress

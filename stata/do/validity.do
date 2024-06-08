@@ -1,3 +1,5 @@
+** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
+
 use ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/ERWERB, clear
 merge m:1 FALLNR using ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/LMUTTER, keep(3) nogen keepusing(SEX KOHORTE)
 
