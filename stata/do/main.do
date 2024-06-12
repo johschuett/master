@@ -55,11 +55,13 @@ set maxvar 7000
 * prepare data
 do ${do}prepare_data.do
 * graphical pre-analysis
-do ${do}graphical_analysis.do
+do ${do}graphical_preanalysis.do
 * validity analysis
 do ${do}validity.do
 * regression analysis
 do ${do}regression_analysis.do
+* eastern female tracking
+do ${do}eastern_female_tracking.do
 
 
 * erase tempfiles

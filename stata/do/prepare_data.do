@@ -22,7 +22,7 @@ gen dist_reunification = syear - 1990
 label variable dist_reunification "Years after Reunification"
 
 gen dist_reunification_female = dist_reunification * female
-label variable dist_reunification "Years after Reunification $\times$ Female"
+label variable dist_reunification_female "Years after Reunification $\times$ Female"
 
 
 * residence west germany
