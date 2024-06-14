@@ -89,7 +89,7 @@ twoway (connected stem startocc_cat if female == 0, mcolor(gs6) lcolor(gs6) msym
 ||     (rcap lb ub startocc_cat if female == 0, lcolor(gs6)) ///
 ||     (rcap lb ub startocc_cat if female == 1, lcolor(black)), ///
 xtitle("Year of Start of Occupation") ///
-ytitle("Avg. Prob. STEM Profession") ///
+ytitle("Prob. STEM Profession cond. on Population") ///
 xlabel(1 2 3 4 5, valuelabel) ///
 ylabel(0.05(0.05)0.2, format(%03.2f) nogrid) ///
 legend(label(1 "Male") ///

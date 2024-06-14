@@ -58,7 +58,7 @@ drop if mi(east_origin)
 
 
 * stem profession
-merge 1:1 pid syear using ${v38}pl, keep(3) keepusing(p_isco88) nogen
+merge 1:1 pid syear using ${v38}pl, keep(1 3) keepusing(p_isco88) nogen
 
 recode p_isco88 (1236 2111/2213 3111/3212 = 1) (min/0 = .) (nonmissing = 0), gen(stem)
 
@@ -70,6 +70,15 @@ label define stem 1 "[1] Has a STEM Profession", modify
 label values stem stem
 
 drop if mi(stem)
+
+
+* info about employment status
+merge 1:1 pid syear using ${v38}pgen, keep(1 3) keepusing(pgemplst) nogen
+
+
+* only individuals who are either full- or part-time employed should be marked
+* as success in stem variable
+replace stem = 0 if !inrange(pgemplst, 1, 2)
 
 
 * age
@@ -87,7 +96,7 @@ label define partner_bin 1 "[1] Has a Spouse/Life Partner", modify
 label values partner_bin partner_bin
 
 gen partner_bin_female = partner_bin * female
-label variable partner_bin "Spouse/Life Partner $\times$ Female"
+label variable partner_bin_female "Spouse/Life Partner $\times$ Female"
 
 
 * household size
@@ -97,23 +106,6 @@ gen hhgr_female = hhgr * female
 label variable hhgr "Household Size"
 label variable hhgr_female "Household Size $\times$ Female"
 
-
-* save dataset
-compress
-save ${data}female_stem, replace
-
-
-* state controls
-do ${do}state_controls.do
-
-use ${data}female_stem, clear
-merge m:1 bula syear using ${data}state, keep(3) nogen
-
-gen unemprate_female = unemprate * female
-label variable unemprate_female "Unemployment Rate $\times$ Female"
-
-gen share_female_unemp = unemp_female / (unemp_female + unemp_male)
-label variable share_female_unemp "Share of Unemployed Females in all Unemployed (\emph{Bundesland})"
 
 * save dataset
 compress
