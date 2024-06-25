@@ -1,42 +1,39 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{4}{c}}
+\begin{tabular}{l*{3}{c}}
 \toprule
-                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
 \midrule
-Years after Reunification $\times$ Female&     -0.0008         &     -0.0027         &     -0.0027         &     -0.0010         \\
-                    &    (0.0016)         &    (0.0017)         &    (0.0017)         &    (0.0018)         \\
+Years after Reunification&     -0.0004         &     -0.0018         &     -0.0020         \\
+                    &    (0.0012)         &    (0.0012)         &    (0.0012)         \\
 \addlinespace
-Female              &     -0.0022         &     -0.0032         &      0.0012         &     -0.0003         \\
-                    &    (0.0088)         &    (0.0088)         &    (0.0269)         &    (0.0268)         \\
+Female              &     -0.0023         &     -0.0021         &     -0.0125         \\
+                    &    (0.0093)         &    (0.0093)         &    (0.0326)         \\
 \addlinespace
-dist\_reunification\_female&     -0.0121\sym{***}&     -0.0101\sym{***}&     -0.0101\sym{***}&     -0.0099\sym{***}\\
-                    &    (0.0028)         &    (0.0029)         &    (0.0029)         &    (0.0029)         \\
+Years after Reunification $\times$ Female&     -0.0091\sym{***}&     -0.0072\sym{***}&     -0.0071\sym{***}\\
+                    &    (0.0021)         &    (0.0021)         &    (0.0022)         \\
 \addlinespace
-Residence in West Germany&                     &      0.0474\sym{***}&      0.0536\sym{***}&      0.0189         \\
-                    &                     &    (0.0174)         &    (0.0177)         &    (0.0225)         \\
+Residence in West Germany&                     &      0.0501\sym{**} &      0.0569\sym{**} \\
+                    &                     &    (0.0226)         &    (0.0225)         \\
 \addlinespace
-Residence in West Germany $\times$ Female&                     &     -0.0517\sym{*}  &     -0.0436         &     -0.0433         \\
-                    &                     &    (0.0309)         &    (0.0310)         &    (0.0310)         \\
+Residence in West Germany $\times$ Female&                     &     -0.0765\sym{**} &     -0.0641\sym{*}  \\
+                    &                     &    (0.0337)         &    (0.0329)         \\
 \addlinespace
-Spouse/Life Partner $\times$ Female&                     &                     &      0.0291         &      0.0295         \\
-                    &                     &                     &    (0.0181)         &    (0.0183)         \\
+Spouse/Life Partner &                     &                     &      0.0122         \\
+                    &                     &                     &    (0.0209)         \\
 \addlinespace
-partner\_bin\_female  &                     &                     &     -0.0406\sym{*}  &     -0.0404\sym{*}  \\
-                    &                     &                     &    (0.0216)         &    (0.0217)         \\
+Spouse/Life Partner $\times$ Female&                     &                     &     -0.0193         \\
+                    &                     &                     &    (0.0258)         \\
 \addlinespace
-Household Size      &                     &                     &      0.0005         &      0.0009         \\
-                    &                     &                     &    (0.0044)         &    (0.0044)         \\
+Household Size      &                     &                     &      0.0051         \\
+                    &                     &                     &    (0.0054)         \\
 \addlinespace
-Household Size $\times$ Female&                     &                     &      0.0095         &      0.0097         \\
-                    &                     &                     &    (0.0062)         &    (0.0061)         \\
-\addlinespace
-Share of Unemployed Females in all Unemployed (\emph{Bundesland})&                     &                     &                     &     -0.1878\sym{**} \\
-                    &                     &                     &                     &    (0.0743)         \\
+Household Size $\times$ Female&                     &                     &      0.0081         \\
+                    &                     &                     &    (0.0071)         \\
 \midrule
-Observations        &       14632         &       14632         &       14632         &       14632         \\
+Observations        &       19474         &       19474         &       19474         \\
 \bottomrule
-\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
-\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
 \end{tabular}
 }
