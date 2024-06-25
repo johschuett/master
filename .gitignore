@@ -318,3 +318,7 @@ TSWLatexianTemp*
 # LV-Ost Data
 stata/data/ZA2644_LVost.zip
 stata/data/ZA2644_LVost/*
+
+# compiled slides
+latex/slides/slides.pdf
+
