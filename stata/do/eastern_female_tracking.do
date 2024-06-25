@@ -53,7 +53,7 @@ bysort pid (syear): replace stem_unemp_switch = -1 if (pgemplst == 1 | pgemplst 
 
 collapse (sum) stem_switch unemp_switch stem_unemp_switch (count) pid [aw = phrf], by(syear)
 
-twoway (line unemp_switch syear, lcolor(gs8) lpattern(black)) ///
+twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 ||     (connected stem_unemp_switch syear [w = pid], lcolor(gs4) mcolor(gs4) msymb(oh) lpattern(solid)) ///
 ||     (line stem_switch syear, lcolor(black) lpattern(solid)), ///
 	xtitle("Survey Year") ///
@@ -63,7 +63,7 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(black)) ///
 	       label(2 "Employment (Full- or Part-Time) to Unemployment") ///
 		   label(3 "STEM to non-STEM") ///
 		   order(3 2 1)) ///
-	text(2.5 1990.2 "N = `fmt_sumpid'" 1.1 1990.2 "thereof `sumstem' in STEM", size(vsmall) placement(ne)) ///
+	note("N = `fmt_sumpid', thereof `sumstem' in STEM.") ///
 	name(eastern_female_tracking, replace)
 
 graph export "${figures}eastern_female_tracking.pdf", replace

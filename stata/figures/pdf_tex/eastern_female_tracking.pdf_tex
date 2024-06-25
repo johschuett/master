@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25, custom), www.inkscape.org
+%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'eastern_female_tracking.pdf' (pdf, eps, ps)
 %%
@@ -54,25 +54,33 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{eastern_female_tracking.pdf}}%
-    \put(0.15570977,0.16459773){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}N = 1,623\end{tabular}}}}%
-    \put(0.15643733,0.1379307){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}thereof 178 in STEM\end{tabular}}}}%
+    \put(0.06748472,0.29625467){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}-10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{eastern_female_tracking.pdf}}%
-    \put(0.0810875,0.10588652){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0.0899374,0.38444103){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{eastern_female_tracking.pdf}}%
-    \put(0.06704282,0.29633843){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}10\end{tabular}}}}%
+    \put(0.07589368,0.47262739){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{eastern_female_tracking.pdf}}%
-    \put(0.06704282,0.48679036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20\end{tabular}}}}%
+    \put(0.07589368,0.56078269){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{eastern_female_tracking.pdf}}%
-    \put(0.06704282,0.67721101){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}30\end{tabular}}}}%
-    \put(0.04820697,0.18163311){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Net Switches from STEM to non-STEM\end{tabular}}}}}%
+    \put(0.07589368,0.64896905){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}30\end{tabular}}}}%
+    \put(0.04995649,0.40864317){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Net Switches\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{eastern_female_tracking.pdf}}%
-    \put(0.09821166,0.06587036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.10704896,0.22825543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{eastern_female_tracking.pdf}}%
-    \put(0.37576125,0.06587036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
+    \put(0.27173131,0.22825543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{eastern_female_tracking.pdf}}%
-    \put(0.65327958,0.06587036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
+    \put(0.43638256,0.22825543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{eastern_female_tracking.pdf}}%
-    \put(0.93082919,0.06587036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
-    \put(0.51593201,0.03807788){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Year\end{tabular}}}}%
+    \put(0.60106463,0.22825543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{eastern_female_tracking.pdf}}%
+    \put(0.7657472,0.22825543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{eastern_female_tracking.pdf}}%
+    \put(0.93039821,0.22825543){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
+    \put(0.47871943,0.20047714){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Survey Year\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{eastern_female_tracking.pdf}}%
+    \put(0.30525605,0.14763136){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}STEM to non-STEM\end{tabular}}}}%
+    \put(0.30525605,0.11228801){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Employment (Full- or Part-Time) to Unemployment\end{tabular}}}}%
+    \put(0.30525605,0.07691344){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}STEM to Unemployment\end{tabular}}}}%
+    \put(0.1234805,0.03447255){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}N = 1,613 in 1990, of which 169 in STEM.\end{tabular}}}}%
   \end{picture}%
 \endgroup%

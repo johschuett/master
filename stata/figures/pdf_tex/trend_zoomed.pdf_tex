@@ -54,26 +54,30 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.31156333){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.05\end{tabular}}}}%
+    \put(0.0681151,0.33759785){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.05\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.4334563){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.10\end{tabular}}}}%
+    \put(0.0681151,0.45044027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.55534928){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
+    \put(0.0681151,0.56325138){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.67721099){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
-    \put(0.04820697,0.304221){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Prob. STEM Profession\end{tabular}}}}}%
+    \put(0.0681151,0.67606249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
+    \put(0.04995649,0.241476){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Share of STEM Professionals within Bin\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{trend_zoomed.pdf}}%
-    \put(0.12031434,0.19473489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.12032977,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{trend_zoomed.pdf}}%
-    \put(0.39048595,0.19473489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
+    \put(0.28235605,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{trend_zoomed.pdf}}%
-    \put(0.66065756,0.19473489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
+    \put(0.444351,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{trend_zoomed.pdf}}%
-    \put(0.9307979,0.19473489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
-    \put(0.52699895,0.16694242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Year\end{tabular}}}}%
+    \put(0.60637726,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{trend_zoomed.pdf}}%
-    \put(0.48807211,0.11320197){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Female\end{tabular}}}}%
-    \put(0.48807211,0.07781267){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Female\end{tabular}}}}%
-    \put(0.13677399,0.03588949){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Bin Size (Std. Dev.): 1,089 (744)\end{tabular}}}}%
+    \put(0.76840301,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{trend_zoomed.pdf}}%
+    \put(0.93042927,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
+    \put(0.48537524,0.16513381){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Survey Year\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{trend_zoomed.pdf}}%
+    \put(0.48771893,0.11228801){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Female\end{tabular}}}}%
+    \put(0.48771893,0.07691344){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Female\end{tabular}}}}%
+    \put(0.13676133,0.03447255){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Bin Size (Std. Dev.): 1,073 (746)\end{tabular}}}}%
   \end{picture}%
 \endgroup%

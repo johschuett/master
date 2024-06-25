@@ -86,6 +86,10 @@ gen age = syear - gebjahr
 gen age_2 = age^2
 
 
+* keep working age population only
+keep if inrange(age, 17, 65)
+
+
 * partner
 recode partner (1/4 = 1) (0 5 = 0), gen(partner_bin)
 label variable partner_bin "Spouse/Life Partner"

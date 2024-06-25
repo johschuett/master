@@ -54,30 +54,30 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{trend_highlight.pdf}}%
-    \put(0.06810375,0.34313858){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.05\end{tabular}}}}%
+    \put(0.0681151,0.36041022){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.05\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{trend_highlight.pdf}}%
-    \put(0.06810375,0.44915014){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.10\end{tabular}}}}%
+    \put(0.0681151,0.46562739){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{trend_highlight.pdf}}%
-    \put(0.06810375,0.55513044){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
+    \put(0.0681151,0.57084507){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{trend_highlight.pdf}}%
-    \put(0.06810375,0.661142){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
-    \put(0.04820697,0.33961031){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Prob. STEM Profession\end{tabular}}}}}%
+    \put(0.0681151,0.67606249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
+    \put(0.04995649,0.2768505){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Share of STEM Professionals within Bin\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{trend_highlight.pdf}}%
-    \put(0.12031434,0.26545095){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1980\end{tabular}}}}%
+    \put(0.12032977,0.26359861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1980\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{trend_highlight.pdf}}%
-    \put(0.32295868,0.26545095){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.32285479,0.26359861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{trend_highlight.pdf}}%
-    \put(0.52557175,0.26545095){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
+    \put(0.52537978,0.26359861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{trend_highlight.pdf}}%
-    \put(0.72818483,0.26545095){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2010\end{tabular}}}}%
+    \put(0.72790478,0.26359861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2010\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{trend_highlight.pdf}}%
-    \put(0.9307979,0.26545095){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2020\end{tabular}}}}%
-    \put(0.52699895,0.23765848){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Year\end{tabular}}}}%
+    \put(0.93042927,0.26359861){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2020\end{tabular}}}}%
+    \put(0.48537524,0.23582048){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Survey Year\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{trend_highlight.pdf}}%
-    \put(0.48807211,0.18391803){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Female\end{tabular}}}}%
-    \put(0.48807211,0.14856){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Female\end{tabular}}}}%
-    \put(0.48807211,0.11320197){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Male\end{tabular}}}}%
-    \put(0.48807211,0.07781267){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Male\end{tabular}}}}%
-    \put(0.13677399,0.03588949){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Bin Size (Std. Dev.): 1,629 (1,400)\end{tabular}}}}%
+    \put(0.48771893,0.1829747){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Female\end{tabular}}}}%
+    \put(0.48771893,0.14763136){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Female\end{tabular}}}}%
+    \put(0.48771893,0.11228801){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Male\end{tabular}}}}%
+    \put(0.48771893,0.07691344){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Male\end{tabular}}}}%
+    \put(0.13676133,0.03447255){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Bin Size (Std. Dev.): 1,583 (1,360)\end{tabular}}}}%
   \end{picture}%
 \endgroup%

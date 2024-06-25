@@ -2,6 +2,7 @@
 
 use ${data}female_stem, clear
 
+
 collapse (mean) stem (count) pid [aw = phrf], by(syear east_origin female)
 
 * infos on bin sizes for notes
@@ -21,14 +22,14 @@ local fmt_size_mean_female : di %5.0fc `size_mean_female'
 local fmt_size_sd_female   : di %3.0fc `size_sd_female'
 
 
-* probability to be in stem cond. on population
+* share of stem professionals within demographic groups (1990-1999)
 twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcolor(gs6) msymbol(O) lpattern(solid)) ///
 ||     (connected stem syear if female == 0 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Oh) lpattern(dash)) ///
 ||     (connected stem syear if female == 1 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) ///
 ||     (connected stem syear if female == 1 & east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(solid)), ///
 xline(1990, lcolor(gray) lpattern(dash)) ///
 xtitle("Survey Year") ///
-ytitle("Probability STEM Profession cond. on Population") ///
+ytitle("Share of STEM Professionals within Bin") ///
 ylabel(0.05(0.05)0.2, format(%03.2f)) ///
 legend(label(1 "East Origin, Male") ///
        label(2 "West Origin, Male") ///
@@ -49,13 +50,13 @@ keep if inrange(syear, 1990, 1999) & female == 1
 statsby stem=r(mean) lb=r(lb) ub=r(ub) [aw = phrf], by(syear east_origin female) clear: ci means stem
 
 
-* probability to be in stem cond. on population (females only, 1990, 1999)
+* share of stem professionals within demographic groups (females only, 1990-1999)
 twoway (connected stem syear if east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) ///
 ||     (connected stem syear if east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(solid)) ///
 ||     (rcap lb ub syear if east_origin == 0, lcolor(gs6)) ///
 ||     (rcap lb ub syear if east_origin == 1, lcolor(black)), ///
 xtitle("Survey Year") ///
-ytitle("Prob. STEM Profession cond. on Population") ///
+ytitle("Share of STEM Professionals within Bin") ///
 ylabel(0.05(0.05)0.2, format(%03.2f) nogrid) ///
 legend(label(1 "West Origin, Female") ///
 	   label(2 "East Origin, Female") ///
