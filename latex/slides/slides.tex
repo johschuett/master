@@ -124,9 +124,9 @@
 		\frametitle{}
 		
 		\begin{itemize}
-			\item How do social norms influence our occupational decisions?
-			\item Do social norms persist when the institutions that uphold them vanish?
-			\item Consider these questions with regard to Eastern females who work in traditionally male-dominated work sectors after the socialist GDR collapses.
+			\item How do \highlight{social norms} influence our occupational decisions?
+			\item Do social norms  \highlight{persist} when the \highlight{institutions that uphold them vanish}?
+			\item Consider these questions with regard to \highlight{Eastern females} who work in \highlight{traditionally male-dominated work sectors} after the socialist \highlight{GDR collapses}.
 		\end{itemize}
 		
 	\end{frame}
@@ -188,7 +188,7 @@
 		
 		\begin{itemize}
 			\item \highlight{Share of STEM professionals} within demographic groups in Germany over time.
-			\item Group by: \highlight{East origin} (location in 1989) and \highlight{gender}.
+			\item Group by: \highlight{Eastern origin} (location in 1989) and \highlight{gender}.
 			\item Observe the years 1990 (year of Reunification) -- 2017.
 			\item All individuals in \highlight{working age} (17--65).
 			\item Both employed and unemployed.
@@ -297,12 +297,13 @@
 		\frametitle{}
 		
 		\begin{itemize}
-			\item Of the \highlight{female apprentices} who successfully passed their skilled labour examination (\emph{Facharbeiterprüfung}) in 1980, \highlight{17\%} were in the \highlight{STEM field} \textcolor{darkgray}{\citep[p. 293]{DDRJahrbuch1981}}.
-			\item Unlike in the FRG, in the GDR there was the \highlight{same school curriculum for boys and girls} with the same \highlight{emphasis on science and maths} \textcolor{darkgray}{\citep{FuchsSchuendeln2016, Lippmann2018}}. 
+			\item \highlight{17\% of female apprentices} who successfully passed examination in 1980, were in the \highlight{STEM field} \textcolor{darkgray}{\citep[p. 293]{DDRJahrbuch1981}}.
+			\item Unlike in the FRG, in the GDR there was the \highlight{same school curriculum for boys and girls} \textcolor{darkgray}{\citep{FuchsSchuendeln2016, Lippmann2018}}.
 		\end{itemize}
 		
 	\end{frame}
 	
+	\iffalse
 	\begin{frame}
 		\frametitle{}
 		
@@ -312,6 +313,16 @@
 		\end{itemize}
 		
 		%\todo{Notizen einarbeiten!}
+		
+	\end{frame}
+	\fi
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{itemize}
+			\item \highlight{\emph{Chemiedreieck}}: Halle (Saale), Merseburg, and Bitterfeld.
+		\end{itemize}
 		
 	\end{frame}
 	
@@ -370,27 +381,105 @@
 			\begin{table}[h]
 				\centering
 				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional}
-				\label{tab:margins}
+				\label{tab:margins1}
 				\begin{tabular}{l*{4}{c}}
 					\toprule
-					&\multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
 					\midrule
-					Years after Reunification & -0.0008 & -0.0027 & -0.0027 & -0.0027 \\
-					& (0.0016) & (0.0017) & (0.0017) & (0.0017) \\
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
 					\addlinespace
-					Female & -0.0022  & -0.0032 & -0.0032 & -0.0032 \\
-					& (0.0088) & (0.0088) & (0.0088) & (0.0088) \\
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
 					\addlinespace
-					Years after Reunification $\times$ Female &     -0.0121\sym{***}&     -0.0101\sym{***}&     -0.0101\sym{***} &     -0.0101\sym{***}\\
-					&    (0.0028)         &    (0.0029)         &    (0.0029)         &    (0.0029) \\
-					\addlinespace
-					Residence in West Germany&                     &      0.0474\sym{***}&      0.0474\sym{***}&      0.0474\sym{***}\\
-					&                     &    (0.0174)         &    (0.0174)         &    (0.0174)         \\
-					\addlinespace
-					Residence in West Germany $\times$ Female         &                     &     -0.0517\sym{*} & -0.0517\sym{*} & -0.0517\sym{*} \\
-					& &    (0.0309)         &    (0.0309)         &    (0.0309) \\
+					Years after Reunification $\times$ Female&     -0.0093\sym{***}&     -0.0075\sym{***}&     -0.0074\sym{***}&     -0.0053\sym{**} \\
+					&    (0.0021)         &    (0.0022)         &    (0.0022)         &    (0.0022)         \\
 					\midrule
-					Observations        &       14,632         &       14,632         &       14,632         &       14,632         \\
+					Residence in West Germany&                     &      0.0503\sym{**} &      0.0569\sym{**} &      0.0626\sym{***}\\
+					&                     &    (0.0226)         &    (0.0225)         &    (0.0227)         \\
+					\addlinespace
+					Residence in West Germany $\times$ Female&                     &     -0.0755\sym{**} &     -0.0631\sym{*}  &     -0.0718\sym{**} \\
+					&                     &    (0.0337)         &    (0.0329)         &    (0.0331)         \\
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+		{\scriptsize
+			\textcolor{darkgray}{Source: \cite{SOEP2023}. Own calculations.}
+		}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Main Findings}
+		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional}
+				\label{tab:margins1b}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+					\midrule
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
+					\addlinespace
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
+					\addlinespace
+					Years after Reunification $\times$ Female&    \textcolor{PineGreen}{-0.0093\sym{***}}&     -0.0075\sym{***}&     -0.0074\sym{***}&     -0.0053\sym{**} \\
+					&    \textcolor{PineGreen}{(0.0021)}        &    (0.0022)         &    (0.0022)         &    (0.0022)         \\
+					\midrule
+					Residence in West Germany&                     &      0.0503\sym{**} &      0.0569\sym{**} &      0.0626\sym{***}\\
+					&                     &    (0.0226)         &    (0.0225)         &    (0.0227)         \\
+					\addlinespace
+					Residence in West Germany $\times$ Female&                     &     -0.0755\sym{**} &     -0.0631\sym{*}  &     -0.0718\sym{**} \\
+					&                     &    (0.0337)         &    (0.0329)         &    (0.0331)         \\
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+		{\scriptsize
+			\textcolor{darkgray}{Source: \cite{SOEP2023}. Own calculations.}
+		}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Main Findings}
+		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional}
+				\label{tab:margins1c}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+					\midrule
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
+					\addlinespace
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
+					\addlinespace
+					Years after Reunification $\times$ Female&     -0.0093\sym{***}&    \textcolor{PineGreen}{ -0.0075\sym{***}}&     -0.0074\sym{***}&     -0.0053\sym{**} \\
+					&    (0.0021)         &    \textcolor{PineGreen}{(0.0022)}         &    (0.0022)         &    (0.0022)         \\
+					\midrule
+					Residence in West Germany&                     &      \textcolor{PineGreen}{ 0.0503\sym{**}} &      0.0569\sym{**} &      0.0626\sym{***}\\
+					&                     &    \textcolor{PineGreen}{(0.0226)}        &    (0.0225)         &    (0.0227)         \\
+					\addlinespace
+					Residence in West Germany $\times$ Female&                     &     \textcolor{PineGreen}{-0.0755\sym{**}} &     -0.0631\sym{*}  &     -0.0718\sym{**} \\
+					&                     &    \textcolor{PineGreen}{(0.0337)}        &    (0.0329)         &    (0.0331)         \\
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -405,9 +494,185 @@
 	\begin{frame}
 		\frametitle{}
 		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional \emph{(cont.)}}
+				\label{tab:margins2}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+					\midrule
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
+					\addlinespace
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
+					\addlinespace
+					Years after Reunification $\times$ Female&     -0.0093\sym{***}&     -0.0075\sym{***}&     -0.0074\sym{***}&     -0.0053\sym{**} \\
+					&    (0.0021)         &    (0.0022)         &    (0.0022)         &    (0.0022)         \\
+					\midrule
+					Spouse/Life Partner &                     &                     &      0.0127         &      0.0119         \\
+					&                     &                     &    (0.0209)         &    (0.0209)         \\
+					\addlinespace
+					Spouse/Life Partner $\times$ Female&                     &                     &     -0.0163         &     -0.0155         \\
+					&                     &                     &    (0.0257)         &    (0.0257)         \\
+					\addlinespace
+					Household Size      &                     &                     &      0.0047         &      0.0052         \\
+					&                     &                     &    (0.0054)         &    (0.0053)         \\
+					\addlinespace
+					Household Size $\times$ Female&                     &                     &      0.0083         &      0.0076         \\
+					&                     &                     &    (0.0071)         &    (0.0071)         \\
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+		{\scriptsize
+			\textcolor{darkgray}{Source: \cite{SOEP2023}. Own calculations.}
+		}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional \emph{(cont.)}}
+				\label{tab:margins2b}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+					\midrule
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
+					\addlinespace
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
+					\addlinespace
+					Years after Reunification $\times$ Female&     -0.0093\sym{***}&     -0.0075\sym{***}&     \textcolor{PineGreen}{-0.0074\sym{***}}&     -0.0053\sym{**} \\
+					&    (0.0021)         &    (0.0022)         &    \textcolor{PineGreen}{(0.0022)}         &    (0.0022)         \\
+					\midrule
+					Spouse/Life Partner &                     &                     &      \textcolor{PineGreen}{0.0127}         &      0.0119         \\
+					&                     &                     &    \textcolor{PineGreen}{(0.0209)}         &    (0.0209)         \\
+					\addlinespace
+					Spouse/Life Partner $\times$ Female&                     &                     &     \textcolor{PineGreen}{-0.0163}         &     -0.0155         \\
+					&                     &                     &    \textcolor{PineGreen}{(0.0257)}         &    (0.0257)         \\
+					\addlinespace
+					Household Size      &                     &                     &      \textcolor{PineGreen}{0.0047}         &      0.0052         \\
+					&                     &                     &    \textcolor{PineGreen}{(0.0054)}         &    (0.0053)         \\
+					\addlinespace
+					Household Size $\times$ Female&                     &                     &      \textcolor{PineGreen}{0.0083}         &      0.0076         \\
+					&                     &                     &    \textcolor{PineGreen}{(0.0071)}         &    (0.0071)         \\
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+		{\scriptsize
+			\textcolor{darkgray}{Source: \cite{SOEP2023}. Own calculations.}
+		}
+		
+	\end{frame}
+	
+		\begin{frame}
+		\frametitle{}
+		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional \emph{(cont.)}}
+				\label{tab:margins3}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+					\midrule
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
+					\addlinespace
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
+					\addlinespace
+					Years after Reunification $\times$ Female&     -0.0093\sym{***}&     -0.0075\sym{***}&     -0.0074\sym{***}&     -0.0053\sym{**} \\
+					&    (0.0021)         &    (0.0022)         &    (0.0022)         &    (0.0022)         \\
+					\midrule
+					Residence in Chemiedreieck&                     &                     &                     &      0.0433\sym{**} \\
+					&                     &                     &                     &    (0.0205)         \\
+					\addlinespace
+					Residence in Chemiedreieck $\times$ Female&                     &                     &                     &     -0.0957\sym{**} \\
+					&                     &                     &                     &    (0.0421)         \\
+					\addlinespace
+					\multicolumn{5}{l}{\multirow{3}{*}{\parbox{40em}{{[}Omitted Output for Coefficients of:\hfill\break Age and Age (squared) $\rightarrow$ employed in (3) onwards. \hfill\break County Employment Rate and County Population Density  $\rightarrow$ employed in (4).{]}}}}\\
+					\addlinespace\addlinespace\addlinespace
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+		{\scriptsize
+			\textcolor{darkgray}{Source: \cite{SOEP2023}. Own calculations.}
+		}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		{\linespread{1}\tiny
+			\begin{table}[h]
+				\centering
+				\caption{Margins (dy/dx) of Cloglog Regressions with y = being a STEM Professional \emph{(cont.)}}
+				\label{tab:margins3b}
+				\begin{tabular}{l*{4}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
+					\midrule
+					Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+					&    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
+					\addlinespace
+					Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+					&    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
+					\addlinespace
+					Years after Reunification $\times$ Female&     -0.0093\sym{***}&     -0.0075\sym{***}&     -0.0074\sym{***}&     \textcolor{PineGreen}{-0.0053\sym{**}} \\
+					&    (0.0021)         &    (0.0022)         &    (0.0022)         &    \textcolor{PineGreen}{(0.0022)}         \\
+					\midrule
+					Residence in Chemiedreieck&                     &                     &                     &      \textcolor{PineGreen}{0.0433\sym{**}} \\
+					&                     &                     &                     &    \textcolor{PineGreen}{(0.0205)}         \\
+					\addlinespace
+					Residence in Chemiedreieck $\times$ Female&                     &                     &                     &     \textcolor{PineGreen}{-0.0957\sym{**}} \\
+					&                     &                     &                     &    \textcolor{PineGreen}{(0.0421)}         \\
+					\addlinespace
+					\multicolumn{5}{l}{\multirow{3}{*}{\parbox{40em}{{[}Omitted Output for Coefficients of:\hfill\break Age and Age (squared) $\rightarrow$ employed in (3) onwards. \hfill\break County Employment Rate and County Population Density  $\rightarrow$ employed in (4).{]}}}}\\
+					\addlinespace\addlinespace\addlinespace
+					\midrule
+					Observations        &       19,428         &       19,428         &       19,428         &       19,428         \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+		{\scriptsize
+			\textcolor{darkgray}{Source: \cite{SOEP2023}. Own calculations.}
+		}
+		
+	\end{frame}
+	
+	\subsection{Change of Occupation}
+	\begin{frame}
+		\frametitle{Change of Occupation}
+		
 		\begin{itemize}
-			\item Effect driven by Attrition?
-			\item New panel entrants?
+			\item Effect driven by \highlight{panel attrition}?
+			\item New panel \highlight{entrants}?
+			\item What do the Eastern females do \highlight{after quitting STEM}?
 		\end{itemize}
 		
 	\end{frame}
@@ -428,14 +693,31 @@
 		
 	\end{frame}
 		
-	\subsection{Discussion}
-	\begin{frame}
-		\frametitle{Discussion}
-	\end{frame}
-	
-	\section{Conclusion}
+	\section{Conclusion}	
 	\begin{frame}
 		\frametitle{}
+		
+		\begin{itemize}
+			\item Both controlling for \highlight{residence in the West} and \highlight{residence in the \emph{Chemiedreieck}} significantly reduces the size of the coefficient of \highlight{regressor of interest} when interacting them with \highlight{being female}.
+			\item In both cases, the effect is positive for \highlight{males}, while it is negative for \highlight{females}.
+			\item No significant explanatory power through \highlight{household controls}.
+			\begin{itemize}
+				\item[$\rightarrow$] Theory of \highlight{vertical cultural persistence} might hold within households!
+			\end{itemize}
+		\end{itemize}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{itemize}
+			\item \highlight{Deindustrialisation of East Germany} especially \highlight{hurt East German females in scientific and technological occupations}.
+			\item The \highlight{dissolution of the \emph{Chemiedreieck}} is an example for that.
+			\item They do not switch into unemployment but rather scatter into \highlight{other work sectors}.
+			\item \highlight{Infrastructural shock} with \highlight{long-term consequences}.
+		\end{itemize}
+		
 	\end{frame}
 	
 	\section*{References}
