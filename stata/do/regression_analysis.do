@@ -31,10 +31,10 @@ estimates clear
 local baseline = "dist_reunification female dist_reunification_female"
 local west     = "`baseline' west west_female"
 local hhp      = "`west' partner_bin partner_bin_female hhgr hhgr_female age age_2"
-local states   = "`hhp' share_female_unemp"
+local states   = "`hhp' kr_emprate kr_popdens chemiedreieck chemiedreieck_female"
 
 * run model
-foreach ind in baseline west hhp {
+foreach ind in baseline west hhp states {
 	cloglog stem ``ind'' [pw = phrf], vce(cluster hid)
 	eststo: margins, dydx(``ind'') post
 }
@@ -43,12 +43,12 @@ foreach ind in baseline west hhp {
 * direct output in log
 esttab, ///
 	keep(dist_reunification female dist_reunification_female west west_female ///
-		 partner_bin partner_bin_female hhgr hhgr_female) ///
+		 partner_bin partner_bin_female hhgr hhgr_female chemiedreieck chemiedreieck_female) ///
 	b(4) se(4) label nomtitle star(* 0.10 ** 0.05 *** 0.01)
 
 
 * latex export
 esttab using ${tables}margins.tex, ///
 	keep(dist_reunification female dist_reunification_female west west_female ///
-		 partner_bin partner_bin_female hhgr hhgr_female) ///
+		 partner_bin partner_bin_female hhgr hhgr_female chemiedreieck chemiedreieck_female) ///
 	b(4) se(4) label nomtitle star(* 0.10 ** 0.05 *** 0.01) booktabs replace

@@ -1,17 +1,20 @@
 *-> SET LOCAL ROOT HERE
-global root     = "H:/master_thesis/stata/" // VDI
-global root     = "/Users/schuett/Repositories/master_thesis/stata/" // Mac
+global root       = "H:/master_thesis/stata/" // VDI
+*global root       = "/Users/schuett/Repositories/master_thesis/stata/" // Mac
 
 * soep v38.1
-global v38      = "//hume/rdc-prod/distribution/soep-core/soep.v38.1/eu/Stata_DE/soepdata/" // VDI
-global v38      = "${root}data/soep_v38.1/soepdata/" // Mac
+global v38        = "//hume/rdc-prod/distribution/soep-core/soep.v38.1/eu/Stata_DE/soepdata/" // VDI
+*global v38        = "${root}data/soep_v38.1/soepdata/" // Mac
+
+* restricted
+global restricted = "\\hume\rdc-prod\restricted\soep-core\soep.v38.1\remote\Stata_DE\soepdata\"
 
 * paths within project
-global data     = "${root}data/"
-global do       = "${root}do/"
-global log      = "${root}log/"
-global figures  = "${root}figures/"
-global tables   = "${root}../latex/tables/"
+global data       = "${root}data/"
+global do         = "${root}do/"
+global log        = "${root}log/"
+global figures    = "${root}figures/"
+global tables     = "${root}../latex/tables/"
 
 ssc install scheme_tufte
 

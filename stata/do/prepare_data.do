@@ -26,7 +26,7 @@ label variable dist_reunification_female "Years after Reunification $\times$ Fem
 
 
 * residence west germany
-merge m:1 hid syear using ${v38}regionl, keep(3) nogen
+merge m:1 hid syear using ${v38}regionl, keep(3) keepusing(bula) nogen
 
 recode bula (1/10 = 1) (11/16 = 0) (nonmissing = .), gen(west)
 
@@ -94,7 +94,7 @@ keep if inrange(age, 17, 65)
 recode partner (1/4 = 1) (0 5 = 0), gen(partner_bin)
 label variable partner_bin "Spouse/Life Partner"
 
-label define partner_bin 0 "[0] Does have a Spouse/Life Partner", modify
+label define partner_bin 0 "[0] Does not have a Spouse/Life Partner", modify
 label define partner_bin 1 "[1] Has a Spouse/Life Partner", modify
 
 label values partner_bin partner_bin
@@ -109,6 +109,26 @@ merge m:1 hid syear using ${v38}hbrutto, keep(3) keepusing(hhgr) nogen
 gen hhgr_female = hhgr * female
 label variable hhgr "Household Size"
 label variable hhgr_female "Household Size $\times$ Female"
+
+
+** RESTRICTED AREA **
+merge m:1 hid syear using ${restricted}regionl, keep(3) keepusing(ror96 kr_emprate kr_popdens) nogen
+
+* individual lives in the "mitteldeutsche chemidreieck"
+gen chemiedreieck = 0
+replace chemiedreieck = 1 if inlist(ror96, 1502, 1503, 1404)
+
+gen chemiedreieck_female = chemiedreieck * female
+
+label variable chemiedreieck "Residence in Chemiedreieck"
+
+label define chemiedreieck 0 "[0] Does not reside in the Chemiedreieck", modify
+label define chemiedreieck 1 "[1] Resides in the Chemiedreieck", modify
+
+label values chemiedreieck chemiedreieck
+
+label variable chemiedreieck_female "Residence in Chemiedreieck $\times$ Female"
+**
 
 
 * save dataset

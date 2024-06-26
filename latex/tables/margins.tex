@@ -1,39 +1,45 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{3}{c}}
+\begin{tabular}{l*{4}{c}}
 \toprule
-                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         \\
 \midrule
-Years after Reunification&     -0.0004         &     -0.0018         &     -0.0020         \\
-                    &    (0.0012)         &    (0.0012)         &    (0.0012)         \\
+Years after Reunification&     -0.0004         &     -0.0017         &     -0.0019         &     -0.0046\sym{***}\\
+                    &    (0.0012)         &    (0.0012)         &    (0.0012)         &    (0.0018)         \\
 \addlinespace
-Female              &     -0.0023         &     -0.0021         &     -0.0125         \\
-                    &    (0.0093)         &    (0.0093)         &    (0.0326)         \\
+Female              &     -0.0022         &     -0.0020         &     -0.0156         &     -0.0170         \\
+                    &    (0.0093)         &    (0.0093)         &    (0.0323)         &    (0.0322)         \\
 \addlinespace
-Years after Reunification $\times$ Female&     -0.0091\sym{***}&     -0.0072\sym{***}&     -0.0071\sym{***}\\
-                    &    (0.0021)         &    (0.0021)         &    (0.0022)         \\
+Years after Reunification $\times$ Female&     -0.0093\sym{***}&     -0.0075\sym{***}&     -0.0074\sym{***}&     -0.0053\sym{**} \\
+                    &    (0.0021)         &    (0.0022)         &    (0.0022)         &    (0.0022)         \\
 \addlinespace
-Residence in West Germany&                     &      0.0501\sym{**} &      0.0569\sym{**} \\
-                    &                     &    (0.0226)         &    (0.0225)         \\
+Residence in West Germany&                     &      0.0503\sym{**} &      0.0569\sym{**} &      0.0626\sym{***}\\
+                    &                     &    (0.0226)         &    (0.0225)         &    (0.0227)         \\
 \addlinespace
-Residence in West Germany $\times$ Female&                     &     -0.0765\sym{**} &     -0.0641\sym{*}  \\
-                    &                     &    (0.0337)         &    (0.0329)         \\
+Residence in West Germany $\times$ Female&                     &     -0.0755\sym{**} &     -0.0631\sym{*}  &     -0.0718\sym{**} \\
+                    &                     &    (0.0337)         &    (0.0329)         &    (0.0331)         \\
 \addlinespace
-Spouse/Life Partner &                     &                     &      0.0122         \\
-                    &                     &                     &    (0.0209)         \\
+Spouse/Life Partner &                     &                     &      0.0127         &      0.0119         \\
+                    &                     &                     &    (0.0209)         &    (0.0209)         \\
 \addlinespace
-Spouse/Life Partner $\times$ Female&                     &                     &     -0.0193         \\
-                    &                     &                     &    (0.0258)         \\
+Spouse/Life Partner $\times$ Female&                     &                     &     -0.0163         &     -0.0155         \\
+                    &                     &                     &    (0.0257)         &    (0.0257)         \\
 \addlinespace
-Household Size      &                     &                     &      0.0051         \\
-                    &                     &                     &    (0.0054)         \\
+Household Size      &                     &                     &      0.0047         &      0.0052         \\
+                    &                     &                     &    (0.0054)         &    (0.0053)         \\
 \addlinespace
-Household Size $\times$ Female&                     &                     &      0.0081         \\
-                    &                     &                     &    (0.0071)         \\
+Household Size $\times$ Female&                     &                     &      0.0083         &      0.0076         \\
+                    &                     &                     &    (0.0071)         &    (0.0071)         \\
+\addlinespace
+Residence in Chemiedreieck&                     &                     &                     &      0.0433\sym{**} \\
+                    &                     &                     &                     &    (0.0205)         \\
+\addlinespace
+Residence in Chemiedreieck $\times$ Female&                     &                     &                     &     -0.0957\sym{**} \\
+                    &                     &                     &                     &    (0.0421)         \\
 \midrule
-Observations        &       19474         &       19474         &       19474         \\
+Observations        &       19428         &       19428         &       19428         &       19428         \\
 \bottomrule
-\multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
-\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
 \end{tabular}
 }
