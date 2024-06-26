@@ -61,7 +61,7 @@
     \put(0.0681151,0.56656375){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{validity.pdf}}%
     \put(0.0681151,0.67606249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
-    \put(0.04995649,0.30416312){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Prob. STEM Profession\end{tabular}}}}}%
+    \put(0.04995649,0.241476){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Share of STEM Professionals within Bin\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{validity.pdf}}%
     \put(0.08383338,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1945--1949\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{validity.pdf}}%
