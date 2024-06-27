@@ -85,6 +85,9 @@ replace stem = 0 if !inrange(pgemplst, 1, 2)
 gen age = syear - gebjahr
 gen age_2 = age^2
 
+label variable age "Age"
+label variable age_2 "Age (squared)"
+
 
 * keep working age population only
 keep if inrange(age, 17, 65)
@@ -109,6 +112,13 @@ merge m:1 hid syear using ${v38}hbrutto, keep(3) keepusing(hhgr) nogen
 gen hhgr_female = hhgr * female
 label variable hhgr "Household Size"
 label variable hhgr_female "Household Size $\times$ Female"
+
+
+* monthly household net income
+merge m:1 hid syear using ${v38}hl, keep(3) keepusing(hlc0005_h) nogen
+
+rename hlc0005_h hhincome
+keep if hhincome >= 0
 
 
 ** RESTRICTED AREA **

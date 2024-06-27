@@ -1,18 +1,23 @@
 ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 
+* use mayer (1995) data to look at stem trend in gdr
 use ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/ERWERB, clear
 merge m:1 FALLNR using ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/LMUTTER, keep(3) nogen keepusing(SEX KOHORTE)
+
 
 * all variables in lower case
 foreach var of varlist * {
      rename `var' `= lower("`var'")'
 }
 
+
 * drop if case is not part of a cohort
 drop if kohorte == 9
 
+
 * sort data
 sort fallnr spellnr
+
 
 * female dummy
 recode sex (2 = 1) (1 = 0) (nonmissing = .), gen(female)
@@ -25,6 +30,7 @@ label define female 1 "[1] Female", modify
 label values female female
 
 drop if mi(female)
+
 
 * drop cases with missing occupation
 drop if inlist(f401i3, -1, 1004, 1009)
@@ -99,3 +105,36 @@ note("Avg. Bin Size (Std. Dev.): `fmt_size_mean' (`fmt_size_sd')") ///
 name(cohorts, replace)
 
 graph export "${figures}validity.pdf", replace
+
+
+*-----
+
+
+* look at individuals from estimation sample in 1990
+use ${data}female_stem, clear
+
+
+* keep east germans only -> estimation sample -> only look at 1990
+keep if east_origin == 1 & syear == 1990
+drop east_origin
+
+estimates clear
+
+eststo female: quietly estpost summarize ///
+    stem age partner_bin hhgr hhinc west chemiedreieck if female == 1
+eststo male: quietly estpost summarize ///
+    stem age partner_bin hhgr hhinc west chemiedreieck if female == 0
+eststo diff: quietly estpost ttest ///
+    stem age partner_bin hhgr hhinc west chemiedreieck, by(female) unequal
+
+
+* direct output in log
+esttab female male diff, ///
+	cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
+	label
+
+
+* latex export
+esttab female male diff usig ${tables}descriptives90.tex, ///
+	cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
+	label
