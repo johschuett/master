@@ -118,6 +118,11 @@ use ${data}female_stem, clear
 keep if east_origin == 1 & syear == 1990
 drop east_origin
 
+
+* scale hhincome back to euros from thousands of euros
+replace hhincome = hhincome / 1000
+label variable hhincome "Monthly Household Income (Net)"
+
 estimates clear
 
 eststo female: quietly estpost summarize ///
