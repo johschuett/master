@@ -373,15 +373,15 @@
 				\begin{align}
 					&\begin{aligned}
 						\label{eq:spec}
-						STEM_{itr} =& \beta_{0} + \beta_{1} Dist\_Reunification_{t} + \beta_{2} Female_{i} +\\
-						&\beta_{3} Dist\_Reunification \times Female_{it} + X_{itr} \gamma + \epsilon_{itr}
+						STEM_{itr} = & \alpha + \sum_{t=1}^{9}\beta_{t} SurveyYear_{t} + \sum_{t=1}^{9}\beta_{t + 9} (SurveyYear_{t} \times Female_{i}) +\\
+						& \gamma Female_{i} + X_{itr} \delta + \epsilon_{itr}
 					\end{aligned}
 				\end{align}
-				
-				\vspace{1cm}
-				
-				\hspace{6.2em} with $Dist\_Reunification_{t} = Survey\_Year_{t} - 1990$.
 			}
+		
+		\vspace{1cm}
+		
+		with $SurveyYear_{t}$ being a binary variable and $t = 0$ in 1990.
 		
 	\end{frame}
 	
