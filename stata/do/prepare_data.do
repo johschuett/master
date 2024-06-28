@@ -119,12 +119,17 @@ merge m:1 hid syear using ${v38}hl, keep(3) keepusing(hlc0005_h) nogen
 
 rename hlc0005_h hhincome
 keep if hhincome >= 0
+replace hhincome = hhincome * 1000
+
+gen hhincome_female = hhincome * female
+label variable hhincome "Monthly Household Income in Thousands (Net)"
+label variable hhincome_female "Monthly Household Income in Thousands (Net) $\times$ Female"
 
 
 ** RESTRICTED AREA **
 merge m:1 hid syear using ${restricted}regionl, keep(3) keepusing(ror96 kr_emprate kr_popdens) nogen
 
-* individual lives in the "mitteldeutsche chemidreieck"
+* individual lives in the "mitteldeutsche chemiedreieck"
 gen chemiedreieck = 0
 replace chemiedreieck = 1 if inlist(ror96, 1502, 1503, 1404)
 

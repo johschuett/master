@@ -121,11 +121,11 @@ drop east_origin
 estimates clear
 
 eststo female: quietly estpost summarize ///
-    stem age partner_bin hhgr hhinc west chemiedreieck if female == 1
+    stem age partner_bin hhgr hhincome west chemiedreieck if female == 1
 eststo male: quietly estpost summarize ///
-    stem age partner_bin hhgr hhinc west chemiedreieck if female == 0
+    stem age partner_bin hhgr hhincome west chemiedreieck if female == 0
 eststo diff: quietly estpost ttest ///
-    stem age partner_bin hhgr hhinc west chemiedreieck, by(female) unequal
+    stem age partner_bin hhgr hhincome west chemiedreieck, by(female) unequal
 
 
 * direct output in log
@@ -135,6 +135,6 @@ esttab female male diff, ///
 
 
 * latex export
-esttab female male diff usig ${tables}descriptives90.tex, ///
+esttab female male diff using ${tables}descriptives90.tex, ///
 	cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
-	label
+	label replace
