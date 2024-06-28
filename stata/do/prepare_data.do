@@ -17,12 +17,16 @@ label values female female
 drop if mi(female)
 
 
-* regressor of interest (years after reunification * female)
-gen dist_reunification = syear - 1990
-label variable dist_reunification "Years after Reunification"
-
-gen dist_reunification_female = dist_reunification * female
-label variable dist_reunification_female "Years after Reunification $\times$ Female"
+* regressors of interest: year dummies and interactions with female
+forvalues year = 1991(1)1999 {
+	gen d`year' = 0
+	replace d`year' = 1 if syear == `year'
+	
+	gen female_d`year' = d`year' * female
+	
+	label variable d`year' "`year'"
+	label variable female_d`year' "`year' $\times$ Female"
+}
 
 
 * residence west germany
@@ -127,22 +131,22 @@ label variable hhincome_female "Monthly Household Income in Thousands (Net) $\ti
 
 
 ** RESTRICTED AREA **
-merge m:1 hid syear using ${restricted}regionl, keep(3) keepusing(ror96 kr_emprate kr_popdens) nogen
+merge m:1 hid syear using ${restricted}regionl, keep(3) keepusing(regbez kr_emprate kr_popdens) nogen
+
 
 * individual lives in the "mitteldeutsche chemiedreieck"
 gen chemiedreieck = 0
-replace chemiedreieck = 1 if inlist(ror96, 1502, 1503, 1404)
+replace chemiedreieck = 1 if inlist(regbez, 142, 152) // ([152] halle, [142] leipzig)
 
 gen chemiedreieck_female = chemiedreieck * female
 
 label variable chemiedreieck "Residence in Chemiedreieck"
+label variable chemiedreieck_female "Residence in Chemiedreieck $\times$ Female"
 
 label define chemiedreieck 0 "[0] Does not reside in the Chemiedreieck", modify
 label define chemiedreieck 1 "[1] Resides in the Chemiedreieck", modify
 
 label values chemiedreieck chemiedreieck
-
-label variable chemiedreieck_female "Residence in Chemiedreieck $\times$ Female"
 **
 
 

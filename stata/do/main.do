@@ -16,6 +16,7 @@ global log        = "${root}log/"
 global figures    = "${root}figures/"
 global tables     = "${root}../latex/tables/"
 
+ssc install coefplot
 ssc install scheme_tufte
 
 set scheme tufte
