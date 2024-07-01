@@ -65,7 +65,7 @@ do ${do}graphical_preanalysis.do
 * validity analysis
 do ${do}validity.do
 * regression analysis
-do ${do}regression_analysis.do
+//do ${do}regression_analysis.do
 * eastern female tracking
 do ${do}eastern_female_tracking.do
 

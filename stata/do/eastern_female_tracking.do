@@ -61,3 +61,75 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 	name(eastern_female_tracking, replace)
 
 graph export "${figures}eastern_female_tracking.pdf", replace
+
+
+* survival plot
+* get eastern female stem professionals of 1990 and see how they develop
+use ${data}female_stem, clear
+keep if syear == 1990 & stem == 1 & east_origin == 1 & female == 1
+keep pid
+
+
+merge 1:m pid using ${data}female_stem, keep(3) nogen
+keep if inrange(syear, 1990, 1999)
+
+* create status variable [1] stem [2] working in non-stem [3] non-working [4] punr
+gen status = .
+replace status = 1 if stem == 1
+replace status = 2 if stem == 0 & inlist(pgemplst, 1, 2)
+replace status = 3 if stem == 0 & !inlist(pgemplst, 1, 2)
+
+
+label variable status "Work Status"
+label define status 1 "Working in STEM", modify
+label define status 2 "Working in Non-STEM", modify
+label define status 3 "Non-Working", modify
+label define status 4 "Partial Unit-Nonresponse", modify
+
+label values status status
+
+
+save ${data}survival, replace
+
+
+* count punr's
+collapse (sum) stem (count) pid, by(syear)
+gen punr = pid[1] - pid
+save ${data}punr, replace
+
+* get punr's into the status variable
+forvalues year = 1(1)10 {
+	
+	use ${data}punr, clear
+	local punr = punr[`year']
+	
+	
+	use ${data}survival, clear
+	local oldobs = _N + 1
+	local newobs = _N + `punr'
+	set obs `newobs'
+	
+	if `oldobs' < `newobs' {
+		replace syear = 1989 + `year' in `oldobs'/`newobs'
+		replace status = 4 in `oldobs'/`newobs'
+	}
+	
+	save ${data}survival, replace
+}
+
+set scheme s2color
+
+graph bar, ///
+	over(status) ///
+	over(syear) ///
+	stack asyvars ///
+	percentage ///
+	ylab(, nogrid) ///
+	ytitle("Percent") ///
+	graphregion(color(white)) ///
+	name(survival, replace)
+
+graph export ${figures}survival.pdf, replace
+
+* reset scheme
+set scheme tufte

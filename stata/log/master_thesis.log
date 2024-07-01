@@ -2,7 +2,7 @@
       name:  master_thesis
        log:  H:/master_thesis/stata/log/master_thesis_running.log
   log type:  text
- opened on:  13 Jun 2024, 08:41:50
+ opened on:   1 Jul 2024, 19:42:26
 
 . 
 . 
@@ -75,20 +75,30 @@
 
 . 
 . 
-. * regressor of interest (years after reunification * female)
-. gen dist_reunification = syear - 1990
-
-. label variable dist_reunification "Years after Reunification"
-
-. 
-. gen dist_reunification_female = dist_reunification * female
-
-. label variable dist_reunification_female "Years after Reunification $\times$ Female"
+. * regressors of interest: year dummies and interactions with female
+. forvalues year = 1991(1)1999 {
+  2.         gen d`year' = 0
+  3.         replace d`year' = 1 if syear == `year'
+  4.         
+.         gen female_d`year' = d`year' * female
+  5.         
+.         label variable d`year' "`year'"
+  6.         label variable female_d`year' "`year' $\times$ Female"
+  7. }
+(13,669 real changes made)
+(13,397 real changes made)
+(13,179 real changes made)
+(13,417 real changes made)
+(13,768 real changes made)
+(13,511 real changes made)
+(13,283 real changes made)
+(14,670 real changes made)
+(14,085 real changes made)
 
 . 
 . 
 . * residence west germany
-. merge m:1 hid syear using ${v38}regionl, keep(3) nogen
+. merge m:1 hid syear using ${v38}regionl, keep(3) keepusing(bula) nogen
 
     Result                      Number of obs
     -----------------------------------------
@@ -145,11 +155,14 @@
 . 
 . 
 . * stem profession
-. merge 1:1 pid syear using ${v38}pl, keep(3) keepusing(p_isco88) nogen
+. merge 1:1 pid syear using ${v38}pl, keep(1 3) keepusing(p_isco88) nogen
 
     Result                      Number of obs
     -----------------------------------------
-    Not matched                             0
+    Not matched                           289
+        from master                       289  
+        from using                          0  
+
     Matched                           640,679  
     -----------------------------------------
 
@@ -170,7 +183,26 @@
 
 . 
 . drop if mi(stem)
-(438,701 observations deleted)
+(438,990 observations deleted)
+
+. 
+. 
+. * info about employment status
+. merge 1:1 pid syear using ${v38}pgen, keep(1 3) keepusing(pgemplst) nogen
+(variable syear was long, now double to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                           201,978  
+    -----------------------------------------
+
+. 
+. 
+. * only individuals who are either full- or part-time employed should be marked
+. * as success in stem variable
+. replace stem = 0 if !inrange(pgemplst, 1, 2)
+(907 real changes made)
 
 . 
 . 
@@ -180,15 +212,26 @@
 . gen age_2 = age^2
 
 . 
+. label variable age "Age"
+
+. label variable age_2 "Age (squared)"
+
+. 
+. 
+. * keep working age population only
+. keep if inrange(age, 17, 65)
+(2,396 observations deleted)
+
+. 
 . 
 . * partner
 . recode partner (1/4 = 1) (0 5 = 0), gen(partner_bin)
-(23856 differences between partner and partner_bin)
+(23748 differences between partner and partner_bin)
 
 . label variable partner_bin "Spouse/Life Partner"
 
 . 
-. label define partner_bin 0 "[0] Does have a Spouse/Life Partner", modify
+. label define partner_bin 0 "[0] Does not have a Spouse/Life Partner", modify
 
 . label define partner_bin 1 "[1] Has a Spouse/Life Partner", modify
 
@@ -198,7 +241,7 @@
 . 
 . gen partner_bin_female = partner_bin * female
 
-. label variable partner_bin "Spouse/Life Partner $\times$ Female"
+. label variable partner_bin_female "Spouse/Life Partner $\times$ Female"
 
 . 
 . 
@@ -224,7 +267,7 @@
     Result                      Number of obs
     -----------------------------------------
     Not matched                             0
-    Matched                           201,978  
+    Matched                           199,582  
     -----------------------------------------
 
 . 
@@ -236,9 +279,87 @@
 
 . 
 . 
+. ** RESTRICTED AREA **
+. merge m:1 hid syear using ${restricted}regionl, keep(3) keepusing(regbez kr_emprate kr_popdens) nogen
+(label nuts1_EN already defined)
+(label nuts2_EN already defined)
+(label nuts3_EN already defined)
+(label kkz_rek90_EN already defined)
+(label kkz_rek_EN already defined)
+(label kkz_EN already defined)
+(label ror96_EN already defined)
+(label ror8595_EN already defined)
+(label bik_EN already defined)
+(label gtyp_EN already defined)
+(label ggk_EN already defined)
+(label gbou_EN already defined)
+(label regbez_EN already defined)
+(label bbrkrstyp_EN already defined)
+(label bbrgtyp_EN already defined)
+(label socurban_EN already defined)
+(label regtyp_EN already defined)
+(label bula_ew_EN already defined)
+(label bula_EN already defined)
+(label nuts1 already defined)
+(label nuts2 already defined)
+(label nuts3 already defined)
+(label kkz_rek90 already defined)
+(label kkz_rek already defined)
+(label kkz already defined)
+(label ror96 already defined)
+(label ror8595 already defined)
+(label bik already defined)
+(label gtyp already defined)
+(label ggk already defined)
+(label gbou already defined)
+(label regbez already defined)
+(label bbrkrstyp already defined)
+(label bbrgtyp already defined)
+(label socurban already defined)
+(label regtyp already defined)
+(label bula_ew already defined)
+(label bula already defined)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                           199,582  
+    -----------------------------------------
+
+. 
+. label variable kr_emprate "Employment Rate in County of Residence"
+
+. label variable kr_popdens "Population Density in County of Residence"
+
+. 
+. 
+. * individual lives in the "mitteldeutsche chemiedreieck"
+. gen chemiedreieck = 0
+
+. replace chemiedreieck = 1 if inlist(regbez, 142, 152) // ([152] halle, [142] leipzig)
+(5,690 real changes made)
+
+. 
+. gen chemiedreieck_female = chemiedreieck * female
+
+. 
+. label variable chemiedreieck "Residence in Chemiedreieck"
+
+. label variable chemiedreieck_female "Residence in Chemiedreieck $\times$ Female"
+
+. 
+. label define chemiedreieck 0 "[0] Does not reside in the Chemiedreieck", modify
+
+. label define chemiedreieck 1 "[1] Resides in the Chemiedreieck", modify
+
+. 
+. label values chemiedreieck chemiedreieck
+
+. **
+. 
+. 
 . * save dataset
 . compress
-  variable syear was long now int
   variable eintritt was float now int
   variable erstbefr was float now int
   variable austritt was float now int
@@ -253,130 +374,41 @@
   variable birthregion_ew was float now byte
   variable arefback was float now byte
   variable arefinfo was float now byte
-  variable dist_reunification was float now byte
-  variable dist_reunification_female was float now byte
-  variable regbez was int now byte
-  variable ror96 was int now byte
-  variable kkz was int now byte
-  variable kkz_rek90 was int now byte
-  variable gkz was long now byte
-  variable plz was long now byte
-  variable nuts3 was int now byte
+  variable d1991 was float now byte
+  variable female_d1991 was float now byte
+  variable d1992 was float now byte
+  variable female_d1992 was float now byte
+  variable d1993 was float now byte
+  variable female_d1993 was float now byte
+  variable d1994 was float now byte
+  variable female_d1994 was float now byte
+  variable d1995 was float now byte
+  variable female_d1995 was float now byte
+  variable d1996 was float now byte
+  variable female_d1996 was float now byte
+  variable d1997 was float now byte
+  variable female_d1997 was float now byte
+  variable d1998 was float now byte
+  variable female_d1998 was float now byte
+  variable d1999 was float now byte
+  variable female_d1999 was float now byte
   variable west_female was float now byte
   variable east_origin was float now byte
   variable stem was int now byte
+  variable pgemplst was float now byte
   variable age was float now byte
   variable age_2 was float now int
   variable partner_bin_female was float now byte
   variable hhgr_female was float now byte
+  variable chemiedreieck was float now byte
+  variable chemiedreieck_female was float now byte
+  variable syear was double now int
   variable partner was double now byte
   variable casemat was double now long
   variable sexor was double now byte
   variable sexorinfo was double now byte
-  variable kkz_rek was double now byte
-  variable kr_utmost was double now byte
-  variable kr_utmnord was double now byte
-  variable kr_uemprate was double now byte
-  variable kr_foreigner was double now byte
-  variable kr_emprate was double now byte
-  variable kr_popdens was double now byte
-  variable kr_area was double now byte
-  variable kr_population was double now byte
-  variable kr_hhinc was double now byte
-  variable kr_gdp_pem was double now byte
-  variable kr_gdp_pc was double now byte
   variable partner_bin was double now byte
-  (38,577,798 bytes saved)
-
-. save ${data}female_stem, replace
-file H:/master_thesis/stata/data/female_stem.dta saved
-
-. 
-. 
-. * state controls
-. do ${do}state_controls.do
-
-. ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
-. 
-. * population (INKAR: Bevölkerung gesamt)
-. import delimited "${data}destatis/state_wide.csv", encoding(utf-8) varnames(1) clear
-(23 vars, 16 obs)
-
-. 
-. * fill missing data in 1990 with data of 1991
-. replace unemprate_1990    = unemprate_1991
-variable unemprate_1990 was byte now float
-(16 real changes made)
-
-. replace unemp_female_1990 = unemp_female_1991
-variable unemp_female_1990 was byte now long
-(16 real changes made)
-
-. replace unemp_male_1990   = unemp_male_1991
-variable unemp_male_1990 was byte now long
-(16 real changes made)
-
-. 
-. reshape long unemprate_ unemp_female_ unemp_male_, i(state) j(syear)
-(j = 1990 1991 1992 1993 1994 1995 1996)
-
-Data                               Wide   ->   Long
------------------------------------------------------------------------------
-Number of observations               16   ->   112         
-Number of variables                  23   ->   6           
-j variable (7 values)                     ->   syear
-xij variables:
-unemprate_1990 unemprate_1991 ... unemprate_1996->unemprate_
-unemp_female_1990 unemp_female_1991 ... unemp_female_1996->unemp_female_
-unemp_male_1990 unemp_male_1991 ... unemp_male_1996->unemp_male_
------------------------------------------------------------------------------
-
-. 
-. rename unemprate_ unemprate
-
-. rename unemp_female_ unemp_female
-
-. rename unemp_male_ unemp_male
-
-. 
-. rename state bula
-
-. drop state_name
-
-. 
-. save "${data}state.dta", replace
-file H:/master_thesis/stata/data/state.dta saved
-
-. 
-end of do-file
-
-. 
-. use ${data}female_stem, clear
-(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
-
-. merge m:1 bula syear using ${data}state, keep(3) nogen
-
-    Result                      Number of obs
-    -----------------------------------------
-    Not matched                             0
-    Matched                            34,505  
-    -----------------------------------------
-
-. 
-. gen unemprate_female = unemprate * female
-
-. label variable unemprate_female "Unemployment Rate $\times$ Female"
-
-. 
-. gen share_female_unemp = unemp_female / (unemp_female + unemp_male)
-
-. label variable share_female_unemp "Share of Unemployed Females in all Unemployed (\emph{Bundesland})"
-
-. 
-. * save dataset
-. compress
-  variable phrf0 was double now byte
-  (241,535 bytes saved)
+  (31,334,374 bytes saved)
 
 . save ${data}female_stem, replace
 file H:/master_thesis/stata/data/female_stem.dta saved
@@ -393,7 +425,9 @@ end of do-file
 (SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
 
 . 
-. collapse (mean) stem (count) pid, by(syear east_origin female)
+. 
+. collapse (mean) stem (count) pid [aw = phrf], by(syear east_origin female)
+(note: aweights not used to compute counts)
 
 . 
 . * infos on bin sizes for notes
@@ -401,7 +435,7 @@ end of do-file
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-         pid |         28    1232.321    927.4417        211       3395
+         pid |        124    1583.427    1360.307        182       5160
 
 . local size_mean = round(r(mean))
 
@@ -418,7 +452,7 @@ end of do-file
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-         pid |         14    1088.571    743.9094        211       2333
+         pid |         14    1072.571    746.2587        199       2324
 
 . local size_mean_female = round(r(mean))
 
@@ -430,17 +464,15 @@ end of do-file
 . local fmt_size_sd_female   : di %3.0fc `size_sd_female'
 
 . 
-. twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcolor(gs6) msymbol(O) lpattern(solid)) 
-> ///
-> ||     (connected stem syear if female == 0 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Oh) lpattern(dash)) 
-> ///
-> ||     (connected stem syear if female == 1 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) 
-> ///
-> ||     (connected stem syear if female == 1 & east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(soli
-> d)), ///
+. 
+. * share of stem professionals within demographic groups (1990-1999)
+. twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcolor(gs6) msymbol(O) lpattern(solid)) ///
+> ||     (connected stem syear if female == 0 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Oh) lpattern(dash)) ///
+> ||     (connected stem syear if female == 1 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) ///
+> ||     (connected stem syear if female == 1 & east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(solid)), ///
 > xline(1990, lcolor(gray) lpattern(dash)) ///
-> xtitle("Year") ///
-> ytitle("Avg. Prob. STEM Profession") ///
+> xtitle("Survey Year") ///
+> ytitle("Share of STEM Professionals within Bin") ///
 > ylabel(0.05(0.05)0.2, format(%03.2f)) ///
 > legend(label(1 "East Origin, Male") ///
 >        label(2 "West Origin, Male") ///
@@ -461,14 +493,14 @@ file H:/master_thesis/stata/figures/trend.pdf saved as PDF format
 (SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
 
 . 
-. keep if inrange(syear, 1990, 1996)
-(0 observations deleted)
+. keep if inrange(syear, 1990, 1999) & female == 1
+(177,354 observations deleted)
 
 . 
-. statsby stem=r(mean) lb=r(lb) ub=r(ub), by(syear east_origin female) clear: ci means stem
+. statsby stem=r(mean) lb=r(lb) ub=r(ub) [aw = phrf], by(syear east_origin female) clear: ci means stem
 (running ci on estimation sample)
 
-      Command: ci means stem
+      Command: ci means stem [aweight= phrf]
          stem: r(mean)
            lb: r(lb)
            ub: r(ub)
@@ -476,17 +508,17 @@ file H:/master_thesis/stata/figures/trend.pdf saved as PDF format
 
 Statsby groups
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
-............................
+....................
 
 . 
-. twoway (connected stem syear if female == 1 & east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) 
-> ///
-> ||     (connected stem syear if female == 1 & east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(soli
-> d)) ///
-> ||     (rcap lb ub syear if female == 1 & east_origin == 0, lcolor(gs6)) ///
-> ||     (rcap lb ub syear if female == 1 & east_origin == 1, lcolor(black)), ///
-> xtitle("Year") ///
-> ytitle("Avg. Prob. STEM Profession") ///
+. 
+. * share of stem professionals within demographic groups (females only, 1990-1999)
+. twoway (connected stem syear if east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) ///
+> ||     (connected stem syear if east_origin == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(solid)) ///
+> ||     (rcap lb ub syear if east_origin == 0, lcolor(gs6)) ///
+> ||     (rcap lb ub syear if east_origin == 1, lcolor(black)), ///
+> xtitle("Survey Year") ///
+> ytitle("Share of STEM Professionals within Bin") ///
 > ylabel(0.05(0.05)0.2, format(%03.2f) nogrid) ///
 > legend(label(1 "West Origin, Female") ///
 >            label(2 "East Origin, Female") ///
@@ -506,6 +538,7 @@ end of do-file
 
 . ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 . 
+. * use mayer (1995) data to look at stem trend in gdr
 . use ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/ERWERB, clear
 
 . merge m:1 FALLNR using ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/LMUTTER, keep(3) nogen keepusing(SEX KOHORTE)
@@ -517,20 +550,24 @@ end of do-file
     -----------------------------------------
 
 . 
+. 
 . * all variables in lower case
 . foreach var of varlist * {
   2.      rename `var' `= lower("`var'")'
   3. }
 
 . 
+. 
 . * drop if case is not part of a cohort
 . drop if kohorte == 9
 (9 observations deleted)
 
 . 
+. 
 . * sort data
 . sort fallnr spellnr
 
+. 
 . 
 . * female dummy
 . recode sex (2 = 1) (1 = 0) (nonmissing = .), gen(female)
@@ -551,6 +588,7 @@ end of do-file
 . drop if mi(female)
 (0 observations deleted)
 
+. 
 . 
 . * drop cases with missing occupation
 . drop if inlist(f401i3, -1, 1004, 1009)
@@ -672,7 +710,7 @@ Statsby groups
 > ||     (rcap lb ub startocc_cat if female == 0, lcolor(gs6)) ///
 > ||     (rcap lb ub startocc_cat if female == 1, lcolor(black)), ///
 > xtitle("Year of Start of Occupation") ///
-> ytitle("Avg. Prob. STEM Profession") ///
+> ytitle("Share of STEM Professionals within Bin") ///
 > xlabel(1 2 3 4 5, valuelabel) ///
 > ylabel(0.05(0.05)0.2, format(%03.2f) nogrid) ///
 > legend(label(1 "Male") ///
@@ -686,243 +724,71 @@ Statsby groups
 file H:/master_thesis/stata/figures/validity.pdf saved as PDF format
 
 . 
-end of do-file
-
-. * regression analysis
-. do ${do}regression_analysis.do
-
-. ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 . 
+. *-----
+. 
+. 
+. * look at individuals from estimation sample in 1990
 . use ${data}female_stem, clear
 (SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
 
 . 
-. * keep east germans only
-. keep if east_origin == 1 & inrange(syear, 1990, 1996)
-(19,873 observations deleted)
+. 
+. * keep east germans only -> only look at 1990
+. keep if east_origin == 0 & syear == 1990
+(198,454 observations deleted)
 
 . drop east_origin
 
 . 
+. 
 . estimates clear
 
 . 
-. local baseline = "dist_reunification female dist_reunification_female"
+. eststo female: quietly estpost summarize ///
+>     stem age partner_bin hhgr west chemiedreieck if female == 1
 
-. local west     = "`baseline' west west_female"
+. eststo male: quietly estpost summarize ///
+>     stem age partner_bin hhgr west chemiedreieck if female == 0
 
-. local hhp      = "`west' partner_bin partner_bin_female hhgr hhgr_female age age_2"
-
-. local states   = "`hhp' share_female_unemp"
-
-. 
-. * run model
-. foreach ind in baseline west hhp states {
-  2.         logit stem ``ind'', vce(cluster hid)
-  3.         eststo: margins, dydx(``ind'') post
-  4. }
-
-Iteration 0:   log pseudolikelihood = -4387.5599  
-Iteration 1:   log pseudolikelihood = -4353.7468  
-Iteration 2:   log pseudolikelihood = -4353.1836  
-Iteration 3:   log pseudolikelihood = -4353.1834  
-
-Logistic regression                                     Number of obs = 14,632
-                                                        Wald chi2(3)  =  33.84
-                                                        Prob > chi2   = 0.0000
-Log pseudolikelihood = -4353.1834                       Pseudo R2     = 0.0078
-
-                                             (Std. err. adjusted for 2,363 clusters in hid)
--------------------------------------------------------------------------------------------
-                          |               Robust
-                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0103272   .0196094    -0.53   0.598     -.048761    .0281066
-                   female |  -.0275448   .1096645    -0.25   0.802    -.2424833    .1873938
-dist_reunification_female |  -.1499482   .0349514    -4.29   0.000    -.2184517   -.0814448
-                    _cons |  -2.165137    .074717   -28.98   0.000     -2.31158   -2.018695
--------------------------------------------------------------------------------------------
-
-Average marginal effects                                Number of obs = 14,632
-Model VCE: Robust
-
-Expression: Pr(stem), predict()
-dy/dx wrt:  dist_reunification female dist_reunification_female
-
--------------------------------------------------------------------------------------------
-                          |            Delta-method
-                          |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0008325   .0015775    -0.53   0.598    -.0039243    .0022594
-                   female |  -.0022204   .0088432    -0.25   0.802    -.0195527    .0151119
-dist_reunification_female |  -.0120873   .0028014    -4.31   0.000    -.0175779   -.0065967
--------------------------------------------------------------------------------------------
-(est1 stored)
-
-Iteration 0:   log pseudolikelihood = -4387.5599  
-Iteration 1:   log pseudolikelihood = -4347.6207  
-Iteration 2:   log pseudolikelihood = -4345.5551  
-Iteration 3:   log pseudolikelihood = -4345.5493  
-Iteration 4:   log pseudolikelihood = -4345.5493  
-
-Logistic regression                                     Number of obs = 14,632
-                                                        Wald chi2(5)  =  41.28
-                                                        Prob > chi2   = 0.0000
-Log pseudolikelihood = -4345.5493                       Pseudo R2     = 0.0096
-
-                                             (Std. err. adjusted for 2,363 clusters in hid)
--------------------------------------------------------------------------------------------
-                          |               Robust
-                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0338023   .0211175    -1.60   0.109    -.0751919    .0075873
-                   female |  -.0396539   .1090967    -0.36   0.716    -.2534795    .1741718
-dist_reunification_female |  -.1248446   .0365416    -3.42   0.001    -.1964649   -.0532243
-                     west |   .5892195   .2163856     2.72   0.006     .1651114    1.013328
-              west_female |  -.6415991   .3822621    -1.68   0.093    -1.390819    .1076208
-                    _cons |  -2.153757   .0742629   -29.00   0.000     -2.29931   -2.008204
--------------------------------------------------------------------------------------------
-
-Average marginal effects                                Number of obs = 14,632
-Model VCE: Robust
-
-Expression: Pr(stem), predict()
-dy/dx wrt:  dist_reunification female dist_reunification_female west west_female
-
--------------------------------------------------------------------------------------------
-                          |            Delta-method
-                          |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0027212   .0016889    -1.61   0.107    -.0060315     .000589
-                   female |  -.0031923   .0087877    -0.36   0.716     -.020416    .0140313
-dist_reunification_female |  -.0100506   .0029194    -3.44   0.001    -.0157724   -.0043287
-                     west |    .047435   .0173761     2.73   0.006     .0133785    .0814915
-              west_female |  -.0516518   .0309385    -1.67   0.095    -.1122901    .0089865
--------------------------------------------------------------------------------------------
-(est2 stored)
-
-Iteration 0:   log pseudolikelihood = -4387.5599  
-Iteration 1:   log pseudolikelihood = -4299.6403  
-Iteration 2:   log pseudolikelihood = -4295.0584  
-Iteration 3:   log pseudolikelihood = -4295.0457  
-Iteration 4:   log pseudolikelihood = -4295.0457  
-
-Logistic regression                                     Number of obs = 14,632
-                                                        Wald chi2(11) =  88.97
-                                                        Prob > chi2   = 0.0000
-Log pseudolikelihood = -4295.0457                       Pseudo R2     = 0.0211
-
-                                             (Std. err. adjusted for 2,363 clusters in hid)
--------------------------------------------------------------------------------------------
-                          |               Robust
-                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0333523   .0212997    -1.57   0.117    -.0750989    .0083944
-                   female |   .0152849   .3362166     0.05   0.964    -.6436875    .6742573
-dist_reunification_female |  -.1264942   .0370679    -3.41   0.001     -.199146   -.0538423
-                     west |    .669967   .2209816     3.03   0.002      .236851    1.103083
-              west_female |  -.5446639   .3856939    -1.41   0.158     -1.30061    .2112822
-              partner_bin |    .363502   .2269862     1.60   0.109    -.0813828    .8083869
-       partner_bin_female |  -.5083064   .2714418    -1.87   0.061    -1.040323    .0237098
-                     hhgr |   .0066271   .0552501     0.12   0.905    -.1016611    .1149153
-              hhgr_female |   .1186465   .0767559     1.55   0.122    -.0317923    .2690853
-                      age |   .0881053   .0328742     2.68   0.007     .0236731    .1525375
-                    age_2 |  -.0008625   .0004035    -2.14   0.033    -.0016534   -.0000715
-                    _cons |  -4.516159   .5940043    -7.60   0.000    -5.680386   -3.351932
--------------------------------------------------------------------------------------------
-
-Average marginal effects                                Number of obs = 14,632
-Model VCE: Robust
-
-Expression: Pr(stem), predict()
-dy/dx wrt:  dist_reunification female dist_reunification_female west west_female partner_bin partner_bin_female hhgr
-            hhgr_female age age_2
-
--------------------------------------------------------------------------------------------
-                          |            Delta-method
-                          |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0026669   .0016936    -1.57   0.115    -.0059863    .0006524
-                   female |   .0012222   .0268812     0.05   0.964     -.051464    .0539085
-dist_reunification_female |  -.0101147   .0029415    -3.44   0.001      -.01588   -.0043495
-                     west |    .053572   .0176723     3.03   0.002     .0189349    .0882091
-              west_female |  -.0435525   .0309507    -1.41   0.159    -.1042147    .0171098
-              partner_bin |   .0290664   .0181457     1.60   0.109    -.0064985    .0646313
-       partner_bin_female |  -.0406452   .0216436    -1.88   0.060     -.083066    .0017755
-                     hhgr |   .0005299   .0044198     0.12   0.905    -.0081328    .0091926
-              hhgr_female |   .0094872   .0061543     1.54   0.123     -.002575    .0215494
-                      age |   .0070451   .0026767     2.63   0.008     .0017988    .0122913
-                    age_2 |   -.000069   .0000327    -2.11   0.035     -.000133   -4.88e-06
--------------------------------------------------------------------------------------------
-(est3 stored)
-
-Iteration 0:   log pseudolikelihood = -4387.5599  
-Iteration 1:   log pseudolikelihood = -4290.2358  
-Iteration 2:   log pseudolikelihood = -4285.2623  
-Iteration 3:   log pseudolikelihood = -4285.2476  
-Iteration 4:   log pseudolikelihood = -4285.2476  
-
-Logistic regression                                     Number of obs = 14,632
-                                                        Wald chi2(12) =  95.73
-                                                        Prob > chi2   = 0.0000
-Log pseudolikelihood = -4285.2476                       Pseudo R2     = 0.0233
-
-                                             (Std. err. adjusted for 2,363 clusters in hid)
--------------------------------------------------------------------------------------------
-                          |               Robust
-                     stem | Coefficient  std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0121727   .0225804    -0.54   0.590    -.0564294     .032084
-                   female |  -.0043693   .3356911    -0.01   0.990    -.6623119    .6535732
-dist_reunification_female |  -.1242696   .0363521    -3.42   0.001    -.1955185   -.0530208
-                     west |   .2361928   .2812728     0.84   0.401    -.3150918    .7874774
-              west_female |  -.5426949   .3871557    -1.40   0.161    -1.301506    .2161164
-              partner_bin |    .369037   .2287406     1.61   0.107    -.0792864    .8173605
-       partner_bin_female |   -.505717    .272467    -1.86   0.063    -1.039743    .0283084
-                     hhgr |   .0108327   .0550662     0.20   0.844     -.097095    .1187604
-              hhgr_female |   .1213376   .0767942     1.58   0.114    -.0291764    .2718515
-                      age |   .0860133   .0330256     2.60   0.009     .0212843    .1507424
-                    age_2 |  -.0008349    .000405    -2.06   0.039    -.0016287    -.000041
-       share_female_unemp |   -2.35285   .9328464    -2.52   0.012    -4.181196   -.5245049
-                    _cons |  -3.122538   .8090852    -3.86   0.000    -4.708316    -1.53676
--------------------------------------------------------------------------------------------
-
-Average marginal effects                                Number of obs = 14,632
-Model VCE: Robust
-
-Expression: Pr(stem), predict()
-dy/dx wrt:  dist_reunification female dist_reunification_female west west_female partner_bin partner_bin_female hhgr
-            hhgr_female age age_2 share_female_unemp
-
--------------------------------------------------------------------------------------------
-                          |            Delta-method
-                          |      dy/dx   std. err.      z    P>|z|     [95% conf. interval]
---------------------------+----------------------------------------------------------------
-       dist_reunification |  -.0009719   .0017999    -0.54   0.589    -.0044996    .0025559
-                   female |  -.0003488   .0268019    -0.01   0.990    -.0528796     .052182
-dist_reunification_female |  -.0099215   .0028819    -3.44   0.001    -.0155699   -.0042731
-                     west |   .0188572    .022469     0.84   0.401    -.0251812    .0628957
-              west_female |  -.0433279   .0310202    -1.40   0.162    -.1041264    .0174707
-              partner_bin |   .0294633   .0182568     1.61   0.107    -.0063193    .0652459
-       partner_bin_female |  -.0403756   .0216897    -1.86   0.063    -.0828866    .0021354
-                     hhgr |   .0008649   .0043993     0.20   0.844    -.0077577    .0094874
-              hhgr_female |   .0096874   .0061457     1.58   0.115     -.002358    .0217328
-                      age |   .0068672   .0026837     2.56   0.011     .0016072    .0121271
-                    age_2 |  -.0000667   .0000328    -2.03   0.042    -.0001309   -2.45e-06
-       share_female_unemp |  -.1878476    .074288    -2.53   0.011    -.3334495   -.0422458
--------------------------------------------------------------------------------------------
-(est4 stored)
+. eststo diff: quietly estpost ttest ///
+>     stem age partner_bin hhgr west chemiedreieck, by(female) unequal
 
 . 
-. esttab using ${tables}margins.tex, ///
->         keep(dist_reunification female dist_reunification_female west west_female ///
->                  partner_bin partner_bin_female hhgr hhgr_female share_female_unemp) ///
->         b(4) se(4) label nomtitle star(* 0.10 ** 0.05 *** 0.01) booktabs replace
-(output written to H:/master_thesis/stata/../latex/tables/margins.tex)
+. 
+. * direct output in log
+. esttab female male diff, ///
+>         cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
+>         label
+
+-----------------------------------------------------------------------------------------------------
+                              (1)                       (2)                       (3)                
+                                                                                                     
+                             mean           sd         mean           sd            b              se
+-----------------------------------------------------------------------------------------------------
+STEM Profession              0.04       (0.20)         0.11       (0.31)         0.06***       (0.02)
+Age                         30.14       (9.84)        30.31      (10.21)         0.17          (0.60)
+Spouse/Life Partner          0.63       (0.48)         0.56       (0.50)        -0.07*         (0.03)
+Household Size               3.21       (1.51)         3.31       (1.65)         0.10          (0.09)
+Residence in West ~y         0.97       (0.18)         0.97       (0.17)         0.00          (0.01)
+Residence in Chemi~k         0.00       (0.00)         0.00       (0.00)         0.00          (0.00)
+-----------------------------------------------------------------------------------------------------
+Observations                  529                       599                      1128                
+-----------------------------------------------------------------------------------------------------
+
+. 
+. 
+. * latex export
+. esttab female male diff using ${tables}descriptives90.tex, ///
+>         cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
+>         label booktabs replace
+(output written to H:/master_thesis/stata/../latex/tables/descriptives90.tex)
 
 . 
 end of do-file
 
+. * regression analysis
+. //do ${do}regression_analysis.do
 . * eastern female tracking
 . do ${do}eastern_female_tracking.do
 
@@ -934,48 +800,22 @@ end of do-file
 . 
 . 
 . * keep east german females only
-. keep if east_origin == 1 & inrange(syear, 1990, 1996) & female == 1
-(27,709 observations deleted)
+. keep if east_origin == 1 & inrange(syear, 1990, 1999) & female == 1
+(190,300 observations deleted)
 
 . drop east_origin
 
 . 
 . 
-. * most of the east german females had their first interview in 1990
-. tab erstbefr
-
-   Jahr der |
-     ersten |
- Befragung, |
-Netto=10-19 |      Freq.     Percent        Cum.
-------------+-----------------------------------
-       1990 |      6,124       90.11       90.11
-       1991 |        186        2.74       92.85
-       1992 |        121        1.78       94.63
-       1993 |         70        1.03       95.66
-       1994 |        215        3.16       98.82
-       1995 |         68        1.00       99.82
-       1996 |         12        0.18      100.00
-------------+-----------------------------------
-      Total |      6,796      100.00
-
-. 
-. 
-. * only look at the individuals who had their first interview in 1990
-. keep if erstbefr == 1990
-(672 observations deleted)
-
-. 
-. 
 . * number of individuals in 1990 for notes
 . egen sumpid = count(pid) if syear == 1990
-(4,501 missing values generated)
+(7,669 missing values generated)
 
 . sum sumpid
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-      sumpid |      1,623        1623           0       1623       1623
+      sumpid |      1,613        1613           0       1613       1613
 
 . local sumpid = r(mean)
 
@@ -983,13 +823,13 @@ Netto=10-19 |      Freq.     Percent        Cum.
 
 . 
 . egen sumstem = count(pid) if syear == 1990 & stem == 1
-(5,946 missing values generated)
+(9,113 missing values generated)
 
 . sum sumstem
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-     sumstem |        178         178           0        178        178
+     sumstem |        169         169           0        169        169
 
 . local sumstem = r(mean)
 
@@ -1002,23 +842,58 @@ Netto=10-19 |      Freq.     Percent        Cum.
 . 
 . * individuals switches from being occupied in stem to not being occupied in stem
 . * individuals switching the other way around get accounted as -1 to get net switches
-. gen switch = 0
+. gen stem_switch = 0
 
-. bysort pid (syear): replace switch = 1 if stem == 0 & stem[_n-1] == 1
-(141 real changes made)
+. bysort pid (syear): replace stem_switch = 1 if stem == 0 & stem[_n-1] == 1
+(160 real changes made)
 
-. bysort pid (syear): replace switch = -1 if stem == 1 & stem[_n-1] == 0
-(56 real changes made)
-
-. 
-. collapse (sum) switch pid, by(syear)
+. bysort pid (syear): replace stem_switch = -1 if stem == 1 & stem[_n-1] == 0
+(89 real changes made)
 
 . 
-. graph twoway connected switch syear [w = pid], ///
->         xtitle("Year") ///
->         ytitle("Net Switches from STEM to non-STEM") ///
+. 
+. * individuals switches from being employed (either full- or part-time) to not being employed
+. * individuals switching the other way around get accounted as -1 to get net switches
+. gen unemp_switch = 0
+
+. bysort pid (syear): replace unemp_switch = 1 if inrange(pgemplst, 3, 6) & (pgemplst[_n-1] == 1 | pgemplst[_n-1] == 2)
+(162 real changes made)
+
+. bysort pid (syear): replace unemp_switch = -1 if (pgemplst == 1 | pgemplst == 2) & inrange(pgemplst[_n-1], 3, 6)
+(270 real changes made)
+
+. 
+. 
+. * individuals switches from being occupied in stem to not being employed
+. * individuals switching the other way around get accounted as -1 to get net switches
+. gen stem_unemp_switch = 0
+
+. bysort pid (syear): replace stem_unemp_switch = 1 if inrange(pgemplst, 3, 6) & (pgemplst[_n-1] == 1 | pgemplst[_n-1] == 2) & stem[_n-1
+> ] == 1
+(17 real changes made)
+
+. bysort pid (syear): replace stem_unemp_switch = -1 if (pgemplst == 1 | pgemplst == 2) & stem == 1 & inrange(pgemplst[_n-1], 3, 6)
+(10 real changes made)
+
+. 
+. 
+. collapse (sum) stem_switch unemp_switch stem_unemp_switch (count) pid [aw = phrf], by(syear)
+(note: aweights not used to compute counts)
+
+. 
+. twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
+> ||     (connected stem_unemp_switch syear [w = pid], lcolor(gs4) mcolor(gs4) msymb(oh) lpattern(solid)) ///
+> ||     (line stem_switch syear, lcolor(black) lpattern(solid)), ///
+>         xtitle("Survey Year") ///
+>         ytitle("Net Switches") ///
 >         ylab(, nogrid) ///
->         text(2.5 1990.2 "N = `fmt_sumpid'" 1.1 1990.2 "thereof `sumstem' in STEM", size(vsmall) placement(ne)) ///
+>         xlab(, nogrid) ///
+>         legend(label(1 "STEM to Unemployment") ///
+>                label(2 "Employment (Full- or Part-Time) to Unemployment") ///
+>                    label(3 "STEM to non-STEM") ///
+>                    order(3 2 1) ///
+>                    position(6)) ///
+>         note("N = `fmt_sumpid', thereof `sumstem' in STEM.") ///
 >         name(eastern_female_tracking, replace)
 (analytic weights assumed)
 (analytic weights assumed)
@@ -1029,6 +904,251 @@ Netto=10-19 |      Freq.     Percent        Cum.
 file H:/master_thesis/stata/figures/eastern_female_tracking.pdf saved as PDF format
 
 . 
+. 
+. * survival plot 
+. * get eastern female stem professionals of 1990 and see how they develop
+. use ${data}female_stem, clear
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+
+. keep if syear == 1990 & stem == 1 & east_origin == 1 & female == 1
+(199,413 observations deleted)
+
+. keep pid
+
+. 
+. 
+. merge 1:m pid using ${data}female_stem, keep(3) nogen
+(label hhgr already defined)
+(label hhgr_EN already defined)
+(label stem already defined)
+(label p_isco88 already defined)
+(label pid_EN already defined)
+(label hid_EN already defined)
+(label cid_EN already defined)
+(label syear_EN already defined)
+(label p_isco88_EN already defined)
+(label female already defined)
+(label reclin_iab_match_EN already defined)
+(label rv_id_EN already defined)
+(label arefinfo_EN already defined)
+(label arefback_EN already defined)
+(label birthregion_ew_EN already defined)
+(label birthregion_EN already defined)
+(label locinfo_EN already defined)
+(label sexorinfo_EN already defined)
+(label sexor_EN already defined)
+(label immiyearinfo_EN already defined)
+(label corigininfo_EN already defined)
+(label germborninfo_EN already defined)
+(label miginfo_EN already defined)
+(label migback_EN already defined)
+(label loc1989_EN already defined)
+(label gebmonat_EN already defined)
+(label corigin_EN already defined)
+(label germborn_EN already defined)
+(label todinfo_EN already defined)
+(label pop_EN already defined)
+(label casemat_EN already defined)
+(label nett1_EN already defined)
+(label netto_EN already defined)
+(label sampreg_EN already defined)
+(label psample_EN already defined)
+(label sex_EN already defined)
+(label partner_EN already defined)
+(label reclin_iab_match already defined)
+(label rv_id already defined)
+(label arefinfo already defined)
+(label arefback already defined)
+(label birthregion_ew already defined)
+(label birthregion already defined)
+(label locinfo already defined)
+(label sexorinfo already defined)
+(label sexor already defined)
+(label immiyearinfo already defined)
+(label corigininfo already defined)
+(label germborninfo already defined)
+(label miginfo already defined)
+(label migback already defined)
+(label loc1989 already defined)
+(label gebmonat already defined)
+(label corigin already defined)
+(label germborn already defined)
+(label todinfo already defined)
+(label pop already defined)
+(label casemat already defined)
+(label nett1 already defined)
+(label netto already defined)
+(label sampreg already defined)
+(label psample already defined)
+(label sex already defined)
+(label partner already defined)
+(label regbez_EN already defined)
+(label bula_EN already defined)
+(label regbez already defined)
+(label bula already defined)
+(label west already defined)
+(label east_origin already defined)
+(label pgemplst_EN already defined)
+(label pgemplst already defined)
+(label partner_bin already defined)
+(label chemiedreieck already defined)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                             1,348  
+    -----------------------------------------
+
+. keep if inrange(syear, 1990, 1999)
+(488 observations deleted)
+
+. 
+. * create status variable [1] stem [2] working in non-stem [3] non-working [4] punr
+. gen status = .
+(860 missing values generated)
+
+. replace status = 1 if stem == 1
+(445 real changes made)
+
+. replace status = 2 if stem == 0 & inlist(pgemplst, 1, 2)
+(388 real changes made)
+
+. replace status = 3 if stem == 0 & !inlist(pgemplst, 1, 2)
+(27 real changes made)
+
+. 
+. 
+. label variable status "Work Status"
+
+. label define status 1 "Working in STEM", modify
+
+. label define status 2 "Working in Non-STEM", modify
+
+. label define status 3 "Non-Working", modify
+
+. label define status 4 "Partial Unit-Nonresponse", modify
+
+. 
+. label values status status
+
+. 
+. 
+. save ${data}survival, replace
+file H:/master_thesis/stata/data/survival.dta saved
+
+. 
+. 
+. * count punr's
+. collapse (sum) stem (count) pid, by(syear)
+
+. gen punr = pid[1] - pid
+
+. save ${data}punr, replace
+file H:/master_thesis/stata/data/punr.dta saved
+
+. 
+. * get punr's into the status variable
+. forvalues year = 1(1)10 {
+  2.         
+.         use ${data}punr, clear
+  3.         local punr = punr[`year']
+  4.         
+.         
+.         use ${data}survival, clear
+  5.         local oldobs = _N + 1
+  6.         local newobs = _N + `punr'
+  7.         set obs `newobs'
+  8.         
+.         if `oldobs' < `newobs' {
+  9.                 replace syear = 1989 + `year' in `oldobs'/`newobs'
+ 10.                 replace status = 4 in `oldobs'/`newobs'
+ 11.         }
+ 12.         
+.         save ${data}survival, replace
+ 13. }
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 860, now 860.
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 860, now 901.
+(41 real changes made)
+(41 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 901, now 959.
+(58 real changes made)
+(58 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 959, now 1,017.
+(58 real changes made)
+(58 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 1,017, now 1,155.
+(138 real changes made)
+(138 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 1,155, now 1,220.
+(65 real changes made)
+(65 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 1,220, now 1,377.
+(157 real changes made)
+(157 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 1,377, now 1,455.
+(78 real changes made)
+(78 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 1,455, now 1,537.
+(82 real changes made)
+(82 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+(SOEP-Core, v38.1 (EU Edition), doi:10.5684/soep.core.v38.1eu)
+Number of observations (_N) was 1,537, now 1,690.
+(153 real changes made)
+(153 real changes made)
+file H:/master_thesis/stata/data/survival.dta saved
+
+. 
+. set scheme s2color
+
+. 
+. graph bar, ///
+>         over(status) ///
+>         over(syear) ///
+>         stack asyvars ///
+>         percentage ///
+>         ylab(, nogrid) ///
+>         ytitle("Percent") ///
+>         graphregion(color(white)) ///
+>         name(survival, replace)
+
+. 
+. graph export ${figures}survival.pdf, replace
+file H:/master_thesis/stata/figures/survival.pdf saved as PDF format
+
+.         
+. * reset scheme
+. set scheme tufte
+
+. 
+. 
 end of do-file
 
 . 
@@ -1036,11 +1156,13 @@ end of do-file
 . * erase tempfiles
 . erase ${data}female_stem.dta
 
+. erase ${data}validity.dta
+
 . 
 . * close log file
 . log close master_thesis
       name:  master_thesis
        log:  H:/master_thesis/stata/log/master_thesis_running.log
   log type:  text
- closed on:  13 Jun 2024, 08:50:24
-----------------------------------------------------------------------------------------------------------------------
+ closed on:   1 Jul 2024, 19:46:23
+----------------------------------------------------------------------------------------------------------------------------------------

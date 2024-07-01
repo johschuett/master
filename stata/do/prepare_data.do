@@ -121,6 +121,9 @@ label variable hhgr_female "Household Size $\times$ Female"
 ** RESTRICTED AREA **
 merge m:1 hid syear using ${restricted}regionl, keep(3) keepusing(regbez kr_emprate kr_popdens) nogen
 
+label variable kr_emprate "Employment Rate in County of Residence"
+label variable kr_popdens "Population Density in County of Residence"
+
 
 * individual lives in the "mitteldeutsche chemiedreieck"
 gen chemiedreieck = 0
