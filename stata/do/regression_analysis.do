@@ -17,7 +17,7 @@ estimates clear
 * define controls
 local baseline = "female d19* female_d19*"
 local west     = "`baseline' west west_female"
-local hhp      = "`west' age age_2 partner_bin partner_bin_female hhgr hhgr_female hhincome hhincome_female"
+local hhp      = "`west' age age_2 partner_bin partner_bin_female hhgr hhgr_female"
 local states   = "`hhp' kr_emprate kr_popdens chemiedreieck chemiedreieck_female"
 
 
@@ -31,14 +31,14 @@ foreach ind in baseline west hhp states {
 * direct output in log
 esttab, ///
 	keep(d19* female_d19* female west west_female partner_bin partner_bin_female ///
-		 hhgr hhgr_female hhincome hhincome_female chemiedreieck chemiedreieck_female) ///
+		 hhgr hhgr_female chemiedreieck chemiedreieck_female) ///
 	b(4) se(4) label nomtitle star(* 0.10 ** 0.05 *** 0.01)
 
 
 * latex export
 esttab using ${tables}margins.tex, ///
 	keep(d19* female_d19* female west west_female partner_bin partner_bin_female ///
-		 hhgr hhgr_female hhincome hhincome_female chemiedreieck chemiedreieck_female) ///
+		 hhgr hhgr_female chemiedreieck chemiedreieck_female) ///
 	b(4) se(4) label nomtitle star(* 0.10 ** 0.05 *** 0.01) booktabs replace
 
 

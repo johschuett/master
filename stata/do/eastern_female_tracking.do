@@ -8,14 +8,6 @@ keep if east_origin == 1 & inrange(syear, 1990, 1999) & female == 1
 drop east_origin
 
 
-* most of the east german females had their first interview in 1990
-tab erstbefr
-
-
-* only look at the individuals who had their first interview in 1990
-keep if erstbefr == 1990
-
-
 * number of individuals in 1990 for notes
 egen sumpid = count(pid) if syear == 1990
 sum sumpid
@@ -59,10 +51,12 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 	xtitle("Survey Year") ///
 	ytitle("Net Switches") ///
 	ylab(, nogrid) ///
+	xlab(, nogrid) ///
 	legend(label(1 "STEM to Unemployment") ///
 	       label(2 "Employment (Full- or Part-Time) to Unemployment") ///
 		   label(3 "STEM to non-STEM") ///
-		   order(3 2 1)) ///
+		   order(3 2 1) ///
+		   position(6)) ///
 	note("N = `fmt_sumpid', thereof `sumstem' in STEM.") ///
 	name(eastern_female_tracking, replace)
 
