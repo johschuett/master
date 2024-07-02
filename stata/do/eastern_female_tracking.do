@@ -52,9 +52,9 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 	ytitle("Net Switches") ///
 	ylab(, nogrid) ///
 	xlab(, nogrid) ///
-	legend(label(1 "STEM to Unemployment") ///
-	       label(2 "Employment (Full- or Part-Time) to Unemployment") ///
-		   label(3 "STEM to non-STEM") ///
+	legend(label(1 "STEM to No Regular Employment") ///
+	       label(2 "Employment (Full- or Part-Time) to No Regular Employment") ///
+		   label(3 "STEM to Non-STEM") ///
 		   order(3 2 1) ///
 		   position(6)) ///
 	note("`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM.") ///
