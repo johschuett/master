@@ -204,64 +204,31 @@
 		
 	\end{frame}
 	
-	\section{Empirical Approach}
-	
-	\subsection{Theoretical Framework}
+	\section{Descriptive Analysis}
 	\begin{frame}
-		\frametitle{Theoretical Framework}
+		\frametitle{}
 		
-		\begin{itemize}
-			\item \cite{Fernandez2011}
-		\end{itemize}
-		
-	\end{frame}
-	
-	\subsection{Data}
-	\begin{frame}
-		\frametitle{Data}
-		
-		\begin{itemize}
-			\item Use \highlight{SOEP} data; survey years \highlight{1990--1999}.
-			\item 19,438 observations (\highlight{18,962} using person weights) of \highlight{4,910 unique individuals}.
-			\item \highlight{8\%} are employed in \highlight{STEM} sector
-			\item 47\% are female.
-			\item 94\% are from sample C ``1990 Initial Sample (East)''.
-			\item \highlight{All} of them are of \highlight{East German origin} (all lived in GDR in 1989).
-		\end{itemize}
+		\begin{enumerate}
+			\item \textbf{How do East German females develop in \highlight{reunified Germany's STEM sector}? (descriptive analysis)}
+			\item Do they \highlight{transmit} socialist emphasis on STEM to their children born after 1989? (following \cite{Fernandez2011})
+		\end{enumerate}
 		
 	\end{frame}
 	
 	\begin{frame}
 		\frametitle{}
 		
-		{\linespread{1}\small
-			\begin{table}[h]
-				\centering
-				\caption{Examples of STEM Professions (sorted by Frequency)}
-				\label{tab:stem_examples}
-				
-				\begin{tabular}{ll}
-					\toprule
-					ISCO-88 Code & Professional title\\
-					\midrule
-					{[2149]} & Architects, engineers and related scientists\\
-					{[3152]} & Health, environmental and quality inspectors\\
-					{[3119]} & Materials and engineering specialists\\
-					{[2142]} & Civil engineers\\
-					{[3121]} & Data processing assistants\\
-					{[3111]} & Chemo- and physicotechnician\\
-					{[2145]} & Mechanical engineers\\
-					{[3114]} & Electronics and telecommunications technology\\
-					{[3120]} & Data processing specialists\\
-					{[2144]} & Electronics and telecommunications engineers\\
-					… &\\
-					\bottomrule
-				\end{tabular}
-			\end{table}
-		}
+		\begin{itemize}
+			\item Use \highlight{SOEP} data; survey years \highlight{1990--1999}.
+			\item 19,438 observations (\highlight{18,962} using person weights) of \highlight{4,910 unique individuals}.
+			\item \highlight{8\%} are employed in \highlight{STEM} sector.
+			\item 47\% are female.
+			\item 94\% are from sample C ``1990 Initial Sample (East)''.
+			\item \highlight{All} of them are of \highlight{East German origin} (all lived in GDR in 1989).
+		\end{itemize}
 		
 	\end{frame}
-	
+		
 	\begin{frame}
 		\frametitle{}
 		{\linespread{1}\tiny
@@ -305,21 +272,9 @@
 		}
 		
 	\end{frame}
-	
-	\section{Preliminary Results}
+		
 	\begin{frame}
 		\frametitle{}
-		
-		\begin{enumerate}
-			\item \textbf{How do East German females develop in \highlight{reunified Germany's STEM sector}? (descriptive analysis)}
-			\item Do they \highlight{transmit} socialist emphasis on STEM to their children born after 1989? (following \cite{Fernandez2011})
-		\end{enumerate}
-		
-	\end{frame}
-	
-	\subsection{Descriptive Analysis}
-	\begin{frame}
-		\frametitle{Descriptive Analysis}
 		
 		\begin{itemize}
 			\item \highlight{Share of STEM professionals} within demographic groups in Germany over time.
@@ -425,9 +380,9 @@
 		
 	\end{frame}
 	
-	\subsection{Outlook on Second Part}
+	\section{Epidemiological Approach}
 	\begin{frame}
-		\frametitle{Outlook on Second Part}
+		\frametitle{}
 		
 		\begin{enumerate}
 			\item How do East German females develop in \highlight{reunified Germany's STEM sector}? (descriptive analysis)
@@ -436,10 +391,74 @@
 		
 	\end{frame}
 	
+	\subsection{Theoretical Framework}
+	\begin{frame}
+		\frametitle{Theoretical Framework}
+		
+		\begin{itemize}
+			\item \cite{Fernandez2011} defines the \highlight{epidemiological approach} as attempt to separate \highlight{culture from environment}.
+			\item Study outcomes of individuals \highlight{whose cultures differ} but who live in the \highlight{same economic and institutional} setting.
+		\end{itemize}
+		
+	\end{frame}
+	
 	\begin{frame}
 		\frametitle{}
 		
+		\begin{itemize}
+			\item Approach is reminiscent of that of \highlight{epidemiologists}.
+		\end{itemize}
 		
+		\vspace{8mm}
+		
+		\begin{minipage}{\linewidth}
+			\textcolor{PineGreen}{\underline{Example.}} Suppose the \highlight{incidence of heart disease} differs significantly between \highlight{two countries (source and host country)}. If the \highlight{incidence of heart disease in immigrants converges to that of natives} of the host country, the difference between the two countries is unlikely to be driven by genetics, but rather has \highlight{environmental causes}.
+		\end{minipage}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{itemize}
+			\item In economics, epidemiological approach tries to \highlight{separate cultural from environmental factors}.
+		\end{itemize}
+		
+		\vspace{8mm}
+		
+		\begin{minipage}{\linewidth}
+			\textcolor{PineGreen}{\underline{Example.}} Use data on individuals that live in one given country but whose parents were born in some other country. Estimate the probability that $i$ takes some action $y_{ic}$,
+			
+			\vspace{-4mm}
+			
+			\begin{equation}
+				\label{eq:fernandez}
+				y_{ic} = \beta_{0} + \beta_{1}X_{i} + \beta_{2}Y_{c} + \epsilon_{i}
+			\end{equation}
+			
+			with $X_{i}$ being a vector of individual characteristics and \highlight{$Y_{c}$ being a proxy for culture in country of ancestry $c$}.
+			
+		\end{minipage}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{}
+		
+		\begin{itemize}
+			\item If $y_{ic}$ is \highlight{labour force participation decision of a female}, $Y_{c}$ could be \highlight{female LFP in parents' home country}.
+			\item Alternatively, use \highlight{country-of-ancestry dummy}.
+		\end{itemize}
+		
+	\end{frame}
+	
+	\subsection{Outlook}
+	\begin{frame}
+		\frametitle{Outlook}
+		
+		\begin{itemize}
+			\item dd
+		\end{itemize}
 		
 	\end{frame}
 		
@@ -456,6 +475,37 @@
 	\appendix
 	
 	\section{Appendix}
+		\begin{frame}
+		\frametitle{}
+		
+		{\linespread{1}\small
+			\begin{table}[h]
+				\centering
+				\caption{Examples of STEM Professions (sorted by Frequency)}
+				\label{tab:stem_examples}
+				
+				\begin{tabular}{ll}
+					\toprule
+					ISCO-88 Code & Professional title\\
+					\midrule
+					{[2149]} & Architects, engineers and related scientists\\
+					{[3152]} & Health, environmental and quality inspectors\\
+					{[3119]} & Materials and engineering specialists\\
+					{[2142]} & Civil engineers\\
+					{[3121]} & Data processing assistants\\
+					{[3111]} & Chemo- and physicotechnician\\
+					{[2145]} & Mechanical engineers\\
+					{[3114]} & Electronics and telecommunications technology\\
+					{[3120]} & Data processing specialists\\
+					{[2144]} & Electronics and telecommunications engineers\\
+					… &\\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		}
+		
+	\end{frame}
+	
 	\begin{frame}
 		\frametitle{}
 		{\linespread{1}\tiny
