@@ -57,7 +57,7 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 		   label(3 "STEM to non-STEM") ///
 		   order(3 2 1) ///
 		   position(6)) ///
-	note("N = `fmt_sumpid', thereof `sumstem' in STEM.") ///
+	note("`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM.") ///
 	name(eastern_female_tracking, replace)
 
 graph export "${figures}eastern_female_tracking.pdf", replace
