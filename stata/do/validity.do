@@ -115,18 +115,18 @@ use ${data}female_stem, clear
 
 
 * keep east germans only -> only look at 1990
-keep if east_origin == 0 & syear == 1990
+keep if east_origin == 1 & syear == 1990
 drop east_origin
 
 
 estimates clear
 
 eststo female: quietly estpost summarize ///
-    stem age partner_bin hhgr west chemiedreieck if female == 1
+    stem age partner_bin hhgr west if female == 1
 eststo male: quietly estpost summarize ///
-    stem age partner_bin hhgr west chemiedreieck if female == 0
+    stem age partner_bin hhgr west if female == 0
 eststo diff: quietly estpost ttest ///
-    stem age partner_bin hhgr west chemiedreieck, by(female) unequal
+    stem age partner_bin hhgr west, by(female) unequal
 
 
 * direct output in log

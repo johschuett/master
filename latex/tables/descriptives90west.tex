@@ -1,20 +1,18 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 \begin{tabular}{l*{3}{cccc}}
-\hline\hline
+\toprule
                     &\multicolumn{2}{c}{(1)}  &\multicolumn{2}{c}{(2)}  &\multicolumn{2}{c}{(3)}           \\
                     &\multicolumn{2}{c}{}     &\multicolumn{2}{c}{}     &\multicolumn{2}{c}{}              \\
                     &        mean&          sd&        mean&          sd&           b         &          se\\
-\hline
-STEM Profession     &        0.04&      (0.20)&        0.10&      (0.30)&        0.06\sym{***}&      (0.02)\\
-Age                 &       30.16&      (9.91)&       30.29&     (10.27)&        0.13         &      (0.61)\\
+\midrule
+STEM Profession     &        0.04&      (0.20)&        0.11&      (0.31)&        0.06\sym{***}&      (0.02)\\
+Age                 &       30.14&      (9.84)&       30.31&     (10.21)&        0.17         &      (0.60)\\
 Spouse/Life Partner &        0.63&      (0.48)&        0.56&      (0.50)&       -0.07\sym{*}  &      (0.03)\\
-Household Size      &        3.23&      (1.52)&        3.30&      (1.65)&        0.07         &      (0.10)\\
-Monthly Household Income (Net)&     2154.94&   (2447.84)&     1983.31&    (891.03)&     -171.64         &    (114.27)\\
-Residence in West Germany&        0.96&      (0.18)&        0.97&      (0.17)&        0.01         &      (0.01)\\
-Residence in Chemiedreieck&        0.00&      (0.00)&        0.00&      (0.00)&        0.00         &      (0.00)\\
-\hline
-Observations        &         513&            &         576&            &        1089         &            \\
-\hline\hline
+Household Size      &        3.21&      (1.51)&        3.31&      (1.65)&        0.10         &      (0.09)\\
+Residence in West Germany&        0.97&      (0.18)&        0.97&      (0.17)&        0.00         &      (0.01)\\
+\midrule
+Observations        &         529&            &         599&            &        1128         &            \\
+\bottomrule
 \end{tabular}
 }
