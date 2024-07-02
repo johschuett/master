@@ -72,6 +72,8 @@ do ${do}eastern_female_tracking.do
 
 * erase tempfiles
 erase ${data}female_stem.dta
+erase ${data}punr.dta
+erase ${data}survival.dta
 erase ${data}validity.dta
 
 * close log file
