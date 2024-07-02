@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
+%% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25, custom), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'survival.pdf' (pdf, eps, ps)
 %%
@@ -54,33 +54,33 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{survival.pdf}}%
-    \put(0.07599944,0.15876337){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}}%
+    \put(0.07599945,0.15876337){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{survival.pdf}}%
-    \put(0.07599944,0.25390729){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20\end{tabular}}}}}%
+    \put(0.07599945,0.25390729){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{survival.pdf}}%
-    \put(0.07599944,0.35607355){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}40\end{tabular}}}}}%
+    \put(0.07599945,0.35607356){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}40\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{survival.pdf}}%
-    \put(0.07599944,0.45823981){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}60\end{tabular}}}}}%
+    \put(0.07599945,0.45823983){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}60\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{survival.pdf}}%
-    \put(0.07599944,0.56040607){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}80\end{tabular}}}}}%
+    \put(0.07599945,0.56040608){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}80\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{survival.pdf}}%
-    \put(0.07599944,0.65555003){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}100\end{tabular}}}}}%
-    \put(0.04820697,0.39042717){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Percent\end{tabular}}}}}%
+    \put(0.07599945,0.65555004){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}100\end{tabular}}}}}%
+    \put(0.04820697,0.39042718){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Percent\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{survival.pdf}}%
-    \put(0.13125626,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
-    \put(0.21513388,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1991\end{tabular}}}}%
-    \put(0.2990115,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
-    \put(0.38288913,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1993\end{tabular}}}}%
-    \put(0.46679802,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
-    \put(0.55067564,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1995\end{tabular}}}}%
-    \put(0.63455327,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
-    \put(0.71843089,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1997\end{tabular}}}}%
-    \put(0.80230851,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
-    \put(0.88618614,0.13799323){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1999\end{tabular}}}}%
+    \put(0.13125626,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.21513388,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1991\end{tabular}}}}%
+    \put(0.29901152,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
+    \put(0.38288913,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1993\end{tabular}}}}%
+    \put(0.46679803,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
+    \put(0.55067564,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1995\end{tabular}}}}%
+    \put(0.63455328,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
+    \put(0.71843091,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1997\end{tabular}}}}%
+    \put(0.80230852,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
+    \put(0.88618616,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1999\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{survival.pdf}}%
-    \put(0.27120328,0.08425278){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Working in STEM\end{tabular}}}}%
-    \put(0.6204068,0.08425278){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Working in Non-STEM\end{tabular}}}}%
-    \put(0.27120328,0.04889475){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Non-Working\end{tabular}}}}%
-    \put(0.6204068,0.04889475){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Partial Unit-Nonresponse\end{tabular}}}}%
+    \put(0.26235597,0.08425278){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Working in STEM\end{tabular}}}}%
+    \put(0.61155949,0.08425278){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Working in Non-STEM\end{tabular}}}}%
+    \put(0.26235597,0.04889475){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Non-Working\end{tabular}}}}%
+    \put(0.61155949,0.04889475){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(Partial) Unit-Nonresponse\end{tabular}}}}%
   \end{picture}%
 \endgroup%

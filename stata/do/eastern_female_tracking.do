@@ -84,7 +84,7 @@ label variable status "Work Status"
 label define status 1 "Working in STEM", modify
 label define status 2 "Working in Non-STEM", modify
 label define status 3 "Non-Working", modify
-label define status 4 "Partial Unit-Nonresponse", modify
+label define status 4 "(Partial) Unit-Nonresponse", modify
 
 label values status status
 
