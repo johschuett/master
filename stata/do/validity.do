@@ -119,34 +119,40 @@ graph export "${figures}validity.pdf", replace
 use ${data}female_stem, clear
 
 
-* keep working age population only
+* keep employed working working age population only
 keep if inrange(age, 17, 65)
+keep if inrange(pgemplst, 1, 2)
 
 
 * keep east germans only -> only look at 1990
-keep if east_origin == 1 & syear == 1990
-drop east_origin
+keep if syear == 1990
 
 
-estimates clear
+forvalues east = 0(1)1 {
+	preserve
+	drop if east_origin = `east'
+	
+	estimates clear
 
-eststo female: quietly estpost summarize ///
-    stem age partner_bin hhgr west if female == 1
-eststo male: quietly estpost summarize ///
-    stem age partner_bin hhgr west if female == 0
-eststo diff: quietly estpost ttest ///
-    stem age partner_bin hhgr west, by(female) unequal
-
-
-* direct output in log
-esttab female male diff, ///
-	cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
-	label
+	eststo female: quietly estpost summarize ///
+		stem age partner_bin hhgr west if female == 1
+	eststo male: quietly estpost summarize ///
+		stem age partner_bin hhgr west if female == 0
+	eststo diff: quietly estpost ttest ///
+		stem age partner_bin hhgr west, by(female) unequal
 
 
-* latex export
-esttab female male diff using ${tables}descriptives90.tex, ///
-	cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
-	label booktabs replace
+	* direct output in log
+	esttab female male diff, ///
+		cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
+		label
+
+	* latex export
+	esttab female male diff using ${tables}descriptives90_`east'.tex, ///
+		cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
+		label booktabs replace
+		
+	restore
+}
 
 }
