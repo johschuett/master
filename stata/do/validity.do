@@ -1,6 +1,8 @@
 ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 
 * use mayer (1995) data to look at stem trend in gdr
+{
+
 use ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/ERWERB, clear
 merge m:1 FALLNR using ${data}ZA2644_LVost/ZA2644_data_v1-0-0_dta/LMUTTER, keep(3) nogen keepusing(SEX KOHORTE)
 
@@ -106,12 +108,19 @@ name(cohorts, replace)
 
 graph export "${figures}validity.pdf", replace
 
+}
 
-*-----
 
+
+* summary statistics for 1990's inidividuals
+{
 
 * look at individuals from estimation sample in 1990
 use ${data}female_stem, clear
+
+
+* keep working age population only
+keep if inrange(age, 17, 65)
 
 
 * keep east germans only -> only look at 1990
@@ -139,3 +148,5 @@ esttab female male diff, ///
 esttab female male diff using ${tables}descriptives90.tex, ///
 	cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
 	label booktabs replace
+
+}

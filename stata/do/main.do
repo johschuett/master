@@ -1,13 +1,10 @@
 *-> SET LOCAL ROOT HERE
 global root       = "H:/master_thesis/stata/" // VDI
-*global root       = "/Users/schuett/Repositories/master_thesis/stata/" // Mac
+global root       = "/Users/schuett/Repositories/master_thesis/stata/" // Mac
 
 * soep v38.1
 global v38        = "//hume/rdc-prod/distribution/soep-core/soep.v38.1/eu/Stata_DE/soepdata/" // VDI
-*global v38        = "${root}data/soep_v38.1/soepdata/" // Mac
-
-* restricted
-global restricted = "\\hume\rdc-prod\restricted\soep-core\soep.v38.1\remote\Stata_DE\soepdata\"
+global v38        = "${root}data/soep_v38.1/soepdata/" // Mac
 
 * paths within project
 global data       = "${root}data/"
@@ -58,16 +55,24 @@ set maxvar 7000
 
 
 
+** DESCRIPTIVE ANALYSIS **
 * prepare data
-do ${do}prepare_data.do
-* graphical pre-analysis
-do ${do}graphical_preanalysis.do
+do ${do}prepare_descr_data.do
+* graphical analysis
+do ${do}graphical_analysis.do
 * validity analysis
 do ${do}validity.do
+**
+
+
+** EPIDEMIOLOGICAL APPROACH **
+* prepare data
+do ${do}prepare_epid_data.do
 * regression analysis
-//do ${do}regression_analysis.do
-* eastern female tracking
-do ${do}eastern_female_tracking.do
+do ${do}regression_analyis.do
+* robustness
+do ${do}robustness.do
+**
 
 
 * erase tempfiles
@@ -75,6 +80,9 @@ erase ${data}female_stem.dta
 erase ${data}punr.dta
 erase ${data}survival.dta
 erase ${data}validity.dta
+
+erase ${data}merged.dta
+erase ${data}parents.dta
 
 * close log file
 log close master_thesis
