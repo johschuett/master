@@ -1,5 +1,8 @@
 ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 
+* parental info
+{
+
 * info on mothers
 {
 
@@ -9,9 +12,6 @@ keep if female == 1
 * check if mother ever worked in stem
 egen stem_ever = max(stem), by(pid)
 drop stem
-
-
-label variable stem_ever "Ever STEM Profession"
 
 label define stem_ever 0 "[0] Never had a STEM Profession", modify
 label define stem_ever 1 "[1] Has or had a STEM Profession", modify
@@ -26,9 +26,12 @@ rename east_origin mother_east_or
 rename stem mother_stem_ever
 keep mnr mother_east_or mother_stem_ever
 
+label variable mother_east_or "Mother: Eastern Origin"
+label variable mother_stem_ever "Mother: Ever STEM Profession"
+
 merge 1:m mnr using ${v38}bioparen, keep(2 3) nogen
  
-save ${data}merged, replace
+save ${data}parents, replace
 
 }
 
@@ -51,106 +54,83 @@ rename east_origin father_east_or
 rename stem_ever father_stem_ever
 keep fnr father_east_or father_stem_ever
 
+label variable father_east_or "Father: Eastern Origin"
+label variable father_stem_ever "Father: Ever STEM Profession"
 
-merge 1:m fnr using ${data}merged, keep(2 3) nogen
+
+merge 1:m fnr using ${data}parents, keep(2 3) nogen
  
-save ${data}merged, replace
+save ${data}parents, replace
 
 }
 
 
-
 * drop cases with missing information
-drop if fnr < 0 | /// father id missing
-		mnr < 0 | /// mother id missing
-		mi(father_east_or) | /// father's origin missing
-		mi(mother_east_or) | /// mother's origin missing
-		mi(father_stem) | /// father's occcupation missing
-		mi(mother_stem)
-		
+drop if fnr < 0 | /// father's id missing
+		mnr < 0 | /// mother's id missing
+		mi(father_east_or) | ///
+		mi(mother_east_or) | ///
+		mi(father_stem_ever) | ///
+		mi(mother_stem_ever)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* only keep people who work or have worked in stem (potential parents)
-use ${data}female_stem, clear
-drop if stem == 0
-
-
-duplicates drop pid, force
-rename pid mnr
-clonevar fnr = mnr
-
-
-replace mnr = . if female == 0
-replace fnr = . if female == 1
-
-
-keep mnr fnr
-
-
+* save dataset
+compress
 save ${data}parents, replace
 
-
-* get children of stem mothers
-drop if mi(mnr)
-
-merge 1:m mnr using ${v38}merged, keep(2 3)
-
-gen stem_mother = 0
-replace stem_mother = 1 if _merge == 3
-drop _merge
-
-save ${data}merged, replace
+}
 
 
-* get children of stem fathers
-use ${data}parents, clear
-
-drop if mi(fnr)
-
-merge 1:m fnr using ${data}merged, keep(2 3)
-
-gen stem_father = 0
-replace stem_father = 1 if _merge == 3
-drop _merge
-
-save ${data}merged, replace
-
-
-
-
-
-
-
-
-
-
-
+* children
+{
 
 * get ppathl info for children
 use ${v38}ppathl, clear
+keep if inrange(netto, 10, 19)
 
 
 * 6 years old or younger at the year of reunification
 keep if gebjahr >= 1984
 
 
-merge m:1 pid using ${data}merged, keep(3) nogen
+merge m:1 pid using ${data}parents, keep(3) nogen
 
+
+* info about educational field
+merge 1:1 pid syear using ${v38}pgen, keep(1 3) keepusing(pgfield pgbilzeit)
+
+
+recode pgfield (36/44 61/69 79 89 104 118 126 128 177 200 213/226 235 277 310 370 = 1) ///
+			   (min/0 = .) ///
+			   (nonmissing = 0), ///
+			   gen(stem_edu)
+
+drop if mi(stem_edu)
+
+
+* generate female dummy
+recode sex (2 = 1) (1 = 0) (nonmissing = .), gen(female)
+
+label variable female "Female"
+
+label define female 0 "[0] Male", modify
+label define female 1 "[1] Female", modify
+
+label values female female
+
+drop if mi(female)
+
+
+* generate age
+gen age = syear - gebjahr
+gen age_squared = age^2
+
+label variable age "Age"
+label variable age_squared "Age (squared)"
+
+
+* save dataset
+compress
+save ${data}children, replace
+
+}

@@ -69,7 +69,7 @@ do ${do}validity.do
 * prepare data
 do ${do}prepare_epid_data.do
 * regression analysis
-do ${do}regression_analyis.do
+do ${do}regression_analysis.do
 * robustness
 do ${do}robustness.do
 **
@@ -81,7 +81,7 @@ erase ${data}punr.dta
 erase ${data}survival.dta
 erase ${data}validity.dta
 
-erase ${data}merged.dta
+erase ${data}children.dta
 erase ${data}parents.dta
 
 * close log file

@@ -130,27 +130,15 @@ keep if syear == 1990
 
 forvalues east = 0(1)1 {
 	preserve
-	drop if east_origin = `east'
 	
-	estimates clear
-
-	eststo female: quietly estpost summarize ///
-		stem age partner_bin hhgr west if female == 1
-	eststo male: quietly estpost summarize ///
-		stem age partner_bin hhgr west if female == 0
-	eststo diff: quietly estpost ttest ///
-		stem age partner_bin hhgr west, by(female) unequal
-
-
-	* direct output in log
-	esttab female male diff, ///
-		cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
-		label
-
-	* latex export
-	esttab female male diff using ${tables}descriptives90_`east'.tex, ///
-		cells("mean(pattern(1 1 0) fmt(2)) sd(par pattern(1 1 0)) b(star pattern(0 0 1) fmt(2)) se(pattern(0 0 1) par fmt(2))") ///
-		label booktabs replace
+	di "east = `east'"
+	
+	keep if east_origin == `east'
+	
+	foreach var in stem age partner_bin hhgr west {
+		di "`var'"
+		ttest `var', by(female)
+	}
 		
 	restore
 }
