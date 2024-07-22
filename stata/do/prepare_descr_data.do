@@ -75,6 +75,12 @@ merge m:1 hid syear using ${v38}hbrutto, keep(3) keepusing(hhgr) nogen
 label variable hhgr "Household Size"
 
 
+* monthly household net income
+merge m:1 hid syear using ${v38}hl, keep(1 3) keepusing(hlc0005_h) nogen
+rename hlc0005_h hhincome
+label variable hhincome "Monthly Household Income (Net)"
+
+
 * residence west germany
 merge m:1 hid syear using ${v38}regionl, keep(3) keepusing(bula) nogen
 
