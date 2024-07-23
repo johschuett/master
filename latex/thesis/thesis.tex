@@ -1,0 +1,290 @@
+\documentclass[a4paper, oneside, hyperfootnotes = false]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[UKenglish]{babel}
+\usepackage{amsmath}
+\usepackage{anyfontsize}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{fancyvrb}
+\usepackage[left = 3cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage[round]{natbib}
+\usepackage{pdflscape}
+\usepackage{svg}
+\usepackage{tocloft}
+
+\bibliographystyle{apalike}
+
+% line spread
+\linespread{1.5}
+
+% remove ugly boxes around hyperlinks
+\hypersetup{
+	pdfborder = {0 0 0}
+}
+
+% vertical space between rule and main text
+\addtolength{\skip\footins}{8pt}
+% vertical space between footnotes
+\addtolength{\footnotesep}{5pt}
+
+% path to figures
+\graphicspath{{/../../stata/figures/pdf_tex/}}
+
+\makeatletter
+\def\input@path{{/../../stata/figures/pdf_tex/}}
+\makeatother
+
+% for tables
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+% title page ------
+\title{Putting the GDR's Legacy Effect under the Microscope: \linebreak Eastern Female STEM Professionals in Reunified Germany.}
+
+\author{\href{mailto:johannes.schuett@fu-berlin.de}{Schütt, Johannes} \\
+5574549}
+
+\date{\today{}}
+% title page end ---
+
+\begin{document}
+
+{\fontsize{12pt}{18pt}\selectfont
+
+\maketitle
+
+\thispagestyle{empty}
+\pagenumbering{Alph}
+
+\vspace{1.5cm}
+
+\noindent\begin{tabular}{l}
+	A Master Thesis presented to \\
+	The Faculty of Economics at the Freie Universität Berlin \\
+    [\normalbaselineskip]
+    In Partial Fulfillment of Requirements \\
+    For the Degree of Master of Science \\
+    [\normalbaselineskip]
+    Module Examination according to 0353cE1.1P at \\
+    The Chair of Empirical Economics and Gender \\
+    Under the Supervision of Prof. Natalia Danzer, Ph.D. \\
+    [\normalbaselineskip]
+    Summer Term 2024
+\end{tabular}
+
+\vspace{3cm}
+
+\begin{center}
+    \includegraphics[width=0.4\textwidth, angle=0]{fu_logo.pdf}
+\end{center}
+
+\newpage
+
+\pagestyle{plain}
+\pagenumbering{roman}
+
+{\fontsize{12pt}{15pt}\selectfont
+
+\tableofcontents
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+\vspace{2cm}
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+%\newpage
+
+\vspace{2cm}
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Abbreviations}
+\section*{List of Abbreviations}
+\noindent\begin{tabular}{@{}ll}
+    DIW & German Institute for Economic Research \\
+    FRG & Federal Republic of Germany \\
+    GDR & German Democratic Republic \\
+    GSOEP & German Socio-Economic Panel \\
+    IQB & Institute for Quality Development in Education \\
+    PISA & Programme for International Student Assessment \\
+    pp & percentage points \\
+    STEM & science, technology, engineering, and mathematics
+\end{tabular}
+
+\newpage
+
+\begin{center}
+{\large\bfseries Abstract}
+
+\vspace{5mm}
+
+\parbox{400pt}{
+    \emph{\noindent Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    }
+}
+
+\end{center}
+
+}% end \fontsize{12pt}{15pt}\selectfont
+
+\vspace{5mm}
+
+\pagenumbering{arabic}
+\renewcommand\thesection{\arabic{section}}
+
+\section{Introduction}
+\label{intro}
+
+\section{Historical Background}
+\label{background}
+
+\section{Data and Empirical Approach}
+\label{dataemp}
+
+\subsection{GSOEP}
+\label{gsoep}
+
+\subsection{Epidemiological Approach}
+\label{epid}
+
+\subsection{Econometric Specification}
+\label{specification}
+
+\section{Results}
+\label{results}
+
+\subsection{Descriptive Analysis}
+\label{descriptives}
+
+\subsection{Legacy Effect on Childrens' Educational Choices}
+\label{educational}
+
+\section{Robustness}
+\label{robustness}
+
+\section{Conclusion}
+\label{conclusion}
+
+% either or
+%\newpage
+%\vspace{4cm}
+
+\phantomsection
+\addcontentsline{toc}{section}{References}
+
+\makeatletter % prevent newpage within bib-item
+\interlinepenalty=10000
+
+\bibliography{../references}
+\label{references}
+
+\makeatother
+
+\vspace{-.3cm}
+
+\clearpage
+
+}
+
+{\fontsize{11pt}{16.5pt}\selectfont
+
+\phantomsection
+\addcontentsline{toc}{section}{Appendix}
+\section*{Appendix}
+\label{appendix}
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Figures}
+\subsection*{Figures}
+\label{figures}
+
+
+\iffalse
+\begin{figure}[ht]
+    \centering
+    \caption{Comparison of Measured Differences in Different Cohorts}
+    \label{fig:downwardbias}
+    \fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{downward_diff.pdf_tex}
+    \vspace{2mm}
+    \parbox{10cm}{
+    \linespread{1}\footnotesize Note: Point estimates of t-tests ``$\gamma_{2}$ = $\gamma_{1}$'' (see Equation \ref{eq:spec}). The data come from the German Socio-Economic Panel. The sample is restricted to individuals who were born in Germany. ``Pre''-Sample restricted to individuals born before 1943. ``Post''-Sample restricted to individuals born between 1943 and 1970. East=1 if the household head lived in the GDR prior to Reunification in 1990. T-value of the point estimate is noted next to the respective marker. 95\%-intervals for the estimates are shown. The calculations are based on the results from Table \ref{tab:cohorts}.} 
+\end{figure}
+\fi
+
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{subsection}{Tables}
+\subsection*{Tables}
+\label{tables}
+
+\iffalse
+\begin{table}[ht]
+    \caption[Self-Declared Maths Grades by Adults -- GSOEP]{Self-Declared Maths Grades by German Adults -- GSOEP}
+    \label{tab:soepadults}
+    \begin{center}
+        \begin{tabular}{l*{3}{c}}
+            \toprule
+            \multicolumn{4}{c}{\emph{Dependent Variable: Self-Declared Last Maths Grade (0-1 scale)}} \\
+            \midrule
+                                &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+            \midrule
+            Female              &       -0.09\sym{***}&       -0.08\sym{***}&       -0.08\sym{***}\\
+                                &      (0.01)         &      (0.01)         &      (0.01)         \\
+            [1em]
+            East                &        0.06\sym{***}&        0.08\sym{***}&        0.07\sym{***}\\
+                                &      (0.01)         &      (0.01)         &      (0.01)         \\
+            [1em]
+            East*Female         &        0.08\sym{***}&        0.08\sym{***}&        0.08\sym{***}\\
+                                &      (0.02)         &      (0.02)         &      (0.02)         \\
+            \midrule
+            Person \& Household Controls & & X & X \\
+            Länder Controls & & & X \\
+            \midrule
+            Observations        &       18,607         &       18,607         &       18,607         \\
+            \midrule
+            \bottomrule
+        \end{tabular}
+        
+        \vspace{2mm}
+        
+        \parbox{10cm}{
+        \linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Linear Probability Model. The data come from the German Socio-Economic Panel. The sample is restricted to individuals who were born in Germany before 1971. Standard errors clustered at the household level are given in parentheses. East=1 if the household head lived in the GDR prior to Reunification in 1990. Question: ``Can you remember your last report card from school? What grade did you have in mathematics (1-6 scale with 1 being the highest grade)?'' Answer originally on a 1-6 scale recoded on a 0-1 scale, 1 corresponding to a grade of 1 or 2.}
+        
+    \end{center}
+\end{table}
+\fi
+
+\clearpage
+
+}
+{\fontsize{11pt}{11pt}\selectfont
+
+\phantomsection
+\addcontentsline{toc}{section}{Statutory Declaration}
+\section*{Statutory Declaration}
+\label{declarations}
+
+I hereby declare that I have written this thesis independently and without the use of sources and aids other than those specified. I have not used the services of any agency providing specimen, model, or ghostwritten work in the preparation of this submitted work. This also includes the use of AI-generated texts or services such as ChatGPT. Sentences or parts of sentences quoted literally are marked as such; other references with regard to the statement and scope are indicated by full details of the publications concerned. The thesis in the same or similar form has not been submitted to any examination body and has not been published. This thesis was not yet, even in part, used in another examination or as a course performance.
+
+\vspace{1.5cm}
+
+\includegraphics[height = 25mm]{unterschrift_schuett.pdf}
+
+\noindent Potsdam, \today{}
+
+} % close \fontsize{11}{16.5}
+
+\end{document}

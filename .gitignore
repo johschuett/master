@@ -319,6 +319,10 @@ TSWLatexianTemp*
 stata/data/ZA2644_LVost.zip
 stata/data/ZA2644_LVost/*
 
-# compiled slides
+# compiled documents
 latex/slides/slides.pdf
+latex/thesis/thesis.pdf
+
+# signature
+latex/thesis/unterschrift_schuett.pdf
 
