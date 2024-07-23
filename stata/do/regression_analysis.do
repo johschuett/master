@@ -1,5 +1,17 @@
 ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 
+/*
+NOTES:
+----------
+
+results in the thesis should be presented as follows:
+
+1. show and discuss results from baseline--6
+2. first robustness: compare baseline--6 to baseline--8 and baseline--4
+3. second robustness: compare baseline--6 to baseline--6 with additional controls
+----------
+*/
+
 use ${data}children, clear
 
 
@@ -15,7 +27,7 @@ label variable female_mother_east_stem "Female $\times$ Mother: Eastern Origin $
 
 
 
-* unrestricted model (baseline--10)
+* unrestricted model (baseline--8)
 {
 
 * define independent variables
@@ -41,7 +53,7 @@ esttab, ///
 
 
 
-* restricted model (basline--8)
+* restricted model (baseline--6)
 {
 
 * define independent variables
@@ -68,7 +80,7 @@ esttab, ///
 
 
 
-* restricted model (baseline--6)
+* restricted model (baseline--4)
 {
 
 * define independent variables
@@ -192,7 +204,7 @@ N                          2668           2668              2668
 
 
 
-* restricted model (basline--8) with number of siblings and parental household income
+* restricted model (baseline--6) with number of siblings and parental household income
 {
 
 * drop observations with missing information on additional controls
@@ -251,5 +263,8 @@ bic                      2532.047         2516.349        2507.131
 rank                        6               11              25   
 N                          1973            1973            1966   
 --------------------------------------------------------------------
+
+
+-> residing in saarland predicts failure perfectly
 
 */
