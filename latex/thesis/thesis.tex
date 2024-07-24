@@ -34,10 +34,10 @@
 \addtolength{\footnotesep}{5pt}
 
 % path to figures
-\graphicspath{{/../../stata/figures/pdf_tex/}}
+\graphicspath{{../../stata/figures/pdf_tex/}}
 
 \makeatletter
-\def\input@path{{/../../stata/figures/pdf_tex/}}
+\def\input@path{{../../stata/figures/pdf_tex/}}
 \makeatother
 
 % for tables
@@ -67,12 +67,12 @@
 	A Master Thesis presented to \\
 	The Faculty of Economics at the Freie Universität Berlin \\
     [\normalbaselineskip]
-    In Partial Fulfillment of Requirements \\
-    For the Degree of Master of Science \\
+    In Partial Fulfillment of Requirements for \\
+    The Degree of Master of Science \\
     [\normalbaselineskip]
     Module Examination according to 0353cE1.1P at \\
-    The Chair of Empirical Economics and Gender \\
-    Under the Supervision of Prof. Natalia Danzer, Ph.D. \\
+    The Chair of Empirical Economics and Gender under \\
+    The Supervision of Prof. Natalia Danzer, Ph.D. \\
     [\normalbaselineskip]
     Summer Term 2024
 \end{tabular}
@@ -112,13 +112,14 @@
 \section*{List of Abbreviations}
 \noindent\begin{tabular}{@{}ll}
     DIW & German Institute for Economic Research \\
+    FLFP & Female Labour Force Participation \\
     FRG & Federal Republic of Germany \\
     GDR & German Democratic Republic \\
     GSOEP & German Socio-Economic Panel \\
-    IQB & Institute for Quality Development in Education \\
     PISA & Programme for International Student Assessment \\
     pp & percentage points \\
-    STEM & science, technology, engineering, and mathematics
+    SED & \emph{Sozialistische Einheitspartei Deutschlands} \\
+    STEM & Science, Technology, Engineering, and Mathematics
 \end{tabular}
 
 \newpage
@@ -148,6 +149,21 @@
 \section{Historical Background}
 \label{background}
 
+% hour zero
+During the Cold War, Germany was divided into two nation states: the socialist German Democratic Republic, which together with the other Warsaw Pact states was allied with the Soviet Union, and the Federal Republic of Germany, which together with the other NATO states was allied with the United States of America.
+Since their foundation in 1949, the two countries had grown considerably apart in political and economic terms.
+In the first year of the existence of these two states, female labour force participation (FLFP for short) was 40\% \citep{Menschik1974} for both.
+However, this high share of females in the labour force can be explained by the large number of males of working age who were absent due to the war and its aftermath, and even when the husband returned to his family, one income was not enough to support them.
+Following the \emph{Wirtschaftswunder} of the 1950s, FLFP declined in the FRG, while females in the GDR never returned in significant numbers to the conservative role of a housewife \citep{Ostner1991, Rosenfeld2004}.
+
+% ulbricht's new economic system
+In 1963, Walter Ulbricht, the First Secretary of the Socialist Unity Party (SED for short), sought to reform the struggling East German economic regime, which was essentially the Stalinist state model that he instated in the first place. He attempted to introduce limited free-market elements, such as a more flexible price system and a certain level of autonomy granted to factory managers \citep[Chapter~4]{Grieder1999}.
+This policy shift included the ideological goal of technocratising the general labour force:
+At the third party conference in 1956, Ulbricht posited that workers must ``[...] acquire the most progressive insights offered by technology and science in order to increase their labour productivity [...]'' \citep{Ulbricht1956}.
+
+% technocratisation and frauenprogramme
+
+
 \section{Data and Empirical Approach}
 \label{dataemp}
 
@@ -166,7 +182,7 @@
 \subsection{Descriptive Analysis}
 \label{descriptives}
 
-\subsection{Legacy Effect on Childrens' Educational Choices}
+\subsection{Legacy Effect on Educational Choices}
 \label{educational}
 
 \section{Robustness}
@@ -208,20 +224,17 @@
 \subsection*{Figures}
 \label{figures}
 
-
-\iffalse
 \begin{figure}[ht]
     \centering
-    \caption{Comparison of Measured Differences in Different Cohorts}
-    \label{fig:downwardbias}
+    \caption{Cohorts (Start of Occupation by Gender), 1945–1990}
+    \label{fig:mayer}
     \fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
-	\input{downward_diff.pdf_tex}
+	\input{validity.pdf_tex}
     \vspace{2mm}
     \parbox{10cm}{
-    \linespread{1}\footnotesize Note: Point estimates of t-tests ``$\gamma_{2}$ = $\gamma_{1}$'' (see Equation \ref{eq:spec}). The data come from the German Socio-Economic Panel. The sample is restricted to individuals who were born in Germany. ``Pre''-Sample restricted to individuals born before 1943. ``Post''-Sample restricted to individuals born between 1943 and 1970. East=1 if the household head lived in the GDR prior to Reunification in 1990. T-value of the point estimate is noted next to the respective marker. 95\%-intervals for the estimates are shown. The calculations are based on the results from Table \ref{tab:cohorts}.} 
+    \linespread{1}\footnotesize Note: The data come from \cite{Mayer1995}.}
 \end{figure}
-\fi
 
 \clearpage
 
