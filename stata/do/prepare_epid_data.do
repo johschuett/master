@@ -121,6 +121,9 @@ label values female female
 drop if mi(female)
 
 
+* drop people born outside of germany
+drop if germborn == 2
+
 * generate age
 gen age = syear - gebjahr
 gen age_squared = age^2
@@ -134,10 +137,13 @@ gen num_sib = numb + nums if numb >= 0 & nums >= 0
 label variable num_sib "Number of Siblings"
 
 
-* migration background
-recode migback (1 = 0) (2 3 = 1)
-label define migback_bin 0 "No Migration Background", modify
-label define migback_bin 1 "Direct/Indirect Migration Background", modify
+* indirect migration background
+recode migback (1 = 0) (3 = 1)
+
+label variable migback "Indirect Migration Background"
+
+label define migback_bin 0 "[0] No Migration Background", modify
+label define migback_bin 1 "[1] Indirect Migration Background", modify
 
 label values migback migback_bin
 

@@ -68,10 +68,10 @@ do ${do}validity.do
 ** EPIDEMIOLOGICAL APPROACH **
 * prepare data
 do ${do}prepare_epid_data.do
-* regression analysis
+* main findings / robustness
 do ${do}regression_analysis.do
-* robustness
-do ${do}robustness.do
+* extension: comparing the blocs
+do ${do}extension.do
 **
 
 
@@ -82,7 +82,13 @@ erase ${data}survival.dta
 erase ${data}validity.dta
 
 erase ${data}children.dta
+erase ${data}children_interactions.dta
+erase ${data}information.dta
 erase ${data}parents.dta
+
+erase ${data}extension.dta
+erase ${data}extension_children.dta
+erase ${data}extension_parents.dta
 
 * close log file
 log close master_thesis

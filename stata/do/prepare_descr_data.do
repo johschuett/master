@@ -30,6 +30,10 @@ label values east_origin east_origin
 drop if mi(east_origin)
 
 
+* drop people born outside of germany
+drop if germborn == 2
+
+
 * stem profession
 merge 1:1 pid syear using ${v38}pl, keep(1 3) keepusing(p_isco88) nogen
 
