@@ -242,6 +242,40 @@ Fernández argues that culture can have a significant influence on various econo
 She defines the epidemiological approach as an attempt to separate culture from environment and, more precisely, as a method to study different immigrant groups within the same host country.
 Thus, the outcomes of individuals whose cultures differ but who live in the same economic and institutional setting can be studied.
 
+Fernández brings forward a medical example from the field of epidemiology (hence the name) to illustrate the idea that drives the approach:
+Suppose the incidence of heart disease differs significantly between two countries (the source and the host country).
+If the incidence of heart disease in immigrants converges to that of natives of the host country, the difference between the two countries is unlikely to be driven by genetics but rather has environmental causes.
+Crucially, Fernández points out that failure of convergence does not imply the opposite.
+
+Translating this example into the economic sphere, the objective is to isolate the variation in outcomes that is caused by culture versus the variation that is caused by economic and institutional factors.
+
+Fernández provides a minimal example of how the approach can be executed with a regression model.
+For this purpose, suppose that there is data on individuals who live in one given country but whose parents were born in some other country $c$.
+Suppose then that we want to estimate the probability that individual $i$ takes some action $y_{ic}$ modelled as
+
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:fernandezexercise}
+	y_{ic} = \beta_{0} + \beta_{1}X_{i} + \beta_{2}Y_{c} + \epsilon_{i}
+\end{equation}
+
+\noindent with $X_{i}$ being a vector of individual characteristics and $Y_{c}$ being a proxy for culture in country of ancestry $c$.
+The regressor of interest is the latter, which aims to capture variation in $y_{ic}$ caused by cultural influence.
+Culture can be proxied by employing a country-of-ancestry dummy fo $Y_{c}$.
+However, this approach may give rise to several issues:
+First, a dummy captures a broad, undifferentiated effect and does not vary for specific cultural traits that might vary within a country of ancestry.
+Second, the economic and cultural influences of the country of ancestry are collapsed into one dummy.
+Therefore, additionally controlling for the macroeconomic properties of the country of ancestry might help to obtain a more nuanced picture instead of an average effect.
+Third, the country-of-ancestry dummy does not vary over time.
+While a country might have significantly changed in several dimensions since the departure of the parents of the individual, this change cannot be captured in a time-constant variable.
+
+% application on former gdr citizens in reunified germany (simple model)
+Before discussing on how to specify a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández, but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper. 
+
+
+% studies that use the approach
+
 \subsection{Econometric Specification}
 \label{specification}
 
