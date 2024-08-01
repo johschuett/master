@@ -236,7 +236,7 @@ Every individual from the sample used in the descriptive analysis who has one or
 The estimation sample comprises all adult children who have both parents sucessfully linked to them.
 They were born after 1983, i.e. they were 6 years or younger at the time of Reunification, and have valid information on their field of tertiary education.
 
-\subsection{Epidemiological Approach}
+\subsection{Fernández' Epidemiological Approach}
 \label{epid}
 
 In order to analyse the transmission of the cultural emphasis on STEM in the GDR, this paper employs a version of the epidemiological approach formulated by \cite{Fernandez2011}.
@@ -262,7 +262,7 @@ Suppose then that we want to estimate the probability that individual $i$ takes 
 	y_{ic} = \beta_{0} + \beta_{1}X_{i} + \beta_{2}Y_{c} + \epsilon_{i}
 \end{equation}
 
-\noindent with $X_{i}$ being a vector of individual characteristics and $Y_{c}$ being a proxy for culture in country of ancestry $c$.
+\noindent where $X_{i}$ is a vector of individual characteristics and $Y_{c}$ is a proxy for culture in country of ancestry $c$.
 The regressor of interest is the latter, which aims to capture variation in $y_{ic}$ caused by cultural influence.
 Culture can be proxied by employing a country-of-ancestry dummy for $Y_{c}$.
 However, this approach may give rise to several issues:
@@ -274,37 +274,101 @@ While a country might have significantly changed in several dimensions since the
 
 % application on former gdr citizens in reunified germany (simple model)
 Before discussing on how to specify a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper.
-Suppose the decision of a female (with parental roots either from the GDR or the FRG and residing in reunified Germany) whether to study a STEM subject or a non-STEM subject at university can be thought of as a maximisation problem of the two-period model
+Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whether to study a STEM subject or a non-STEM subject at university can be thought of as a maximisation problem of the two-period model
 
 \vspace{-8mm}
 
 \begin{equation}
 	\label{eq:utility}
-	U = u(c_{0}) - \mathds{1}v_{i} + \beta{}u(c_{1})
+	U = u(c_{0,k}) - \mathds{1}v_{i} + \beta{}u(c_{1,k})
 \end{equation}
 
-\noindent with $u$ being a strictly increasing and concave function, $\mathds{1}$ being an indicator function which equals one if the female $i$ is enrolled in a STEM subject and zero if she is enrolled in a non-STEM subject. $v_{i}$ is the disutility of studying a STEM subject, $\beta \in (0,1)$ is an exogenously given discount factor of future consumption that does not vary across individuals,
+\noindent where $u$ is a strictly increasing and concave function, $\mathds{1}$ is an indicator function which equals one if the female $i$ is enrolled in a STEM subject and zero if she is enrolled in a non-STEM subject, $v_{i}$ is the disutility of studying a STEM subject, $\beta \in (0,1)$ is an exogenously given discount factor of future consumption that does not vary across individuals or countries,
 
 \vspace{-8mm}
 
-\begin{equation}
-	\label{eq:c0}
-	c_{0} = w_{0}
-\end{equation}
+\begin{equation*}
+	\label{eq:c0k}
+	c_{0,k} = w_{0,k}
+\end{equation*}
 
 \noindent is consumption while studying at the university, and 
 
 \vspace{-8mm}
 
-\begin{equation}
-	\label{eq:c1}
-	c_{1} = w_{1} + \mathds{1}(w_{1, \textnormal{ STEM}} - w_{1})
-\end{equation}
+\begin{equation*}
+	\label{eq:c1k}
+	c_{1,k} = w_{1,k} + \mathds{1}(w_{1,k,\textnormal{STEM}} - w_{1,k})
+\end{equation*}
 
 \noindent is consumption after receiving the university degree and working.
-For simplicity, the incomes $w_{0}$ (income as a student in period 0), $w_{1}$ (working in non-STEM in period 1), and $w_{1, \textnormal{ STEM}}$ (working in STEM in period 1) are taken as exogenous and do not vary across individuals. Further, assume that $w_{0} < w_{1} < w_{1, \textnormal{ STEM}}$ holds.
+For simplicity, the incomes $w_{0,k}$ (income as a student in period 0), $w_{1,k}$ (working in non-STEM in period 1), and $w_{1,k,\textnormal{STEM}}$ (working in STEM in period 1) are taken as exogenous and do not vary across individuals.
+Further, assume that $w_{0,k} < w_{1,k} < w_{1,k,\textnormal{STEM}}$ holds and all females who study a STEM subject in period 0 will work in STEM in period 1, while all females who study a non-STEM subject in period 0 will work in non-STEM in period 1.
 
-The disutility of studying a STEM subject $v_{i}$ varies across females and is assumed to be a random draw from a country-of-ancestry-specific distribution with mean $m_{k}$ where $k \in \{\textnormal{GDR, FRG}\}$ and variance $\sigma^{2}$. The cumulative distribution function (cdf for short) is denoted by $G_{k}(m_{k}, \sigma)$.
+The disutility of studying a STEM subject $v_{i}$ varies across females and is assumed to be a random draw from a country-specific distribution with mean $m_{k}$ and variance $\sigma^{2}$.
+The cumulative distribution function (cdf for short) is denoted by $G_{k}(m_{k}, \sigma)$.
+Therefore, cultural differences between the GDR and the FRG with respect to females studying STEM subjects are modelled as an exogenous difference in the mean of the distribution that characterises the disutility of studying a STEM subject.
+Fernández points out that there are two sources of heterogeneity in the model, namely a within-country heterogeneity given by the fact that females from the same country receive different draws from the same distribution and a cross-country heterogeneity that is reflected in the mean of the distribution from which the females draw their disutility levels.
+
+Given wages in country $k$ and the distribution of disutility $G_{k}$, one can solve for the share of enrolled females who study a STEM subject in that country, $S_{k}$. It is given by the cdf evaluated at $v^{*}_{k}$, i. e.
+
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:share}
+	S_{k} = G_{k}(v^{*}_{k})
+\end{equation}
+
+\noindent where
+
+\vspace{-8mm}
+
+\begin{equation*}
+	\label{eq:indiff}
+	v^{*}_{k} \equiv v^{*}(w_{1,k}, w_{1,k,\textnormal{STEM}}) = u(w_{1,k,\textnormal{STEM}}) - u(w_{1,k})
+\end{equation*}
+
+\noindent is the level of disutility from studying a STEM subject in country $k$ which makes a female indifferent between studying a STEM subject or studying a non-STEM subject.
+
+Suppose now that the disutility of studying a STEM subject can be characterised by the standard normal cumulative distribution $\Phi{}(x)$ evaluated at $x$, then
+
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:sharecdf}
+	S_{k} = \Phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\textnormal{.}
+\end{equation}
+
+\noindent (\ref{eq:sharecdf}) depends on $v^{*}_{k}$, which itself only depends only on exogenously given wages in country $k$, therefore making it the environmental factor in the model, but also on $m_{k}$, which reflects the cultural stance of country $k$ towards females studying STEM subjects.
+
+Making females studying a STEM subject less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus to a decrease of the share of enrolled females who study a STEM subject in that country, i. e.
+
+\vspace{-8mm}
+
+\begin{equation*}
+	\label{eq:derivmk}
+	\frac{\delta{}S_{k}}{\delta{}m_{k}} = -\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0
+\end{equation*}
+
+\noindent where $\phi(x)$ is the pdf of the standard normal distribution. Similarly, marginally increasing non-STEM wages $w_{1,k}$ leads ceteris paribus to a decrease as well, i. e.
+
+\vspace{-8mm}
+
+\begin{equation*}
+\label{eq:derivw1k}
+\frac{\delta{}S_{k}}{\delta{}w_{1,k}} = -u'(w_{1,k})\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0\textnormal{,}
+\end{equation*}
+
+\noindent whereas marginally increasing STEM-wages $w_{1,k,\textnormal{STEM}}$ leads ceteris paribus to an increase, i. e.
+
+\vspace{-8mm}
+
+\begin{equation*}
+	\label{eq:derivw1kstem}
+	\frac{\delta{}S_{k}}{\delta{}w_{1,k,\textnormal{STEM}}} = u'(w_{1,k,\textnormal{STEM}})\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} > 0\textnormal{.}
+\end{equation*}
+
+Finally, consider the situation of females in reunified Germany with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to study a STEM subject or not.
 
 % studies that use the approach
 
