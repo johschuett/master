@@ -8,6 +8,7 @@
 \usepackage{bookmark}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage{dsfont}
 \usepackage{fancyvrb}
 \usepackage[left = 3cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm]{geometry}
 \usepackage{graphicx}
@@ -111,6 +112,7 @@
 \addcontentsline{toc}{section}{List of Abbreviations}
 \section*{List of Abbreviations}
 \noindent\begin{tabular}{@{}ll}
+	cdf & cumulative distribution function \\
 	DFD & \emph{Demokratischer Frauenbund Deutschlands} \\
     DIW & German Institute for Economic Research \\
     FLFP & Female Labour Force Participation \\
@@ -237,9 +239,9 @@ They were born after 1983, i.e. they were 6 years or younger at the time of Reun
 \subsection{Epidemiological Approach}
 \label{epid}
 
-In order to analyse the transmission of the cultural emphasis on STEM in the GDR, this paper employs the epidemiological approach formulated by \cite{Fernandez2011}.
+In order to analyse the transmission of the cultural emphasis on STEM in the GDR, this paper employs a version of the epidemiological approach formulated by \cite{Fernandez2011}.
 Fernández argues that culture can have a significant influence on various economic outcomes, such as savings rates, fertility rates, and FLFP.
-She defines the epidemiological approach as an attempt to separate culture from environment and, more precisely, as a method to study different immigrant groups within the same host country.
+She defines the epidemiological approach as an attempt to separate culture from environment and, more precisely, as a method to study different immigrant groups within the same host country. % Special cases Germany where GDR and FRG cititzens are compared
 Thus, the outcomes of individuals whose cultures differ but who live in the same economic and institutional setting can be studied.
 
 Fernández brings forward a medical example from the field of epidemiology (hence the name) to illustrate the idea that drives the approach:
@@ -262,17 +264,47 @@ Suppose then that we want to estimate the probability that individual $i$ takes 
 
 \noindent with $X_{i}$ being a vector of individual characteristics and $Y_{c}$ being a proxy for culture in country of ancestry $c$.
 The regressor of interest is the latter, which aims to capture variation in $y_{ic}$ caused by cultural influence.
-Culture can be proxied by employing a country-of-ancestry dummy fo $Y_{c}$.
+Culture can be proxied by employing a country-of-ancestry dummy for $Y_{c}$.
 However, this approach may give rise to several issues:
-First, a dummy captures a broad, undifferentiated effect and does not vary for specific cultural traits that might vary within a country of ancestry.
+First, a dummy captures a broad, undifferentiated effect and does not vary for specific cultural traits that might not be homogenous within a country of ancestry.
 Second, the economic and cultural influences of the country of ancestry are collapsed into one dummy.
 Therefore, additionally controlling for the macroeconomic properties of the country of ancestry might help to obtain a more nuanced picture instead of an average effect.
 Third, the country-of-ancestry dummy does not vary over time.
 While a country might have significantly changed in several dimensions since the departure of the parents of the individual, this change cannot be captured in a time-constant variable.
 
 % application on former gdr citizens in reunified germany (simple model)
-Before discussing on how to specify a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández, but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper. 
+Before discussing on how to specify a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper.
+Suppose the decision of a female (with parental roots either from the GDR or the FRG and residing in reunified Germany) whether to study a STEM subject or a non-STEM subject at university can be thought of as a maximisation problem of the two-period model
 
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:utility}
+	U = u(c_{0}) - \mathds{1}v_{i} + \beta{}u(c_{1})
+\end{equation}
+
+\noindent with $u$ being a strictly increasing and concave function, $\mathds{1}$ being an indicator function which equals one if the female $i$ is enrolled in a STEM subject and zero if she is enrolled in a non-STEM subject. $v_{i}$ is the disutility of studying a STEM subject, $\beta \in (0,1)$ is an exogenously given discount factor of future consumption that does not vary across individuals,
+
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:c0}
+	c_{0} = w_{0}
+\end{equation}
+
+\noindent is consumption while studying at the university, and 
+
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:c1}
+	c_{1} = w_{1} + \mathds{1}(w_{1, \textnormal{ STEM}} - w_{1})
+\end{equation}
+
+\noindent is consumption after receiving the university degree and working.
+For simplicity, the incomes $w_{0}$ (income as a student in period 0), $w_{1}$ (working in non-STEM in period 1), and $w_{1, \textnormal{ STEM}}$ (working in STEM in period 1) are taken as exogenous and do not vary across individuals. Further, assume that $w_{0} < w_{1} < w_{1, \textnormal{ STEM}}$ holds.
+
+The disutility of studying a STEM subject $v_{i}$ varies across females and is assumed to be a random draw from a country-of-ancestry-specific distribution with mean $m_{k}$ where $k \in \{\textnormal{GDR, FRG}\}$ and variance $\sigma^{2}$. The cumulative distribution function (cdf for short) is denoted by $G_{k}(m_{k}, \sigma)$.
 
 % studies that use the approach
 
