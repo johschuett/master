@@ -118,7 +118,7 @@
     FLFP & Female Labour Force Participation \\
     FRG & Federal Republic of Germany \\
     GDR & German Democratic Republic \\
-    GSOEP & German Socio-Economic Panel \\
+    SOEP & German Socio-Economic Panel \\
     ISCO & International Standard Classification of Occupations \\
     pdf & probability density function \\
     PISA & Programme for International Student Assessment \\
@@ -215,15 +215,15 @@ Despite all the lip service paid by the SED, hardly any females reached leading 
 \section{Data and Empirical Approach}
 \label{dataemp}
 
-\subsection{GSOEP}
+\subsection{SOEP}
 \label{gsoep}
 
 % gsoep
-In order to examine the developments that have occurred in the STEM sector following the Reunification, this paper employs data from the German Socio-Economic Panel (GSOEP for short), a nationally representative panel study initiated in 1984 and maintained by the German Institute for Economic Research (DIW for short) \citep{Siegers2022}.
+In order to examine the developments that have occurred in the STEM sector following the Reunification, this paper employs data from the German Socio-Economic Panel (SOEP for short), a nationally representative panel study initiated in 1984 and maintained by the German Institute for Economic Research (DIW for short) \citep{Siegers2022}.
 It frequently serves as a basis for research on the Reunification and East-West differences in Germany across different domains \citep{Petrunyk2016, Bird1994, Hadjar2010}.
 
 % sample for descriptive analysis
-In order to provide a descriptive analysis in the first part of this paper, GSOEP data from the survey years 1990–1999 has been utilised.
+In order to provide a descriptive analysis in the first part of this paper, SOEP data from the survey years 1990–1999 has been utilised.
 This sample comprises individuals of working age (16–65 years old) with information on their employment status, ISCO-88 occupation code, and location in 1989 (the year preceding Reunification) available.
 All individuals were either born in the GDR or the FRG.
 The International Standard Classification of Occupations (ISCO for short) is an internationally used classification standard for jobs \citep{Elias1997}.
@@ -233,7 +233,7 @@ The location in 1989 (either East or West Germany) is used to identify former GD
 
 % sample for epidemiological approach
 The estimation sample used for the epidemiological analysis of the transmission of cultural values is derived from the previous sample as follows:
-Every individual from the sample used in the descriptive analysis who has one or more children who themselves participate in the GSOEP is linked to them.
+Every individual from the sample used in the descriptive analysis who has one or more children who themselves participate in the SOEP is linked to them.
 The estimation sample comprises all adult children who have both parents sucessfully linked to them.
 They were born after 1983, i.e. they were 6 years or younger at the time of Reunification, and have valid information on their field of tertiary education.
 
@@ -342,7 +342,7 @@ Suppose now that the disutility of studying a STEM subject can be characterised 
 
 \noindent (\ref{eq:sharecdf}) depends on $v^{*}_{k}$, which itself only depends only on exogenously given wages in country $k$, therefore making it the environmental factor in the model, but also on $m_{k}$, which reflects the cultural stance of country $k$ towards females studying STEM subjects.
 
-Making females studying a STEM subject less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus to a decrease of the share of enrolled females who study a STEM subject in that country, i. e.
+Making females studying a STEM subject less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus to a decrease of the share of enrolled females who study a STEM subject in that country:
 
 \vspace{-8mm}
 
@@ -369,7 +369,7 @@ Making females studying a STEM subject less culturally favourable, i. e. margina
 	\frac{\delta{}S_{k}}{\delta{}w_{1,k,\textnormal{STEM}}} = u'(w_{1,k,\textnormal{STEM}})\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} > 0\textnormal{.}
 \end{equation*}
 
-Finally, consider the situation of females in reunified Germany $j$ with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to study a STEM subject or not. Suppose these females are identical except for their cultural beliefs, and culture is transmitted perfectly, i. e. they inherit the same $v_{i}$ that their mothers drew in the Cold War era.
+Finally, consider the situation of females in reunified Germany $j$ with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to study a STEM subject or not. Suppose these females are identical except for their cultural beliefs and culture is transmitted perfectly, i. e. they inherit the same $v_{i}$ that their mothers drew in the Cold War era.
 Assume again that $G$ is a normal distribution.
 Thus, while $v^{*}$ will be identical for all females in reunified Germany, since this threshold parameter only depends on wages in $j$, the individuals inherit their draws from their mothers who drew from two different distributions, namely $\phi(m_{\textnormal{GDR}},\sigma^{2})$ and $\phi(m_{\textnormal{FRG}},\sigma^{2})$.
 The females with ancestry $k$ who study a STEM subject as a share of all enrolled females with ancestry $k$ is given by
@@ -381,7 +381,7 @@ The females with ancestry $k$ who study a STEM subject as a share of all enrolle
 	S_{k,j} = \Phi\left(\frac{v^{*}_{j} - m_{k}}{\sigma}\right)\textnormal{.}
 \end{equation}
 
-Fernández points out that culture not mattering would require that $m_{GDR} = m_{FRG}$, i. e. both in the GDR and FRG, there was the same cultural appreciation for females studying STEM subjects.
+Fernández points out that culture not mattering would require that $m_{GDR} = m_{FRG}$, i. e. there was the same cultural appreciation for females studying STEM subjects both in the GDR and the FRG.
 
 \subsection{Epidemiological Approach in Economic Literature}
 \label{epidliterature}
@@ -450,6 +450,78 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
     \vspace{2mm}
     \parbox{10cm}{
     \linespread{1}\footnotesize Note: The data come from \cite{Mayer1995}.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Time Trend (by Region and Gender), 1984–2017}
+	\label{fig:timetrend}
+	\fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{trend.pdf_tex}
+	\vspace{2mm}
+	\parbox{10cm}{
+	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Time Trend (by Region, Females only), 1990–1999}
+	\label{fig:timetrendzoom}
+	\fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{trend.pdf_tex}
+	\vspace{2mm}
+	\parbox{10cm}{
+	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Development of 1990's Eastern Female STEM Professionals, 1990–1999}
+	\label{fig:survivalfemale}
+	\fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{survival_female.pdf_tex}
+	\vspace{2mm}
+	\parbox{10cm}{
+	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Development of 1990's Eastern Male STEM Professionals, 1990–1999}
+	\label{fig:survivalmale}
+	\fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{survival_male.pdf_tex}
+	\vspace{2mm}
+	\parbox{10cm}{
+	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Net Switches among Eastern Females, 1990–1999}
+	\label{fig:netswitches}
+	\fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{net_switches.pdf_tex}
+	\vspace{2mm}
+	\parbox{10cm}{
+		\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\caption{Information Criteria from Different Models}
+	\label{fig:information}
+	\fontsize{9pt}{11pt}\selectfont
+	\def\svgwidth{\textwidth}
+	\input{information.pdf_tex}
+	\vspace{2mm}
+	\parbox{10cm}{
+		\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
 \end{figure}
 
 \clearpage
