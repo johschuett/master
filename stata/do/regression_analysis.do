@@ -189,21 +189,36 @@ gsort -model stage
 label variable aic "AIC"
 label variable bic "BIC"
 
-local t1 = "Baseline"
-local t2 = "Baseline + Person"
-local t3 = "Baseline + Person + State"
+twoway (line aic model if stage == 1, lpattern(solid)) ///
+	   (line bic model if stage == 1, lpattern(dash)), ///
+	   aspectratio(0.3) ///
+	   xlab(4(2)8) ///
+	   ylab(3120(20)3220, format(%12.0fc) nogrid) ///
+	   xtitle("") ///
+	   subtitle("Baseline") ///
+	   legend(order(2 1) size(small)) ///
+	   name(info_1, replace)
 
-forvalues i = 1(1)3 {
-	twoway (line aic model if stage == `i', lpattern(solid)) ///
-		   (line bic model if stage == `i', lpattern(dash)), ///
-		   aspectratio(0.3) ///
-		   xlab(4(2)8) ///
-		   ylab(3050(50)3250, format(%12.0fc) nogrid) ///
-		   xtitle("") ///
-		   subtitle("`t`i''") ///
-		   legend(order(2 1) size(small)) ///
-		   name(info_`i', replace)
-}
+twoway (line aic model if stage == 2, lpattern(solid)) ///
+	   (line bic model if stage == 2, lpattern(dash)), ///
+	   aspectratio(0.3) ///
+	   xlab(4(2)8) ///
+	   ylab(3120(20)3220, format(%12.0fc) nogrid) ///
+	   xtitle("") ///
+	   subtitle("Baseline + Person") ///
+	   legend(order(2 1) size(small)) ///
+	   name(info_2, replace)
+
+twoway (line aic model if stage == 3, lpattern(solid)) ///
+	   (line bic model if stage == 3, lpattern(dash)), ///
+	   aspectratio(0.3) ///
+	   xlab(4(2)8) ///
+	   ylab(3040(40)3240, format(%12.0fc) nogrid) ///
+	   ymtick(3040(20)3240) ///
+	   xtitle("") ///
+	   subtitle("Baseline + Person + State") ///
+	   legend(order(2 1) size(small)) ///
+	   name(info_3, replace)
 
 grc1leg info_1 info_2 info_3, ///
 	cols(1) ///
