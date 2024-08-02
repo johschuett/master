@@ -1,0 +1,86 @@
+%% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'survival_female.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{396bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.72727273)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{survival_female.pdf}}%
+    \put(0.09584346,0.2276857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{survival_female.pdf}}%
+    \put(0.08179878,0.31569){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}20\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{survival_female.pdf}}%
+    \put(0.08179878,0.40372555){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}40\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{survival_female.pdf}}%
+    \put(0.08179878,0.49172985){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}60\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{survival_female.pdf}}%
+    \put(0.08179878,0.5797654){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}80\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{survival_female.pdf}}%
+    \put(0.06775411,0.6677697){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}100\end{tabular}}}}%
+    \put(0.04820697,0.42581648){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Percent\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{survival_female.pdf}}%
+    \put(0.15645394,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.23764297,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1991\end{tabular}}}}%
+    \put(0.31886328,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
+    \put(0.40008358,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1993\end{tabular}}}}%
+    \put(0.48127261,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
+    \put(0.56249292,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1995\end{tabular}}}}%
+    \put(0.64368197,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
+    \put(0.72490227,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1997\end{tabular}}}}%
+    \put(0.80612258,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
+    \put(0.88731161,0.20874055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1999\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{survival_female.pdf}}%
+    \put(0.4501193,0.15500009){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(Partial) Unit-Nonresponse\end{tabular}}}}%
+    \put(0.4501193,0.11961081){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}No Regular Employment\end{tabular}}}}%
+    \put(0.4501193,0.08425278){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Working in Non-STEM\end{tabular}}}}%
+    \put(0.4501193,0.04889475){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Working in STEM\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

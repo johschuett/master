@@ -83,12 +83,11 @@ graph export "${figures}trend_zoomed.pdf", replace
 }
 
 
+
 * survival plot
 {
 
 * get eastern female stem professionals of 1990 and see how they develop
-set scheme s2color
-
 forvalues female = 0(1)1 {
     
 	use ${data}female_stem, clear
@@ -150,6 +149,11 @@ forvalues female = 0(1)1 {
 			over(syear) ///
 			stack asyvars ///
 			percentage ///
+			bar(1, color(gs1)) ///
+			bar(2, color(gs5)) ///
+			bar(3, color(gs9)) ///
+			bar(4, color(gs13)) ///
+			legend(order(4 3 2 1)) ///
 			ylab(, nogrid) ///
 			ytitle("Percent") ///
 			graphregion(color(white)) ///
@@ -163,6 +167,11 @@ forvalues female = 0(1)1 {
 			over(syear) ///
 			stack asyvars ///
 			percentage ///
+			bar(1, color(gs1)) ///
+			bar(2, color(gs5)) ///
+			bar(3, color(gs9)) ///
+			bar(4, color(gs13)) ///
+			legend(order(4 3 2 1)) ///
 			ylab(, nogrid) ///
 			ytitle("Percent") ///
 			graphregion(color(white)) ///
@@ -178,9 +187,6 @@ forvalues female = 0(1)1 {
 
 * net switches plot
 {
-
-* reset scheme
-set scheme tufte
 
 * reload data
 use ${data}female_stem, clear
