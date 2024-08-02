@@ -120,6 +120,7 @@
     GDR & German Democratic Republic \\
     GSOEP & German Socio-Economic Panel \\
     ISCO & International Standard Classification of Occupations \\
+    pdf & probability density function \\
     PISA & Programme for International Student Assessment \\
     pp & percentage points \\
     SED & \emph{Sozialistische Einheitspartei Deutschlands} \\
@@ -273,7 +274,7 @@ Third, the country-of-ancestry dummy does not vary over time.
 While a country might have significantly changed in several dimensions since the departure of the parents of the individual, this change cannot be captured in a time-constant variable.
 
 % application on former gdr citizens in reunified germany (simple model)
-Before discussing on how to specify a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper.
+Before specifying a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper.
 Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whether to study a STEM subject or a non-STEM subject at university can be thought of as a maximisation problem of the two-period model
 
 \vspace{-8mm}
@@ -330,7 +331,7 @@ Given wages in country $k$ and the distribution of disutility $G_{k}$, one can s
 
 \noindent is the level of disutility from studying a STEM subject in country $k$ which makes a female indifferent between studying a STEM subject or studying a non-STEM subject.
 
-Suppose now that the disutility of studying a STEM subject can be characterised by the standard normal cumulative distribution $\Phi{}(x)$ evaluated at $x$, then
+Suppose now that the disutility of studying a STEM subject can be characterised by the standard normal cdf $\Phi{}(x)$ evaluated at $x$, then
 
 \vspace{-8mm}
 
@@ -350,7 +351,7 @@ Making females studying a STEM subject less culturally favourable, i. e. margina
 	\frac{\delta{}S_{k}}{\delta{}m_{k}} = -\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0
 \end{equation*}
 
-\noindent where $\phi(x)$ is the pdf of the standard normal distribution. Similarly, marginally increasing non-STEM wages $w_{1,k}$ leads ceteris paribus to a decrease as well, i. e.
+\noindent where $\phi(x)$ is the probability density function (pdf for short) of the standard normal distribution. Similarly, marginally increasing non-STEM wages $w_{1,k}$ leads ceteris paribus to a decrease as well, i. e.
 
 \vspace{-8mm}
 
@@ -368,9 +369,22 @@ Making females studying a STEM subject less culturally favourable, i. e. margina
 	\frac{\delta{}S_{k}}{\delta{}w_{1,k,\textnormal{STEM}}} = u'(w_{1,k,\textnormal{STEM}})\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} > 0\textnormal{.}
 \end{equation*}
 
-Finally, consider the situation of females in reunified Germany with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to study a STEM subject or not.
+Finally, consider the situation of females in reunified Germany $j$ with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to study a STEM subject or not. Suppose these females are identical except for their cultural beliefs, and culture is transmitted perfectly, i. e. they inherit the same $v_{i}$ that their mothers drew in the Cold War era.
+Assume again that $G$ is a normal distribution.
+Thus, while $v^{*}$ will be identical for all females in reunified Germany, since this threshold parameter only depends on wages in $j$, the individuals inherit their draws from their mothers who drew from two different distributions, namely $\phi(m_{\textnormal{GDR}},\sigma^{2})$ and $\phi(m_{\textnormal{FRG}},\sigma^{2})$.
+The females with ancestry $k$ who study a STEM subject as a share of all enrolled females with ancestry $k$ is given by
 
-% studies that use the approach
+\vspace{-8mm}
+
+\begin{equation}
+	\label{eq:sharecdfancestry}
+	S_{k,j} = \Phi\left(\frac{v^{*}_{j} - m_{k}}{\sigma}\right)\textnormal{.}
+\end{equation}
+
+Fernández points out that culture not mattering would require that $m_{GDR} = m_{FRG}$, i. e. both in the GDR and FRG, there was the same cultural appreciation for females studying STEM subjects.
+
+\subsection{Epidemiological Approach in Economic Literature}
+\label{epidliterature}
 
 \subsection{Econometric Specification}
 \label{specification}
