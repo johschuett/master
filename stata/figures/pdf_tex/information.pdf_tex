@@ -56,61 +56,49 @@
     \put(0,0){\includegraphics[width=\unitlength,page=1]{information.pdf}}%
     \put(0.34399502,0.57348162){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,120\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{information.pdf}}%
-    \put(0.34399502,0.58805){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,140\end{tabular}}}}%
+    \put(0.34399502,0.59777268){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,160\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{information.pdf}}%
-    \put(0.34399502,0.60264965){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,160\end{tabular}}}}%
+    \put(0.34399502,0.622095){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,200\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{information.pdf}}%
-    \put(0.34399502,0.61724929){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,180\end{tabular}}}}%
+    \put(0.34399502,0.64641732){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,240\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{information.pdf}}%
-    \put(0.34399502,0.63181768){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,200\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=6]{information.pdf}}%
-    \put(0.34399502,0.64641732){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,220\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=7]{information.pdf}}%
     \put(0.40949453,0.54346949){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}4\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=8]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{information.pdf}}%
     \put(0.53107485,0.54346949){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}6\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=9]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{information.pdf}}%
     \put(0.65265519,0.54346949){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}8\end{tabular}}}}%
     \put(0.49636801,0.67458495){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Baseline\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=10]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{information.pdf}}%
     \put(0.34399502,0.37493267){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,120\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{information.pdf}}%
+    \put(0.34399502,0.399255){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,160\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{information.pdf}}%
+    \put(0.34399502,0.42357733){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,200\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{information.pdf}}%
-    \put(0.34399502,0.38953233){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,140\end{tabular}}}}%
+    \put(0.34399502,0.44786839){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,240\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{information.pdf}}%
-    \put(0.34399502,0.4041007){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,160\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=13]{information.pdf}}%
-    \put(0.34399502,0.41870036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,180\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=14]{information.pdf}}%
-    \put(0.34399502,0.4333){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,200\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=15]{information.pdf}}%
-    \put(0.34399502,0.44786839){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,220\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=16]{information.pdf}}%
     \put(0.40949453,0.34492055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}4\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=17]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{information.pdf}}%
     \put(0.53107485,0.34492055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}6\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=18]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{information.pdf}}%
     \put(0.65265519,0.34492055){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}8\end{tabular}}}}%
     \put(0.45149411,0.476036){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Baseline + Person\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=19]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{information.pdf}}%
     \put(0.34399502,0.17638373){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,040\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=20]{information.pdf}}%
-    \put(0.34399502,0.19098339){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,080\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=21]{information.pdf}}%
-    \put(0.34399502,0.20558303){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,120\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=22]{information.pdf}}%
-    \put(0.34399502,0.22015142){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,160\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=23]{information.pdf}}%
-    \put(0.34399502,0.23475106){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,200\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=24]{information.pdf}}%
-    \put(0.34399502,0.2493507){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,240\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=25]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{information.pdf}}%
+    \put(0.34399502,0.20070606){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,120\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{information.pdf}}%
+    \put(0.34399502,0.22502839){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,200\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{information.pdf}}%
+    \put(0.34399502,0.2493507){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3,280\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{information.pdf}}%
     \put(0.40949453,0.14640288){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}4\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=26]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{information.pdf}}%
     \put(0.53107485,0.14640288){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}6\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=27]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{information.pdf}}%
     \put(0.65265519,0.14640288){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}8\end{tabular}}}}%
     \put(0.41532604,0.27748706){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Baseline + Person + State\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=28]{information.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{information.pdf}}%
     \put(0.53768591,0.07659343){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BIC\end{tabular}}}}%
     \put(0.53768591,0.04120415){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}AIC\end{tabular}}}}%
   \end{picture}%

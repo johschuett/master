@@ -193,7 +193,7 @@ twoway (line aic model if stage == 1, lpattern(solid)) ///
 	   (line bic model if stage == 1, lpattern(dash)), ///
 	   aspectratio(0.3) ///
 	   xlab(4(2)8) ///
-	   ylab(3120(20)3220, format(%12.0fc) nogrid) ///
+	   ylab(3120(40)3240, format(%12.0fc) nogrid) ///
 	   xtitle("") ///
 	   subtitle("Baseline") ///
 	   legend(order(2 1) size(small)) ///
@@ -203,7 +203,7 @@ twoway (line aic model if stage == 2, lpattern(solid)) ///
 	   (line bic model if stage == 2, lpattern(dash)), ///
 	   aspectratio(0.3) ///
 	   xlab(4(2)8) ///
-	   ylab(3120(20)3220, format(%12.0fc) nogrid) ///
+	   ylab(3120(40)3240, format(%12.0fc) nogrid) ///
 	   xtitle("") ///
 	   subtitle("Baseline + Person") ///
 	   legend(order(2 1) size(small)) ///
@@ -213,8 +213,8 @@ twoway (line aic model if stage == 3, lpattern(solid)) ///
 	   (line bic model if stage == 3, lpattern(dash)), ///
 	   aspectratio(0.3) ///
 	   xlab(4(2)8) ///
-	   ylab(3040(40)3240, format(%12.0fc) nogrid) ///
-	   ymtick(3040(20)3240) ///
+	   ylab(3040(80)3280, format(%12.0fc) nogrid) ///
+	   ymtick(3040(40)3280) ///
 	   xtitle("") ///
 	   subtitle("Baseline + Person + State") ///
 	   legend(order(2 1) size(small)) ///
