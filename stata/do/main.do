@@ -15,6 +15,7 @@ global tables     = "${root}../latex/tables/"
 
 ssc install coefplot
 ssc install scheme_tufte
+net install grc1leg, from(http://www.stata.com/users/vwiggins/)
 
 set scheme tufte
 
@@ -58,6 +59,8 @@ set maxvar 7000
 ** DESCRIPTIVE ANALYSIS **
 * prepare data
 do ${do}prepare_descr_data.do
+* summary statistics
+do ${do}descr_summary.do
 * graphical analysis
 do ${do}graphical_analysis.do
 * validity analysis
@@ -68,6 +71,8 @@ do ${do}validity.do
 ** EPIDEMIOLOGICAL APPROACH **
 * prepare data
 do ${do}prepare_epid_data.do
+* summary statistics
+do ${do}epid_summary.do
 * main findings / robustness
 do ${do}regression_analysis.do
 * extension: comparing the blocs

@@ -92,6 +92,9 @@ use ${data}validity, clear
 
 statsby stem=r(mean) lb=r(lb) ub=r(ub), by(startocc_cat female) clear: ci means stem
 
+di "Avg. Bin Size (Std. Dev.): `fmt_size_mean' (`fmt_size_sd')"
+
+
 twoway (connected stem startocc_cat if female == 0, mcolor(gs6) lcolor(gs6) msymbol(O) lpattern(solid)) ///
 ||     (connected stem startocc_cat if female == 1, mcolor(black) lcolor(black) msymbol(S) lpattern(solid)) ///
 ||     (rcap lb ub startocc_cat if female == 0, lcolor(gs6)) ///
@@ -103,44 +106,8 @@ ylabel(0.05(0.05)0.2, format(%03.2f) nogrid) ///
 legend(label(1 "Male") ///
        label(2 "Female") ///
 	   order(2 1)) ///
-note("Avg. Bin Size (Std. Dev.): `fmt_size_mean' (`fmt_size_sd')") ///
 name(cohorts, replace)
 
 graph export "${figures}validity.pdf", replace
-
-}
-
-
-
-* summary statistics for 1990's inidividuals
-{
-
-* look at individuals from estimation sample in 1990
-use ${data}female_stem, clear
-
-
-* keep employed working working age population only
-keep if inrange(age, 17, 65)
-keep if inrange(pgemplst, 1, 2)
-
-
-* keep east germans only -> only look at 1990
-keep if syear == 1990
-
-
-forvalues east = 0(1)1 {
-	preserve
-	
-	di "east = `east'"
-	
-	keep if east_origin == `east'
-	
-	foreach var in stem age partner_bin hhgr west {
-		di "`var'"
-		ttest `var', by(female)
-	}
-		
-	restore
-}
 
 }

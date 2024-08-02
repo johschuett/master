@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25, custom), www.inkscape.org
+%% Creator: Inkscape 1.2 (dc2aeda, 2022-05-15), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'trend_zoomed.pdf' (pdf, eps, ps)
 %%
@@ -54,29 +54,30 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.31337657){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.05\end{tabular}}}}%
+    \put(0.0681151,0.33759785){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.05\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.43467555){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.10\end{tabular}}}}%
+    \put(0.0681151,0.45044027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.10\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.55594328){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
+    \put(0.0681151,0.56325138){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.15\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{trend_zoomed.pdf}}%
-    \put(0.06810375,0.67721101){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
-    \put(0.04820697,0.22733445){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Share of STEM Professionals within Bin\end{tabular}}}}}%
+    \put(0.0681151,0.67606249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}0.20\end{tabular}}}}%
+    \put(0.04995649,0.241476){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Share of STEM Professionals within Bin\end{tabular}}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{trend_zoomed.pdf}}%
-    \put(0.12031434,0.1657857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
+    \put(0.12032977,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1990\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{trend_zoomed.pdf}}%
-    \put(0.28241106,0.1657857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
+    \put(0.28235605,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1992\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{trend_zoomed.pdf}}%
-    \put(0.44450777,0.1657857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
+    \put(0.444351,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1994\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{trend_zoomed.pdf}}%
-    \put(0.60660449,0.1657857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
+    \put(0.60637726,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1996\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{trend_zoomed.pdf}}%
-    \put(0.76870121,0.1657857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
+    \put(0.76840301,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1998\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{trend_zoomed.pdf}}%
-    \put(0.93079792,0.1657857){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
-    \put(0.4842082,0.13799324){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Survey Year\end{tabular}}}}%
+    \put(0.93042927,0.19291207){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2000\end{tabular}}}}%
+    \put(0.48537524,0.16513381){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Survey Year\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{trend_zoomed.pdf}}%
-    \put(0.48807212,0.08425278){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Female\end{tabular}}}}%
-    \put(0.48807212,0.04889475){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Female\end{tabular}}}}%
+    \put(0.48771893,0.11228801){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}East Origin, Female\end{tabular}}}}%
+    \put(0.48771893,0.07691344){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}West Origin, Female\end{tabular}}}}%
+    \put(0.13676133,0.03447255){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Avg. Bin Size (Std. Dev.): 1,073 (746)\end{tabular}}}}%
   \end{picture}%
 \endgroup%

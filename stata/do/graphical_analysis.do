@@ -5,7 +5,7 @@
 use ${data}female_stem, clear
 
 
-* keep employed working working age population only
+* keep working-age employed population only
 keep if inrange(age, 17, 65)
 keep if inrange(pgemplst, 1, 2)
 
@@ -28,6 +28,8 @@ local size_sd_female   = round(r(sd))
 local fmt_size_mean_female : di %3.0fc `size_mean_female'
 local fmt_size_sd_female   : di %3.0fc `size_sd_female'
 
+di "Avg. Bin Size (Std. Dev.): `fmt_size_mean' (`fmt_size_sd')""
+
 
 * share of stem professionals within demographic groups (1990-1999)
 twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcolor(gs6) msymbol(O) lpattern(solid)) ///
@@ -43,7 +45,6 @@ twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcol
 		   label(3 "West Origin, Female") ///
 		   label(4 "East Origin, Female") ///
 		   order(4 3 1 2)) ///
-	note("Avg. Bin Size (Std. Dev.): `fmt_size_mean' (`fmt_size_sd')") ///
 	name(trend, replace)
 
 graph export "${figures}trend.pdf", replace
@@ -61,6 +62,8 @@ keep if inrange(syear, 1990, 1999) & female == 1
 
 statsby stem=r(mean) lb=r(lb) ub=r(ub) [aw = phrf], by(syear east_origin female) clear: ci means stem
 
+di "Avg. Bin Size (Std. Dev.): `fmt_size_mean_female' (`fmt_size_sd_female')"
+
 
 * share of stem professionals within demographic groups (females only, 1990-1999)
 twoway (connected stem syear if east_origin == 0, mcolor(gs6) lcolor(gs6) msymbol(Sh) lpattern(dash)) ///
@@ -73,7 +76,6 @@ twoway (connected stem syear if east_origin == 0, mcolor(gs6) lcolor(gs6) msymbo
 	legend(label(1 "West Origin, Female") ///
 		   label(2 "East Origin, Female") ///
 		   order(2 1)) ///
-	note("Avg. Bin Size (Std. Dev.): `fmt_size_mean_female' (`fmt_size_sd_female')") ///
 	name(trend_zoomed, replace)
 
 graph export "${figures}trend_zoomed.pdf", replace
@@ -230,6 +232,9 @@ bysort pid (syear): replace stem_unemp_switch = -1 if inrange(pgemplst, 1, 2) & 
 
 collapse (sum) stem_switch unemp_switch stem_unemp_switch (count) pid [aw = phrf], by(syear)
 
+di "`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM."
+
+
 twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 ||     (connected stem_unemp_switch syear [w = pid], lcolor(gs4) mcolor(gs4) msymb(oh) lpattern(solid)) ///
 ||     (line stem_switch syear, lcolor(black) lpattern(solid)), ///
@@ -243,7 +248,6 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 		   label(3 "STEM to Non-STEM") ///
 		   order(3 2 1) ///
 		   position(6)) ///
-	note("`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM.") ///
 	name(net_switches, replace)
 
 graph export "${figures}net_switches.pdf", replace
