@@ -95,6 +95,8 @@ erase ${data}extension.dta
 erase ${data}extension_children.dta
 erase ${data}extension_parents.dta
 
+erase ${data}state.dta
+
 * close log file
 log close master_thesis
 

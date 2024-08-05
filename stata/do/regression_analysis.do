@@ -40,9 +40,9 @@ save ${data}children_interactions, replace
 {
 
 * define independent variables
-local baseline = "female mother_east_or female_mother_east_or father_east_or mother_stem_ever female_mother_stem_ever female_mother_east_stem father_stem_ever"
+local baseline = "female mother_east_or female_mother_east_or father_east_or mother_stem_ever father_stem_ever female_mother_stem_ever female_mother_east_stem"
 local person   = "`baseline' age age_squared migback"
-local state    = "`person' bula_*"
+local state    = "`person' unemp gdp popdens netcommuting firstsemstud"
 
 estimates clear
 
@@ -84,7 +84,7 @@ esttab using ${tables}baseline--8.tex, ///
 * define independent variables
 local baseline = "female mother_east_or female_mother_east_or father_east_or mother_stem_ever father_stem_ever"
 local person   = "`baseline' age age_squared migback"
-local state    = "`person' bula_*"
+local state    = "`person' unemp gdp popdens netcommuting firstsemstud"
 
 estimates clear
 
@@ -126,7 +126,7 @@ esttab using ${tables}baseline--6.tex, ///
 * define independent variables
 local baseline = "female mother_east_or female_mother_east_or father_east_or"
 local person   = "`baseline' age age_squared migback"
-local state    = "`person' bula_*"
+local state    = "`person' unemp gdp popdens netcommuting firstsemstud"
 
 estimates clear
 
@@ -256,7 +256,7 @@ drop if mi(num_sib) | mi(parental_hhincome)
 * define independent variables
 local baseline = "female mother_east_or female_mother_east_or father_east_or mother_stem_ever father_stem_ever"
 local person   = "`baseline' age age_squared migback num_sib parental_hhincome"
-local state    = "`person' bula_*"
+local state    = "`person' unemp gdp popdens netcommuting firstsemstud"
 
 estimates clear
 

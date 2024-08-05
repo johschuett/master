@@ -227,14 +227,14 @@ label values migback migback_bin
 * federal states
 merge m:1 hid syear using ${v38}regionl, keep(3) keepusing(bula) nogen
 
-* leave out largest federal state dummy
-tab bula, gen(bula_)
 
-egen max_cat_bula = mode(bula)
-tab max_cat_bula, matrow(mat)
-local max_cat = mat[1,1]
-drop bula_`max_cat'
-drop max_cat_bula
+* save dataset
+save ${data}extension_children, replace
+
+
+* state-level indicators
+do ${do}state_wide.do
+merge 1:m bula syear using ${data}extension_children.dta, keep(3) nogen
 
 
 * save dataset
@@ -257,7 +257,7 @@ label variable female_mother_warsaw_pact "Female $\times$ Mother: Former Warsaw 
 * define independent variables
 local baseline = "female mother_warsaw_pact female_mother_warsaw_pact father_warsaw_pact mother_stem_ever father_stem_ever"
 local person   = "`baseline' age age_squared migback"
-local state    = "`person' bula_*"
+local state    = "`person' unemp gdp popdens netcommuting firstsemstud"
 
 estimates clear
 

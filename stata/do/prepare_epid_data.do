@@ -190,6 +190,15 @@ label values west west
 * save dataset
 save ${data}children, replace
 
+
+* state-level indicators
+do ${do}state_wide.do
+merge 1:m bula syear using ${data}children.dta, keep(3) nogen
+
+
+* save dataset
+save ${data}children, replace
+
 }
 
 
