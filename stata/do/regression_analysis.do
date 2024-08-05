@@ -67,7 +67,12 @@ foreach ind in baseline person state {
 
 * direct output in log
 esttab, ///
-	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(aic bic rank N)
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
+
+* export latex table
+esttab using ${tables}baseline--8.tex, ///
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+	booktabs replace
 
 }
 
@@ -104,8 +109,12 @@ foreach ind in baseline person state {
 
 * direct output in log
 esttab, ///
-	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(aic bic rank N)
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
 
+* export latex table
+esttab using ${tables}baseline--6.tex, ///
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+	booktabs replace
 
 }
 
@@ -142,7 +151,12 @@ foreach ind in baseline person state {
 
 * direct output in log
 esttab, ///
-	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(aic bic rank N)
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
+
+* export latex table
+esttab using ${tables}baseline--4.tex, ///
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+	booktabs replace
 
 }
 
@@ -256,7 +270,12 @@ foreach ind in baseline person state {
 
 * direct output in log
 esttab, ///
-	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(aic bic rank N)
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
+
+* export latex table
+esttab using ${tables}baseline--6-add_control.tex, ///
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+	booktabs replace
 
 
 * -> residing in saarland predicts failure perfectly

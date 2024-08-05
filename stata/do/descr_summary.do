@@ -19,7 +19,7 @@ forvalues east = 0(1)1 {
 	
 	foreach var in stem age partner_bin hhgr west {
 		di "`var'"
-		ttest `var', by(female)
+		ttest `var', by(female) reverse
 	}
 		
 	restore

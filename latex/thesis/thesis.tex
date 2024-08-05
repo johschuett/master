@@ -21,6 +21,9 @@
 
 \bibliographystyle{apalike}
 
+% suppress page group warning
+\pdfsuppresswarningpagegroup=1
+
 % line spread
 \linespread{1.5}
 
@@ -470,7 +473,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 	\label{fig:timetrendzoom}
 	\fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
-	\input{trend.pdf_tex}
+	\input{trend_zoomed.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
 	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
@@ -531,42 +534,320 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 \subsection*{Tables}
 \label{tables}
 
-\iffalse
 \begin{table}[ht]
-    \caption[Self-Declared Maths Grades by Adults -- GSOEP]{Self-Declared Maths Grades by German Adults -- GSOEP}
-    \label{tab:soepadults}
+	\caption{Summary Statistics for East Germans in Survey Year 1990}
+	\label{tab:descr_summary_east}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			& (Females) & (Males) & (Females $-$ Males) \\
+			\midrule
+			STEM Profession & 0.11  & 0.11  &   0.00     \\
+			&   (0.01)  & (0.01) & (0.01) \\
+			\addlinespace
+			Age         &   38.63   &  39.32  &  -0.69\sym{*}     \\
+			&     (0.28) &        (0.28)         &      (0.40) \\
+			\addlinespace
+			Spouse/Life Partner &  0.82      &  0.84  &    -0.02    \\
+			&      (0.01)&          (0.01)&         (0.01) \\
+			\addlinespace
+			Household Size      &  3.21   &  3.28   &   -0.07\sym{*}       \\
+			&          (0.03)&       (0.03)        &      (0.04)\\
+			\addlinespace
+			Residence in West Germany&  0.00   &   0.00  &  0.00         \\
+			&         (0.00) &       (0.00)&  (0.00)\\
+			\midrule
+			Observations        &  1,490    &    1,645     &      3,135             \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Individuals are considered to be East German if their household head lived in the GDR prior to Reunification in 1990.}
+		
+	\end{center}
+\end{table}
+
+\begin{table}[ht]
+    \caption{Summary Statistics for West Germans in Survey Year 1990}
+    \label{tab:descr_summary_west}
     \begin{center}
         \begin{tabular}{l*{3}{c}}
-            \toprule
-            \multicolumn{4}{c}{\emph{Dependent Variable: Self-Declared Last Maths Grade (0-1 scale)}} \\
-            \midrule
-                                &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
-            \midrule
-            Female              &       -0.09\sym{***}&       -0.08\sym{***}&       -0.08\sym{***}\\
-                                &      (0.01)         &      (0.01)         &      (0.01)         \\
-            [1em]
-            East                &        0.06\sym{***}&        0.08\sym{***}&        0.07\sym{***}\\
-                                &      (0.01)         &      (0.01)         &      (0.01)         \\
-            [1em]
-            East*Female         &        0.08\sym{***}&        0.08\sym{***}&        0.08\sym{***}\\
-                                &      (0.02)         &      (0.02)         &      (0.02)         \\
-            \midrule
-            Person \& Household Controls & & X & X \\
-            Länder Controls & & & X \\
-            \midrule
-            Observations        &       18,607         &       18,607         &       18,607         \\
-            \midrule
-            \bottomrule
+        	\toprule
+        	& (Females) & (Males) & (Females $-$ Males) \\
+        	\midrule
+        	STEM Profession & 0.06  & 0.14 &  -0.08\sym{***}      \\
+        	&   (0.01)  & (0.02) & (0.02) \\
+        	\addlinespace
+        	Age         & 30.81     &  31.60   &    -0.79     \\
+        	&     (0.48) &        (0.49)         &      (0.69) \\
+        	\addlinespace
+        	Spouse/Life Partner & 0.68       &  0.62   &     0.06\sym{*}      \\
+        	&      (0.03)&          (0.03)&         (0.04) \\
+        	\addlinespace
+        	Household Size      &  2.93   &  2.89   &    0.04       \\
+        	&          (0.07)&       (0.07)        &      (0.10)\\
+        	\addlinespace
+        	Residence in West Germany& 0.96    &  0.97   &    -0.02        \\
+        	&         (0.01) &       (0.01)&  (0.01)\\
+        	\midrule
+        	Observations        &        343 &     377     &       720                \\
+        	\bottomrule
         \end{tabular}
         
         \vspace{2mm}
         
         \parbox{10cm}{
-        \linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Linear Probability Model. The data come from the German Socio-Economic Panel. The sample is restricted to individuals who were born in Germany before 1971. Standard errors clustered at the household level are given in parentheses. East=1 if the household head lived in the GDR prior to Reunification in 1990. Question: ``Can you remember your last report card from school? What grade did you have in mathematics (1-6 scale with 1 being the highest grade)?'' Answer originally on a 1-6 scale recoded on a 0-1 scale, 1 corresponding to a grade of 1 or 2.}
+        \linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Individuals are considered to be West German if their household head lived in the FRG prior to Reunification in 1990.}
         
     \end{center}
 \end{table}
-\fi
+
+\begin{table}[ht]
+	\caption[Summary Statistics for Adult Children]{Summary Statistics for Adult Children of Individuals from Descriptive Analysis' Sample}
+	\label{tab:descr_summary_epid}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			& (Females) & (Males) & (Females $-$ Males) \\
+			\midrule
+			STEM Tertiary Education &  0.26 & 0.46 &   -0.21\sym{***}    \\
+			&   (0.01)  & (0.01) & (0.02) \\
+			\addlinespace
+			Age         &   27.96   &  28.26   &   -0.30\sym{**}     \\
+			&     (0.09) &        (0.10)         &      (0.13) \\
+			\addlinespace
+			Spouse/Life Partner &   0.52     &   0.33  &    0.19\sym{***}     \\
+			&      (0.01)&          (0.01)&         (0.02) \\
+			\addlinespace
+			Household Size      &  2.30   &  2.25   &   0.05        \\
+			&          (0.03)&       (0.04)   &   (0.05) \\
+			\addlinespace
+			Residence in West Germany  &  0.76   &  0.71   &     0.04\sym{**}     \\
+			&         (0.01) &       (0.01)&  (0.02)\\
+			\addlinespace
+			Mother: East German Origin &  0.25   & 0.27    &    -0.01      \\
+			&         (0.01) &       (0.01)&  (0.01)\\
+			\addlinespace
+			Father: East German Origin &  0.24   & 0.25    &   -0.01       \\
+			&         (0.01) &       (0.01)&  (0.02)\\
+			\addlinespace
+			Mother: Ever STEM Profession &  0.12   & 0.08    &  0.04\sym{***}        \\
+			&         (0.01) &       (0.01) &  (0.01) \\
+			\addlinespace
+			Father: Ever STEM Profession &  0.31   &  0.37   &   -0.05\sym{***}       \\
+			&         (0.01) &       (0.01)&  (0.02)\\
+			\addlinespace
+			Indirect Migration Background &  0.02   &   0.01  &   0.01\sym{***}       \\
+			&         (0.00) &       (0.00)&  (0.01) \\
+			\midrule
+			Observations        &  1,324     &  1,198     &        2,522            \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany.}
+		
+	\end{center}
+\end{table}
+
+\begin{table}[ht]
+	\caption[STEM subject at University (Baseline--6)]{Prob. of being enrolled in a STEM subject at University (Baseline--6)}
+	\label{tab:baseline--6}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+			\midrule
+			Female              &     -0.1601\sym{***}&     -0.1568\sym{***}&     -0.1521\sym{***}\\
+			&    (0.0474)         &    (0.0473)         &    (0.0464)         \\
+			\addlinespace
+			Mother: Eastern Origin&      0.0820         &      0.0954         &      0.1225         \\
+			&    (0.1190)         &    (0.1184)         &    (0.1098)         \\
+			\addlinespace
+			Female $\times$ Mother: Eastern Origin&     -0.1172         &     -0.1185         &     -0.1522         \\
+			&    (0.1010)         &    (0.1010)         &    (0.0981)         \\
+			\addlinespace
+			Father: Eastern Origin&     -0.0306         &     -0.0476         &      0.0078         \\
+			&    (0.1163)         &    (0.1161)         &    (0.1211)         \\
+			\addlinespace
+			Mother: Ever STEM Profession&     -0.0496         &     -0.0458         &     -0.0410         \\
+			&    (0.0754)         &    (0.0751)         &    (0.0748)         \\
+			\addlinespace
+			Father: Ever STEM Profession&      0.1292\sym{***}&      0.1298\sym{***}&      0.1058\sym{**} \\
+			&    (0.0441)         &    (0.0443)         &    (0.0447)         \\
+			\midrule
+			Rank                &      6         &      9         &     24         \\
+			Observations                   &   2,522         &   2,522         &   2,522         \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany.}
+		
+	\end{center}
+\end{table}
+
+\begin{table}[ht]
+	\caption[STEM subject at University (Baseline--8)]{Prob. of being enrolled in a STEM subject at University (Baseline--8)}
+	\label{tab:baseline--8}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+			\midrule
+			Female              &     -0.1735\sym{***}&     -0.1703\sym{***}&     -0.1653\sym{***}\\
+			&    (0.0499)         &    (0.0497)         &    (0.0485)         \\
+			\addlinespace
+			Mother: Eastern Origin&      0.0774         &      0.0897         &      0.1205         \\
+			&    (0.1192)         &    (0.1188)         &    (0.1096)         \\
+			\addlinespace
+			Female $\times$ Mother: Eastern Origin&     -0.1010         &     -0.1011         &     -0.1452         \\
+			&    (0.1073)         &    (0.1073)         &    (0.1025)         \\
+			\addlinespace
+			Father: Eastern Origin&     -0.0199         &     -0.0360         &      0.0194         \\
+			&    (0.1164)         &    (0.1164)         &    (0.1220)         \\
+			\addlinespace
+			Mother: Ever STEM Profession&     -0.1142         &     -0.1095         &     -0.1165         \\
+			&    (0.1023)         &    (0.1020)         &    (0.0991)         \\
+			\addlinespace
+			Female $\times$ Mother: Ever STEM Profession&      0.1595         &      0.1595         &      0.1649         \\
+			&    (0.1520)         &    (0.1513)         &    (0.1498)         \\
+			\addlinespace
+			Female $\times$ Mother: Eastern Origin and Ever STEM Prof. &     -0.1693         &     -0.1759         &     -0.1239         \\
+			&    (0.2006)         &    (0.1997)         &    (0.2055)         \\
+			\addlinespace
+			Father: Ever STEM Profession&      0.1314\sym{***}&      0.1324\sym{***}&      0.1079\sym{**} \\
+			&    (0.0438)         &    (0.0440)         &    (0.0444)         \\
+			\midrule
+			Rank                &      8         &     11         &     26         \\
+			Observations                   &   2,522         &   2,522         &   2,522         \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany.}
+		
+	\end{center}
+\end{table}
+
+\begin{table}[ht]
+	\caption[STEM subject at University (Baseline--4)]{Prob. of being enrolled in a STEM subject at University (Baseline--4)}
+	\label{tab:baseline--4}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+			\midrule
+			Female              &     -0.1713\sym{***}&     -0.1678\sym{***}&     -0.1618\sym{***}\\
+			&    (0.0479)         &    (0.0478)         &    (0.0467)         \\
+			\addlinespace
+			Mother: Eastern Origin&      0.0998         &      0.1148         &      0.1431         \\
+			&    (0.1327)         &    (0.1308)         &    (0.1167)         \\
+			\addlinespace
+			Female $\times$ Mother: Eastern Origin&     -0.1094         &     -0.1110         &     -0.1475         \\
+			&    (0.1036)         &    (0.1035)         &    (0.0985)         \\
+			\addlinespace
+			Father: Eastern Origin&     -0.0430         &     -0.0609         &     -0.0116         \\
+			&    (0.1288)         &    (0.1276)         &    (0.1258)         \\
+			\midrule
+			Rank                &      4         &     7         &     22         \\
+			Observations                   &   2,522         &   2,522         &   2,522         \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany.}
+		
+	\end{center}
+\end{table}
+
+\begin{table}[ht]
+	\caption[STEM subject at University (Baseline--6 + Add. Controls)]{Prob. of being enrolled in a STEM subject at University (Baseline--6 $+$ Add. Controls)}
+	\label{tab:baseline--6_controls}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+			\midrule
+			Female              &     -0.1753\sym{***}&     -0.1771\sym{***}&     -0.1694\sym{***}\\
+			&    (0.0522)         &    (0.0515)         &    (0.0510)         \\
+			\addlinespace
+			Mother: Eastern Origin&      0.1224         &      0.1134         &      0.1785         \\
+			&    (0.1302)         &    (0.1306)         &    (0.1192)         \\
+			\addlinespace
+			Female $\times$ Mother: Eastern Origin&     -0.1260         &     -0.1077         &     -0.1763\sym{*}  \\
+			&    (0.1072)         &    (0.1048)         &    (0.0995)         \\
+			\addlinespace
+			Father: Eastern Origin&     -0.0439         &     -0.0726         &     -0.0059         \\
+			&    (0.1256)         &    (0.1262)         &    (0.1232)         \\
+			\addlinespace
+			Mother: Ever STEM Profession&     -0.0778         &     -0.0559         &     -0.0696         \\
+			&    (0.0871)         &    (0.0854)         &    (0.0858)         \\
+			\addlinespace
+			Father: Ever STEM Profession&      0.1098\sym{**} &      0.1153\sym{**} &      0.1034\sym{**} \\
+			&    (0.0479)         &    (0.0470)         &    (0.0453)         \\
+			\midrule
+			Rank                &      6         &     11         &     25         \\
+			Observations                   &   2,522         &   2,522         &   2,522         \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany.}
+		
+	\end{center}
+\end{table}
+
+\begin{table}[ht]
+	\caption[STEM subject at University (East/West Bloc, Baseline--6)]{Prob. of being enrolled in a STEM subject at University (East/West Bloc, Baseline--6)}
+	\label{tab:extension}
+	\begin{center}
+		\begin{tabular}{l*{3}{c}}
+			\toprule
+			&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+			\midrule
+			Female              &     -0.1753\sym{***}&     -0.1771\sym{***}&     -0.1694\sym{***}\\
+			&    (0.0522)         &    (0.0515)         &    (0.0510)         \\
+			\addlinespace
+			Mother: Eastern Origin&      0.1224         &      0.1134         &      0.1785         \\
+			&    (0.1302)         &    (0.1306)         &    (0.1192)         \\
+			\addlinespace
+			Female $\times$ Mother: Eastern Origin&     -0.1260         &     -0.1077         &     -0.1763\sym{*}  \\
+			&    (0.1072)         &    (0.1048)         &    (0.0995)         \\
+			\addlinespace
+			Father: Eastern Origin&     -0.0439         &     -0.0726         &     -0.0059         \\
+			&    (0.1256)         &    (0.1262)         &    (0.1232)         \\
+			\addlinespace
+			Mother: Ever STEM Profession&     -0.0778         &     -0.0559         &     -0.0696         \\
+			&    (0.0871)         &    (0.0854)         &    (0.0858)         \\
+			\addlinespace
+			Father: Ever STEM Profession&      0.1098\sym{**} &      0.1153\sym{**} &      0.1034\sym{**} \\
+			&    (0.0479)         &    (0.0470)         &    (0.0453)         \\
+			\midrule
+			Rank                &      6         &      9         &     24         \\
+			Observations                  &   2,624         &   2,624         &   2,624         \\
+			\bottomrule
+		\end{tabular}
+		
+		\vspace{2mm}
+		
+		\parbox{10cm}{
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany.}
+		
+	\end{center}
+\end{table}
 
 \clearpage
 

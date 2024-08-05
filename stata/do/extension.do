@@ -271,8 +271,12 @@ foreach ind in baseline person state {
 
 * direct output in log
 esttab, ///
-	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(aic bic rank N)
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
 
+* export latex table
+esttab using ${tables}extension.tex, ///
+	b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+	booktabs replace
 
 }
 

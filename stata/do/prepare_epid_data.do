@@ -132,6 +132,21 @@ label variable age "Age"
 label variable age_squared "Age (squared)"
 
 
+* partner
+recode partner (1/4 = 1) (0 5 = 0), gen(partner_bin)
+label variable partner_bin "Spouse/Life Partner"
+
+label define partner_bin 0 "[0] Does not have a Spouse/Life Partner", modify
+label define partner_bin 1 "[1] Has a Spouse/Life Partner", modify
+
+label values partner_bin partner_bin
+
+
+* household size
+merge m:1 hid syear using ${v38}hbrutto, keep(3) keepusing(hhgr) nogen
+label variable hhgr "Household Size"
+
+
 * number of siblings
 gen num_sib = numb + nums if numb >= 0 & nums >= 0
 label variable num_sib "Number of Siblings"
@@ -159,6 +174,17 @@ tab max_cat_bula, matrow(mat)
 local max_cat = mat[1,1]
 drop bula_`max_cat'
 drop max_cat_bula
+
+
+* residence west germany
+recode bula (1/10 = 1) (11/16 = 0) (nonmissing = .), gen(west)
+
+label variable west "Residence in West Germany"
+
+label define west 0 "[0] Does not reside in West Germany", modify
+label define west 1 "[1] Resides in West Germany", modify
+
+label values west west
 
 
 * save dataset

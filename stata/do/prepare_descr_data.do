@@ -63,6 +63,8 @@ drop if mi(stem)
 * generate age
 gen age = syear - gebjahr
 
+label variable age "Age"
+
 
 * partner
 recode partner (1/4 = 1) (0 5 = 0), gen(partner_bin)

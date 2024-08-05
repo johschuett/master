@@ -1,0 +1,37 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+\midrule
+Female              &     -0.1735\sym{***}&     -0.1703\sym{***}&     -0.1653\sym{***}\\
+                    &    (0.0499)         &    (0.0497)         &    (0.0485)         \\
+\addlinespace
+Mother: Eastern Origin&      0.0774         &      0.0897         &      0.1205         \\
+                    &    (0.1192)         &    (0.1188)         &    (0.1096)         \\
+\addlinespace
+Female $\times$ Mother: Eastern Origin&     -0.1010         &     -0.1011         &     -0.1452         \\
+                    &    (0.1073)         &    (0.1073)         &    (0.1025)         \\
+\addlinespace
+Father: Eastern Origin&     -0.0199         &     -0.0360         &      0.0194         \\
+                    &    (0.1164)         &    (0.1164)         &    (0.1220)         \\
+\addlinespace
+Mother: Ever STEM Profession&     -0.1142         &     -0.1095         &     -0.1165         \\
+                    &    (0.1023)         &    (0.1020)         &    (0.0991)         \\
+\addlinespace
+Female $\times$ Mother: Ever STEM Profession&      0.1595         &      0.1595         &      0.1649         \\
+                    &    (0.1520)         &    (0.1513)         &    (0.1498)         \\
+\addlinespace
+Female $\times$ Mother: Eastern Origin $\times$ Mother: Ever STEM Profession&     -0.1693         &     -0.1759         &     -0.1239         \\
+                    &    (0.2006)         &    (0.1997)         &    (0.2055)         \\
+\addlinespace
+Father: Ever STEM Profession&      0.1314\sym{***}&      0.1324\sym{***}&      0.1079\sym{**} \\
+                    &    (0.0438)         &    (0.0440)         &    (0.0444)         \\
+\midrule
+rank                &      8.0000         &     11.0000         &     26.0000         \\
+N                   &   2522.0000         &   2522.0000         &   2522.0000         \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}
