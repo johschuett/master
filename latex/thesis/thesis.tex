@@ -263,10 +263,10 @@ Suppose then that we want to estimate the probability that individual $i$ takes 
 
 \begin{equation}
 	\label{eq:fernandezexercise}
-	y_{ic} = \beta_{0} + \beta_{1}X_{i} + \beta_{2}Y_{c} + \epsilon_{i}
+	y_{ic} = \beta_{0} + \beta_{1}Y_{c} + \gamma{}X'_{i} + \epsilon_{i}
 \end{equation}
 
-\noindent where $X_{i}$ is a vector of individual characteristics and $Y_{c}$ is a proxy for culture in country of ancestry $c$.
+\noindent where $Y_{c}$ is a proxy for culture in country of ancestry $c$ and $X'_{i}$ is the transpose of a vector of individual characteristics.
 The regressor of interest is the latter, which aims to capture variation in $y_{ic}$ caused by cultural influence.
 Culture can be proxied by employing a country-of-ancestry dummy for $Y_{c}$.
 However, this approach may give rise to several issues:
@@ -569,7 +569,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 	\begin{center}
 		\begin{tabular}{l*{3}{c}}
 			\toprule
-			& (Females) & (Males) & (Females $-$ Males) \\
+			& (Females) & (Males) & (Females - Males) \\
 			\midrule
 			STEM Profession & 0.11  & 0.11  &   0.00     \\
 			&   (0.01)  & (0.01) & (0.01) \\
@@ -604,7 +604,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
     \begin{center}
         \begin{tabular}{l*{3}{c}}
         	\toprule
-        	& (Females) & (Males) & (Females $-$ Males) \\
+        	& (Females) & (Males) & (Females - Males) \\
         	\midrule
         	STEM Profession & 0.06  & 0.14 &  -0.08\sym{***}      \\
         	&   (0.01)  & (0.02) & (0.02) \\
@@ -639,7 +639,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 	\begin{center}
 		\begin{tabular}{l*{3}{c}}
 			\toprule
-			& (Females) & (Males) & (Females $-$ Males) \\
+			& (Females) & (Males) & (Females - Males) \\
 			\midrule
 			STEM Tertiary Education &  0.26 & 0.46 &   -0.21\sym{***}    \\
 			&   (0.01)  & (0.01) & (0.02) \\
