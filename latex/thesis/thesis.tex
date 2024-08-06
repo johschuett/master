@@ -154,6 +154,9 @@
 \section{Introduction}
 \label{intro}
 
+\cite{Jessen2023}
+\cite{FriedmanSokuler2020}
+
 \section{Historical Background}
 \label{background}
 
@@ -226,8 +229,8 @@ In order to examine the developments that have occurred in the STEM sector follo
 It frequently serves as a basis for research on the Reunification and East-West differences in Germany across different domains \citep{Petrunyk2016, Bird1994, Hadjar2010}.
 
 % sample for descriptive analysis
-In order to provide a descriptive analysis in the first part of this paper, SOEP data from the survey years 1990–1999 has been utilised.
-This sample comprises individuals of working age (16–65 years old) with information on their employment status, ISCO-88 occupation code, and location in 1989 (the year preceding Reunification) available.
+In order to provide a descriptive analysis in the first part of this paper, SOEP data from the survey years 1990--1999 is utilised.
+This sample comprises individuals of working age (16--65 years old) with information on their employment status, ISCO-88 occupation code, and location in 1989 (the year preceding Reunification) available.
 All individuals were either born in the GDR or the FRG.
 The International Standard Classification of Occupations (ISCO for short) is an internationally used classification standard for jobs \citep{Elias1997}.
 It is developed and maintained by the International Labour Organisation (ILB for short).
@@ -428,8 +431,56 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 \subsection{Descriptive Analysis}
 \label{descriptives}
 
+The first empirical subsection of this paper aims to provide a descriptive account of the trends in the proportion of professionals working in STEM fields within specific demographic groups in Germany during the initial decade following the Reunification.
+Person-level SOEP data from the survey years 1990--1999 is utilised.
+The sample drawn from the SOEP contains 424,829 observations from 56,780 distinct individuals.
+Restricting the sample to individuals of working age (17--65) who are either full- or part-time employed yields a total of 159,221 observations from 37,225 unique individuals.
+Figure \ref{fig:timetrend} shows the development of the share of STEM professionals between 1984--2017.
+Four demographic groups that result from combining the two binary characteristics ``Male/Female'' and ``East/West'' in every possible way are formed and their trends depicted.
+In order to account for oversampling, the person weights provided by the SOEP are applied when collapsing the data into the respective groups.
+Every marker in the figure contains the information of 1,264 individuals on average.
+While data points already exist for West Germans from 1984 onwards, East Germans only enter the panel from 1990 onwards.
+
+Looking at 1990 reveals that both females and males of East German origin have approximately the same number of STEM professionals relative to all full- or part-time employed individuals of the same sex and origin.
+Within the first decade following the Reunification, the trend of the East German females converges into the trend of the West German females, which oscillates around 5\%.
+This convergence is seen to be robust throughout the entirety of the time span observed.
+The West German males show a share of approximately 14\% in 1990.
+This share increases in a roughly linear fashion over the entire time span observed.
+The East German males appear to be following this trend, albeit with a constant gap of around 3\% below their West German peers.
+This finding appears to be somewhat at odds with the findings of \cite{Jessen2023} and \cite{FriedmanSokuler2020}, who both find that immigrants from socialist countries influence their peers native to the host country in terms of female labour supply and educational choices.
+However, this figure suggests that East Germans follow the trends of their West German counterparts with regard to STEM occupations.
+
+Figure \ref{fig:timetrendzoom} focuses on the trends of the females within the first decade following the Reunification.
+From 1992 onwards, the 95\% confidence intervals begin to overlap between the two trends, indicating a quick convergence after a mere three years following the fall of the Berlin Wall.
+The confidence intervals remain overlapping after 1992.
+
+Tables \ref{tab:descr_summary_east} and \ref{tab:descr_summary_west} provide summary statistics for East and West Germans in the survey year 1990.
+The subsample sizes for the four groups are 1,490 East German females and 1,645 males and 343 West German females and 377 males.
+One possible reason for the low subsample size for the West Germans can be that approximately 93\% of these individuals stem from the SOEP's inital sample ``A'' which was initially drawn in 1984.
+By 1990, panel attrition shrank the number of successful person interviews in the samples ``A'' and ``B'' down to approximately 78\% of the number in 1984 \citep{Siegers2022}.
+In the year 1990, 9,519 sucessful person interviews were conducted for these samples.
+However, a large portion of the individuals are either not of working age, are unemployed, or lack occupational information.
+Applying the aforementioned filters results in a sample comprising 720 West German individuals.
+The then freshly drawn sample ``C'' for East Germany, based on the GDR-Master-Sample designed by Infratest in cooperation with the Department for Social Research of the Radio of GDR, comprises 4,453 successful person interviews in 1990 \citep{Infratest2011, Siegers2022}.
+The sample used in the descriptive analysis of this paper comprises 3,135 individuals in the survey year 1990.
+The columns designated (Females) and (Males) in both tables show the mean values of the selected characteristics.
+The third column presents the differences in means, i. e. (Females) - (Males).
+While both East German females and males show statistically identical shares of STEM professionals of 11\%, the difference in shares between West German females and males is -8 percentage points (pp for short).
+
+The proportion of individuals in STEM occupations among both East German females and males is statistically identical, with a figure of 11\%.
+In contrast, there is a notable discrepancy between the sexes in West Germany, with a difference of -8 percentage points (pp for short).
+The East German individuals are approximately 8 years older than their West German peers and therefore also have a higher share of individuals with spouses or life partners.
+The proportion of West German females in a relationship is, on average, significantly higher than that of West German males (68\% versus 62\%), despite the former being, on average, slightly younger than the latter.
+There is no significant difference in the proportion of East German individuals in a relationship between the sexes.
+
+Figures \ref{fig:survivalfemale} and \ref{fig:survivalmale} show...
+% High number of Item-Nonresponses in 1994, 1996, and 1999 due to high number of missings in ISCO-88 variable for these survey years.
+
 \subsection{Legacy Effect on Educational Choices}
 \label{educational}
+
+\section{Discussion}
+\label{discussion}
 
 \section{Robustness: Different Model Specifications}
 \label{robustness}
@@ -475,43 +526,43 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 
 \begin{figure}[ht]
     \centering
-    \caption{Cohorts (Start of Occupation by Gender), 1945–1990}
+    \caption{Cohorts (Start of Occupation by Gender), 1945--1990}
     \label{fig:mayer}
     \fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
 	\input{validity.pdf_tex}
     \vspace{2mm}
     \parbox{10cm}{
-    \linespread{1}\footnotesize Note: The data come from \cite{Mayer1995}.}
+    \linespread{1}\footnotesize Note: The data come from \cite{Mayer1995}. The mean number of individuals represented by each marker is 891, with a standard deviation of 340.}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\caption{Time Trend (by Region and Gender), 1984–2017}
+	\caption{Time Trend (by Region and Gender), 1984--2017}
 	\label{fig:timetrend}
 	\fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
 	\input{trend.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. The mean number of individuals represented by each marker is 1,264, with a standard deviation of 1,116. Person weights provided by the SOEP are applied when collapsing the data into the respective groups. The vertical dashed line marks the year of the Reunification.}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\caption{Time Trend (by Region, Females only), 1990–1999}
+	\caption{Time Trend (by Region, Females only), 1990--1999}
 	\label{fig:timetrendzoom}
 	\fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
 	\input{trend_zoomed.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. The mean number of individuals represented by each marker is 812, with a standard deviation of 535. Person weights provided by the SOEP are applied when collapsing the data into the respective groups. The whiskers show the 95\% confidence intervals.}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\caption{Development of 1990's Eastern Female STEM Professionals, 1990–1999}
+	\caption{Development of 1990's Eastern Female STEM Professionals, 1990--1999}
 	\label{fig:survivalfemale}
 	\fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
@@ -523,7 +574,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 
 \begin{figure}[ht]
 	\centering
-	\caption{Development of 1990's Eastern Male STEM Professionals, 1990–1999}
+	\caption{Development of 1990's Eastern Male STEM Professionals, 1990--1999}
 	\label{fig:survivalmale}
 	\fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
@@ -535,7 +586,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 
 \begin{figure}[ht]
 	\centering
-	\caption{Net Switches among Eastern Females, 1990–1999}
+	\caption{Net Switches among Eastern Females, 1990--1999}
 	\label{fig:netswitches}
 	\fontsize{9pt}{11pt}\selectfont
 	\def\svgwidth{\textwidth}
@@ -594,7 +645,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 		\vspace{2mm}
 		
 		\parbox{10cm}{
-			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors are given in parentheses. Individuals are considered to be East German if their household head lived in the GDR prior to Reunification in 1990.}
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors are given in parentheses. Individuals are considered to be East German if their household head lived in the GDR prior to Reunification in 1990. Differences in means have been obtained by employing two-sample Student's t-tests.}
 		
 	\end{center}
 \end{table}
@@ -629,7 +680,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
         \vspace{2mm}
         
         \parbox{10cm}{
-        \linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors are given in parentheses. Individuals are considered to be West German if their household head lived in the FRG prior to Reunification in 1990.}
+        \linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors are given in parentheses. Individuals are considered to be West German if their household head lived in the FRG prior to Reunification in 1990. Differences in means have been obtained by employing two-sample Student's t-tests.}
         
     \end{center}
 \end{table}
@@ -679,7 +730,7 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 		\vspace{2mm}
 		
 		\parbox{10cm}{
-			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors are given in parentheses.}
+			\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors are given in parentheses. Differences in means have been obtained by employing two-sample Student's t-tests.}
 		
 	\end{center}
 \end{table}

@@ -54,7 +54,7 @@ graph export "${figures}trend.pdf", replace
 use ${data}female_stem, clear
 
 
-* keep employed working working age population only
+* keep working-age employed population only
 keep if inrange(age, 17, 65)
 keep if inrange(pgemplst, 1, 2)
 
@@ -91,6 +91,8 @@ graph export "${figures}trend_zoomed.pdf", replace
 forvalues female = 0(1)1 {
     
 	use ${data}female_stem, clear
+	
+	
 	keep if syear == 1990 & stem == 1 & east_origin == 1 & female == `female'
 	keep pid
 
@@ -109,7 +111,7 @@ forvalues female = 0(1)1 {
 	label define status 1 "Working in STEM", modify
 	label define status 2 "Working in Non-STEM", modify
 	label define status 3 "No Regular Employment", modify
-	label define status 4 "(Partial) Unit-Nonresponse", modify
+	label define status 4 "Item- or (Partial) Unit-Nonresponse", modify
 
 	label values status status
 
@@ -153,7 +155,7 @@ forvalues female = 0(1)1 {
 			bar(2, color(gs5)) ///
 			bar(3, color(gs9)) ///
 			bar(4, color(gs13)) ///
-			legend(order(4 3 2 1)) ///
+			legend(label(4 "Item- or (Partial) Unit-Nonresponse") order(4 3 2 1)) ///
 			ylab(, nogrid) ///
 			ytitle("Percent") ///
 			graphregion(color(white)) ///
@@ -171,7 +173,7 @@ forvalues female = 0(1)1 {
 			bar(2, color(gs5)) ///
 			bar(3, color(gs9)) ///
 			bar(4, color(gs13)) ///
-			legend(order(4 3 2 1)) ///
+			legend(label(4 "Item- or (Partial) Unit-Nonresponse") order(4 3 2 1)) ///
 			ylab(, nogrid) ///
 			ytitle("Percent") ///
 			graphregion(color(white)) ///
@@ -188,11 +190,10 @@ forvalues female = 0(1)1 {
 * net switches plot
 {
 
-* reload data
 use ${data}female_stem, clear
 
 
-* keep working age population only
+* keep working-age population only
 keep if inrange(age, 17, 65)
 
 
