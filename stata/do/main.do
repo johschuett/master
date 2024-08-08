@@ -1,13 +1,9 @@
 *-> SET LOCAL ROOT HERE
-global root       = "H:/master_thesis/stata/" // VDI
-global root       = "/Users/schuett/Repositories/master_thesis/stata/" // Mac
-
-* soep v38.1
-global v38        = "//hume/rdc-prod/distribution/soep-core/soep.v38.1/eu/Stata_DE/soepdata/" // VDI
-global v38        = "${root}data/soep_v38.1/soepdata/" // Mac
+global root       = "/Users/schuett/Repositories/master_thesis/stata/"
 
 * paths within project
 global data       = "${root}data/"
+global v38        = "${data}soep_v38.1/soepdata/"
 global do         = "${root}do/"
 global log        = "${root}log/"
 global figures    = "${root}figures/"

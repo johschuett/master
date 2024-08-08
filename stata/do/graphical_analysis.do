@@ -2,6 +2,7 @@
 
 * general time trend plot cond. on working
 {
+
 use ${data}female_stem, clear
 
 
@@ -100,7 +101,7 @@ forvalues female = 0(1)1 {
 	merge 1:m pid using ${data}female_stem, keep(3) nogen
 	keep if inrange(syear, 1990, 1999)
 
-	* create status variable [1] stem [2] working in non-stem [3] irregular employment/non-working [4] punr
+	* create status variable [1] stem [2] working in non-stem [3] irregular employment/non-working [4] item- or (p)u-nr
 	gen status = .
 	replace status = 1 if stem == 1
 	replace status = 2 if stem == 0 & inlist(pgemplst, 1, 2)
@@ -119,12 +120,12 @@ forvalues female = 0(1)1 {
 	save ${data}survival, replace
 
 
-	* count punr's
+	* count item- and (p)u-nr's
 	collapse (sum) stem (count) pid, by(syear)
 	gen punr = pid[1] - pid
 	save ${data}punr, replace
 
-	* get punr's into the status variable
+	* get item- and (p)u-nr's into the status variable
 	forvalues year = 1(1)10 {
 		
 		use ${data}punr, clear
@@ -242,10 +243,11 @@ collapse (sum) stem_switch unemp_switch stem_unemp_switch (count) pid [aw = phrf
 di "`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM."
 
 
-twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
-||     (connected stem_unemp_switch syear [w = pid], lcolor(gs4) mcolor(gs4) msymb(oh) lpattern(solid)) ///
-||     (line stem_switch syear, lcolor(black) lpattern(solid)), ///
-	yline(0, lcolor(gs12) lpattern(dash)) ///
+twoway (line unemp_switch syear, lcolor(black) lpattern(solid)) ///
+||     (line stem_unemp_switch syear, lcolor(gs9) lpattern(solid)) ///
+||     (line stem_switch syear, lcolor(gs5) lpattern(solid)) ///
+||	   (connected const syear [w = pid], lpattern(blank) mcolor(gs3) msymb(s)), ///
+	yline(0, lcolor(gs13) lpattern(dash)) ///
 	xtitle("Survey Year") ///
 	ytitle("Net Switches") ///
 	ylab(, nogrid) ///
@@ -253,7 +255,7 @@ twoway (line unemp_switch syear, lcolor(gs8) lpattern(solid)) ///
 	legend(label(1 "Employment (Full- or Part-Time) to No Regular Employment") ///
 	       label(2 "STEM to No Regular Employment") ///
 		   label(3 "STEM to Non-STEM") ///
-		   order(3 2 1) ///
+		   order(1 3 2) ///
 		   position(6)) ///
 	name(net_switches, replace)
 
