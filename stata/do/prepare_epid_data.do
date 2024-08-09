@@ -10,24 +10,28 @@ use ${data}female_stem, clear
 keep if female == 1
 
 * check if mother ever worked in stem
-egen stem_ever = max(stem), by(pid)
+egen ever_stem = max(stem), by(pid)
 drop stem
 
-label define stem_ever 0 "[0] Never had a STEM Profession", modify
-label define stem_ever 1 "[1] Has or had a STEM Profession", modify
+label define ever_stem 0 "[0] Never had a STEM Profession", modify
+label define ever_stem 1 "[1] Has or had a STEM Profession", modify
 
-label values stem_ever stem_ever
+label values ever_stem ever_stem
 
 
 duplicates drop pid, force
 
 rename pid mnr
 rename east_origin mother_east_or
-rename stem_ever mother_stem_ever
-keep mnr mother_east_or mother_stem_ever
+rename ever_stem mother_ever_stem
+keep mnr mother_east_or mother_ever_stem
 
 label variable mother_east_or "Mother: Eastern Origin"
-label variable mother_stem_ever "Mother: Ever STEM Profession"
+label variable mother_ever_stem "Mother: Ever STEM Profession"
+
+
+save ${data}potential_mothers, replace
+
 
 merge 1:m mnr using ${v38}bioparen, keep(2 3) nogen
  
@@ -44,18 +48,21 @@ use ${data}female_stem, clear
 keep if female == 0
 
 * check if father ever worked in stem
-egen stem_ever = max(stem), by(pid)
+egen ever_stem = max(stem), by(pid)
 drop stem
 
 duplicates drop pid, force
 
 rename pid fnr
 rename east_origin father_east_or
-rename stem_ever father_stem_ever
-keep fnr father_east_or father_stem_ever
+rename ever_stem father_ever_stem
+keep fnr father_east_or father_ever_stem
 
 label variable father_east_or "Father: Eastern Origin"
-label variable father_stem_ever "Father: Ever STEM Profession"
+label variable father_ever_stem "Father: Ever STEM Profession"
+
+
+save ${data}potential_fathers, replace
 
 
 merge 1:m fnr using ${data}parents, keep(2 3) nogen
@@ -70,8 +77,8 @@ drop if fnr < 0 | /// father's id missing
 		mnr < 0 | /// mother's id missing
 		mi(father_east_or) | ///
 		mi(mother_east_or) | ///
-		mi(father_stem_ever) | ///
-		mi(mother_stem_ever)
+		mi(father_ever_stem) | ///
+		mi(mother_ever_stem)
 
 
 * save dataset
@@ -97,15 +104,42 @@ merge m:1 pid using ${data}parents, keep(3) nogen
 
 
 * info about educational field
-merge 1:1 pid syear using ${v38}pgen, keep(1 3) keepusing(pgfield pgbilzeit)
+merge 1:1 pid syear using ${v38}pgen, keep(1 3) keepusing(pgfield pgbilzeit pgpsbil pgpbbil02 pgtraina pgtrainb pgtrainc pgtraind) nogen
 
 
+* drop individuals that are still in school
+drop if pgpsbil == 7
+
+
+* university or vocational degree
+gen university = .
+replace university = 1 if pgpbbil02 > 0
+replace university = 0 if pgpbbil02 < 0 & (pgtraina > 0 | pgtrainb > 0 | pgtrainc > 0 | pgtraind > 0)
+replace university = . if pgpbbil02 == -1
+
+label variable university "University Degree rather than Vocational Degree"
+label define university 0 "[0] Vocational Degree", modify
+label define university 1 "[1] University Degree", modify
+
+label values university university
+
+
+* what university degree
 recode pgfield (36/44 61/69 79 89 104 118 126 128 177 200 213/226 235 277 310 370 = 1) ///
 			   (min/0 = .) ///
 			   (nonmissing = 0), ///
 			   gen(stem_edu)
 
-drop if mi(stem_edu)
+* sanity check: individuals should have no information in this variable if they have no degree
+replace stem_edu = . if university == 0
+
+
+label variable stem_edu "STEM university degree"
+
+label define stem_edu 0 "[0] Has a non-STEM university degree", modify
+label define stem_edu 1 "[1] Has a STEM university degree", modify
+
+label values stem_edu stem_edu
 
 
 * generate female dummy
@@ -123,6 +157,7 @@ drop if mi(female)
 
 * drop people born outside of germany
 drop if germborn == 2
+
 
 * generate age
 gen age = syear - gebjahr
@@ -166,15 +201,6 @@ label values migback migback_bin
 * federal states
 merge m:1 hid syear using ${v38}regionl, keep(3) keepusing(bula) nogen
 
-* leave out largest federal state dummy
-tab bula, gen(bula_)
-
-egen max_cat_bula = mode(bula)
-tab max_cat_bula, matrow(mat)
-local max_cat = mat[1,1]
-drop bula_`max_cat'
-drop max_cat_bula
-
 
 * residence west germany
 recode bula (1/10 = 1) (11/16 = 0) (nonmissing = .), gen(west)
@@ -191,9 +217,15 @@ label values west west
 save ${data}children, replace
 
 
-* state-level indicators
-do ${do}state_wide.do
-merge 1:m bula syear using ${data}children.dta, keep(3) nogen
+* interactions (female x mother is from east germany)
+gen female_mother_east_or = female * mother_east_or
+label variable female_mother_east_or "Female $\times$ Mother: Eastern Origin"
+
+gen female_mother_ever_stem = female * mother_ever_stem
+label variable female_mother_ever_stem "Female $\times$ Mother: Ever STEM Profession"
+
+gen female_mother_east_stem = female * mother_east_or * mother_ever_stem
+label variable female_mother_east_stem "Female $\times$ Mother: Eastern Origin $\times$ Mother: Ever STEM Profession"
 
 
 * save dataset

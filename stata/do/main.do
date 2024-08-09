@@ -12,6 +12,7 @@ global tables     = "${root}../latex/tables/"
 ssc install coefplot
 ssc install scheme_tufte
 net install grc1leg, from(http://www.stata.com/users/vwiggins/)
+net install xfill, from(http://www.sealedenvelope.com/)
 
 set scheme tufte
 
@@ -86,6 +87,8 @@ erase ${data}children.dta
 erase ${data}children_interactions.dta
 erase ${data}information.dta
 erase ${data}parents.dta
+erase ${data}potential_fathers.dta
+erase ${data}potential_mothers.dta
 
 erase ${data}extension.dta
 erase ${data}extension_children.dta

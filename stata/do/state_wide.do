@@ -1,15 +1,19 @@
 ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 
 * population (INKAR: Bevölkerung gesamt)
-import delimited ${data}/state_wide.csv, encoding(utf-8) varnames(1) clear
+import delimited ${data}state_wide.csv, encoding(utf-8) varnames(1) clear
 
 
-* fill missing data in 2005-2007 for population density
+* fill missing data in 2001-2203 and 2005-2007 for population density
+gen popdens_2001 = 0.7 * popdens_2000 + 0.3 * popdens_2004
+gen popdens_2002 = 0.5 * popdens_2000 + 0.5 * popdens_2004
+gen popdens_2003 = 0.3 * popdens_2000 + 0.7 * popdens_2004
+
 gen popdens_2005 = 0.7 * popdens_2004 + 0.3 * popdens_2008
 gen popdens_2006 = 0.5 * popdens_2004 + 0.5 * popdens_2008
 gen popdens_2007 = 0.3 * popdens_2004 + 0.7 * popdens_2008
 
-drop popdens_2004
+drop popdens_2000
 
 
 reshape long unemp_ gdp_ popdens_ netcommuting_ firstsemstud_, i(state) j(syear)
