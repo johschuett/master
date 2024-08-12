@@ -266,10 +266,10 @@ Suppose then that we want to estimate the probability that individual $i$ takes 
 
 \begin{equation}
 	\label{eq:fernandezexercise}
-	y_{ic} = \beta_{0} + \beta_{1}Y_{c} + \gamma{}X'_{i} + \epsilon_{i}
+	y_{ic} = \beta_{0} + \beta_{1}Y_{c} + \gamma{}X'_{i} + \epsilon_{i}\textnormal{,}
 \end{equation}
 
-\noindent where $Y_{c}$ is a proxy for culture in country of ancestry $c$ and $X'_{i}$ is the transpose of a vector of individual characteristics.
+\noindent where $Y_{c}$ is a proxy for culture in country of ancestry $c$ and $X'_{i}$ is the transpose of a matrix of individual characteristics.
 The regressor of interest is the latter, which aims to capture variation in $y_{ic}$ caused by cultural influence.
 Culture can be proxied by employing a country-of-ancestry dummy for $Y_{c}$.
 However, this approach may give rise to several issues:
@@ -287,7 +287,7 @@ Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whe
 
 \begin{equation}
 	\label{eq:utility}
-	U = u(c_{0,k}) - \mathds{1}v_{i} + \beta{}u(c_{1,k})
+	U = u(c_{0,k}) - \mathds{1}v_{i} + \beta{}u(c_{1,k})\textnormal{,}
 \end{equation}
 
 \noindent where $u$ is a strictly increasing and concave function, $\mathds{1}$ is an indicator function which equals one if the female $i$ is enrolled in a STEM subject and zero if she is enrolled in a non-STEM subject, $v_{i}$ is the disutility of studying a STEM subject, $\beta \in (0,1)$ is an exogenously given discount factor of future consumption that does not vary across individuals or countries,
@@ -324,7 +324,7 @@ Given wages in country $k$ and the distribution of disutility $G_{k}$, one can s
 
 \begin{equation}
 	\label{eq:share}
-	S_{k} = G_{k}(v^{*}_{k})
+	S_{k} = G_{k}(v^{*}_{k})\textnormal{,}
 \end{equation}
 
 \noindent where
@@ -355,7 +355,7 @@ Making females studying a STEM subject less culturally favourable, i. e. margina
 
 \begin{equation*}
 	\label{eq:derivmk}
-	\frac{\delta{}S_{k}}{\delta{}m_{k}} = -\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0
+	\frac{\delta{}S_{k}}{\delta{}m_{k}} = -\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0\textnormal{,}
 \end{equation*}
 
 \noindent where $\phi(x)$ is the probability density function (pdf for short) of the standard normal distribution. Similarly, marginally increasing non-STEM wages $w_{1,k}$ leads ceteris paribus to a decrease as well, i. e.
@@ -396,34 +396,37 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 \subsection{Econometric Specification}
 \label{specification}
 
-\begin{align}
-	\begin{split}
-		\label{eq:spec6}
-		\textnormal{STEMEDU}_{itr} &={} \beta_{0} + \beta_{1} \textnormal{Female}_{i} + \beta_{2}\textnormal{MotherEast}_{i} + \beta_{3}(\textnormal{Female}_{i} \times \textnormal{MotherEast}_{i}) \\
-		& + \beta_{4}\textnormal{FatherEast}_{i} + \beta_{5}\textnormal{MotherEverSTEM}_{i} + \beta_{6}\textnormal{FatherEverSTEM}_{i} \\
-		& + \gamma{}X'_{itr} + \epsilon_{itr}
-	\end{split}
-\end{align}
+This paper applies the epidemiological approach to measure effects of cultural heritage on two dependent binary variables.
+The first dependent variable, University$_{its}$, indicates whether the individual $i$ in federal state $s$ at time $t$ has obtained a university degree as opposed to a vocational degree.
+All individuals in the estimation sample must either have obtained a university degree or a vocational degree.
+The second dependent variable, STEM$_{its}$, indicates whether the individual has obtained a STEM university degree rather than a non-STEM university degree.
+The logit regression equation is given by
+
+\vspace{-8mm}
 
 \begin{equation}
 	\begin{split}
-		\label{eq:spec8}
-		\textnormal{STEMEDU}_{itr} &={} \beta_{0} + \beta_{1} \textnormal{Female}_{i} + \beta_{2}\textnormal{MotherEast}_{i} + \beta_{3}(\textnormal{Female}_{i} \times \textnormal{MotherEast}_{i}) \\
-		& + \beta_{4}\textnormal{FatherEast}_{i} + \beta_{5}\textnormal{MotherEverSTEM}_{i} + \beta_{6}\textnormal{FatherEverSTEM}_{i} \\
-		& + \beta_{7}(\textnormal{Female}_{i} \times \textnormal{MotherEverSTEM}_{i}) \\
-		& + \beta_{8}(\textnormal{Female}_{i} \times \textnormal{MotherEverSTEM}_{i} \times \textnormal{MotherEast}_{i}) \\
-		& + \gamma{}X'_{itr} + \epsilon_{itr}
+		\label{eq:specsplit}
+		\textnormal{Education}_{its} &={} \beta_{0} + \beta_{1}\textnormal{MotherEverSTEM}_{i} + \beta_{2}\textnormal{FatherEverSTEM}_{i} \\
+		& + \beta_{3}\textnormal{MotherEast}_{i} + \beta_{4}\textnormal{FatherEast}_{i} \\
+		& + \beta_{5}(\textnormal{MotherEverSTEM}_{i} \times \textnormal{MotherEast}_{i}) \\
+		& + \beta_{5}(\textnormal{FatherEverSTEM}_{i} \times \textnormal{FatherEast}_{i}) \\
+		& + \gamma{}X'_{its} + \epsilon_{its}\textnormal{,}
 	\end{split}
 \end{equation}
 
-\begin{equation}
-		\begin{split}
-		\label{eq:spec4}
-		\textnormal{STEMEDU}_{itr} &={} \beta_{0} + \beta_{1} \textnormal{Female}_{i} + \beta_{2}\textnormal{MotherEast}_{i} + \beta_{3}(\textnormal{Female}_{i} \times \textnormal{MotherEast}_{i}) \\
-		& + \beta_{4}\textnormal{FatherEast}_{i} \\
-		& + \gamma{}X'_{itr} + \epsilon_{itr}
-	\end{split}
-\end{equation}
+\noindent where MotherEverSTEM$_{i}$ and FatherEverSTEM$_{i}$ indicate whether the parents were ever employed in the STEM sector while particpating in the SOEP. % clear weakness: no info on pre-reunification work
+MotherEast$_{i}$ and FatherEast$_{i}$ indicate whether the parents are of East German origin.
+This is defined as having resided in East Germany as opposed to West Germany in 1989.
+$X'_{its}$ is the transpose of a control matrix containing the following individual and federal state level controls:
+age, age squared, and indirect migration background as individuals controls and unemployment rate, gross domestic product, population density, commuting balance (commuters in - commuters out), and first semester university students.
+$t$ equals the latest survey year where the individual has nonmissing values in all individual level variables that are part of the specification.
+Therefore, every individual appears only once in the sample which distincts this approach from a pooled panel approach.
+The federal state level variables are fixed to the point in time where the individual was 17 years old.
+This decision was made in order to control for the economic environment in which the individual was situated at the time of making the decision regarding the two dependent variables.
+The application of the epidemiological approach is twofold with two different dependent variables in this paper because it aims to capture both the extensive and the intensive effect of the GDR's culture on educational decisions.
+Note that for all individuals with nonmissing values in STEM$_{its}$, University$_{its} = 1$, that is, the second part of the application is done on a subsample of the first part's sample with University$_{its} = 1$ for all $i$.
+In order to investigate the heterogeneity of the effects regarding sex, the regressions are run separately for females and males.
 
 \section{Results}
 \label{results}

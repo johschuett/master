@@ -113,11 +113,12 @@ drop if pgpsbil == 7
 
 * university or vocational degree
 gen university = .
-replace university = 1 if pgpbbil02 > 0
-replace university = 0 if pgpbbil02 < 0 & (pgtraina > 0 | pgtrainb > 0 | pgtrainc > 0 | pgtraind > 0)
+replace university = 1 if pgpbbil02 > 0 // non-missing value in college degree variable
+replace university = 0 if pgpbbil02 < 0 & (pgtraina > 0 | pgtrainb > 0 | pgtrainc > 0 | pgtraind > 0) // non-missing value in one of the vocational degree variables
 replace university = . if pgpbbil02 == -1
 
 label variable university "University Degree rather than Vocational Degree"
+
 label define university 0 "[0] Vocational Degree", modify
 label define university 1 "[1] University Degree", modify
 
@@ -130,7 +131,7 @@ recode pgfield (36/44 61/69 79 89 104 118 126 128 177 200 213/226 235 277 310 37
 			   (nonmissing = 0), ///
 			   gen(stem_edu)
 
-* sanity check: individuals should have no information in this variable if they have no degree
+* sanity check: individuals should have no information in this variable if they have no university degree, but a vocational degree
 replace stem_edu = . if university == 0
 
 
@@ -198,7 +199,7 @@ label define migback_bin 1 "[1] Indirect Migration Background", modify
 label values migback migback_bin
 
 
-* federal states
+* federal state
 merge m:1 hid syear using ${v38}regionl, keep(3) keepusing(bula) nogen
 
 
@@ -217,15 +218,12 @@ label values west west
 save ${data}children, replace
 
 
-* interactions (female x mother is from east germany)
-gen female_mother_east_or = female * mother_east_or
-label variable female_mother_east_or "Female $\times$ Mother: Eastern Origin"
+* interaction
+gen mother_stem_east = mother_ever_stem * mother_east_or
+label variable mother_stem_east "Mother: Ever STEM Profession $\times$ Mother: Eastern Origin"
 
-gen female_mother_ever_stem = female * mother_ever_stem
-label variable female_mother_ever_stem "Female $\times$ Mother: Ever STEM Profession"
-
-gen female_mother_east_stem = female * mother_east_or * mother_ever_stem
-label variable female_mother_east_stem "Female $\times$ Mother: Eastern Origin $\times$ Mother: Ever STEM Profession"
+gen father_stem_east = father_ever_stem * father_east_or
+label variable father_stem_east "Father: Ever STEM Profession $\times$ Father: Eastern Origin"
 
 
 * save dataset
