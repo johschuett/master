@@ -397,9 +397,9 @@ Fernández points out that culture not mattering would require that $m_{GDR} = m
 \label{specification}
 
 This paper applies the epidemiological approach to measure effects of cultural heritage on two dependent binary variables.
-The first dependent variable, University$_{its}$, indicates whether the individual $i$ in federal state $s$ at time $t$ has obtained a university degree as opposed to a vocational degree.
+The first dependent variable, University$_{itus}$, indicates whether the individual $i$ at time $t$ who was 17 years old at time $u$ and residing in federal state $s$ has obtained a university degree as opposed to a vocational degree.
 All individuals in the estimation sample must either have obtained a university degree or a vocational degree.
-The second dependent variable, STEM$_{its}$, indicates whether the individual has obtained a STEM university degree rather than a non-STEM university degree.
+The second dependent variable, STEM$_{itus}$, indicates whether the individual has obtained a STEM university degree rather than a non-STEM university degree.
 The logit regression equation is given by
 
 \vspace{-8mm}
@@ -407,26 +407,33 @@ The logit regression equation is given by
 \begin{equation}
 	\begin{split}
 		\label{eq:specsplit}
-		\textnormal{Education}_{its} &={} \beta_{0} + \beta_{1}\textnormal{MotherEverSTEM}_{i} + \beta_{2}\textnormal{FatherEverSTEM}_{i} \\
+		\textnormal{Education}_{itus} &={} \beta_{0} + \beta_{1}\textnormal{MotherEverSTEM}_{i} + \beta_{2}\textnormal{FatherEverSTEM}_{i} \\
 		& + \beta_{3}\textnormal{MotherEast}_{i} + \beta_{4}\textnormal{FatherEast}_{i} \\
 		& + \beta_{5}(\textnormal{MotherEverSTEM}_{i} \times \textnormal{MotherEast}_{i}) \\
 		& + \beta_{5}(\textnormal{FatherEverSTEM}_{i} \times \textnormal{FatherEast}_{i}) \\
-		& + \gamma{}X'_{its} + \epsilon_{its}\textnormal{,}
+		& + \gamma{}X'_{itus} + \epsilon_{itus}\textnormal{,}
 	\end{split}
 \end{equation}
 
 \noindent where MotherEverSTEM$_{i}$ and FatherEverSTEM$_{i}$ indicate whether the parents were ever employed in the STEM sector while particpating in the SOEP. % clear weakness: no info on pre-reunification work
+This particular aspect of the specification is inherently problematic because pre-Reunification occupational data is not available for the East German population.
+The utilisation of post-Reunification information introduces the disturbances of the 1990's into the model, which may result in a downward bias in the measured effects.
 MotherEast$_{i}$ and FatherEast$_{i}$ indicate whether the parents are of East German origin.
 This is defined as having resided in East Germany as opposed to West Germany in 1989.
-$X'_{its}$ is the transpose of a control matrix containing the following individual and federal state level controls:
+$X'_{itus}$ is the transpose of a control matrix containing the following individual and federal state level controls:
 age, age squared, and indirect migration background as individuals controls and unemployment rate, gross domestic product, population density, commuting balance (commuters in - commuters out), and first semester university students.
-$t$ equals the latest survey year where the individual has nonmissing values in all individual level variables that are part of the specification.
-Therefore, every individual appears only once in the sample which distincts this approach from a pooled panel approach.
-The federal state level variables are fixed to the point in time where the individual was 17 years old.
+The federal state level controls come from the \cite{INKAR2024}.
+$t$ equals the latest survey year where the individual has valid information regarding the dependent variable.
+Note that all control variables are so-called gross variables that are available even in the absence of a successful person interview with the respondent.
+Consequently, these variables are never missing.
+Every individual appears only once in the estimation sample which distincts this approach from a pooled panel approach.
+The federal state level control variables are fixed at the survey year $u$ when the individual turned 17 years old.
 This decision was made in order to control for the economic environment in which the individual was situated at the time of making the decision regarding the two dependent variables.
-The application of the epidemiological approach is twofold with two different dependent variables in this paper because it aims to capture both the extensive and the intensive effect of the GDR's culture on educational decisions.
-Note that for all individuals with nonmissing values in STEM$_{its}$, University$_{its} = 1$, that is, the second part of the application is done on a subsample of the first part's sample with University$_{its} = 1$ for all $i$.
+
+Note that for all individuals with nonmissing values in STEM$_{itus}$, University$_{itus} = 1$, that is, the second part of the application is done on a subsample of the first part's sample with University$_{itus} = 1$ for all $i$.
+
 In order to investigate the heterogeneity of the effects regarding sex, the regressions are run separately for females and males.
+The standard errors are clustered at the household level to correct for within-household correlation.
 
 \section{Results}
 \label{results}
@@ -582,7 +589,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\input{trend.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. The mean number of individuals represented by each marker is 1,264, with a standard deviation of 1,116. Person weights provided by the SOEP are applied when collapsing the data into the respective groups. The vertical dashed line marks the year of the Reunification.}
+	\linespread{1}\footnotesize Note: The data come from the \cite{SOEP2023}. The mean number of individuals represented by each marker is 1,264, with a standard deviation of 1,116. Person weights provided by the SOEP are applied when collapsing the data into the respective groups. The vertical dashed line marks the year of the Reunification.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -594,7 +601,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\input{trend_zoomed.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. The mean number of individuals represented by each marker is 812, with a standard deviation of 535. Person weights provided by the SOEP are applied when collapsing the data into the respective groups. The whiskers show the 95\% confidence intervals.}
+	\linespread{1}\footnotesize Note: The data come from the \cite{SOEP2023}. The mean number of individuals represented by each marker is 812, with a standard deviation of 535. Person weights provided by the SOEP are applied when collapsing the data into the respective groups. The whiskers show the 95\% confidence intervals.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -606,7 +613,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\input{survival_female.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. In 1990, 163 female STEM professionals are observed in the East. The figure shows how this cohort develops in the subsequent decade with regard to occupational status. The share of item- and (partial) unit-nonresponse is particularly high for the years 1994, 1996, and 1999 due to a large share of missing information in the ISCO-88 variable for these survey years.}
+	\linespread{1}\footnotesize Note: The data come from the \cite{SOEP2023}. In 1990, 163 female STEM professionals are observed in the East. The figure shows how this cohort develops in the subsequent decade with regard to occupational status. The share of item- and (partial) unit-nonresponse is particularly high for the years 1994, 1996, and 1999 due to a large share of missing information in the ISCO-88 variable for these survey years.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -618,7 +625,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\input{survival_male.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-	\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. In 1990, 184 male STEM professionals are observed in the East. The figure shows how this cohort develops in the subsequent decade with regard to occupational status. The share of item- and (partial) unit-nonresponse is particularly high for the years 1994, 1996, and 1999 due to a large share of missing information in the ISCO-88 variable for these survey years.}
+	\linespread{1}\footnotesize Note: The data come from the \cite{SOEP2023}. In 1990, 184 male STEM professionals are observed in the East. The figure shows how this cohort develops in the subsequent decade with regard to occupational status. The share of item- and (partial) unit-nonresponse is particularly high for the years 1994, 1996, and 1999 due to a large share of missing information in the ISCO-88 variable for these survey years.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -630,7 +637,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\input{net_switches.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-		\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}. All Eastern females in the survey years 1990--1999, whether they are employed in STEM or non-STEM roles, or are not in regular employment at all are considered in this figure. The figure shows the netted out movements from one occupational status to another. The markers along $y = 0$ represent the sample size for each survey year.}
+		\linespread{1}\footnotesize Note: The data come from the \cite{SOEP2023}. All Eastern females in the survey years 1990--1999, whether they are employed in STEM or non-STEM roles, or are not in regular employment at all are considered in this figure. The figure shows the netted out movements from one occupational status to another. The markers along $y = 0$ represent the sample size for each survey year.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -642,7 +649,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\input{information.pdf_tex}
 	\vspace{2mm}
 	\parbox{10cm}{
-		\linespread{1}\footnotesize Note: The data come from \cite{SOEP2023}.}
+		\linespread{1}\footnotesize Note: The data come from the \cite{SOEP2023}.}
 \end{figure}
 
 \clearpage
