@@ -70,43 +70,47 @@ rename university_max university
 do ${do}bula_17.do
 
 
-* define independent variables
-local baseline = "mother_ever_stem father_ever_stem"
-local person   = "`baseline' age age_squared migback"
-local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
+* summary statistics estimation sample
+foreach var in university age partner_bin hhgr west mother_east_or father_east_or mother_ever_stem father_ever_stem migback {
+	di "`var'"
+	ttest `var', by(female) reverse
+}
+
 
 forvalues female = 0(1)1 {
 	estimates clear
+	
+	* define independent variables
+	local baseline = "mother_ever_stem father_ever_stem"
+	local person   = "`baseline' age age_squared migback"
+	local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
 	
 	foreach ind in baseline person state {
 		logit university ``ind'' if female == `female'
 		eststo: margins, dydx(``ind'') post
 	}
+	
+
+	* redefine independent variables (with parents east/west)
+	local baseline = "mother_ever_stem father_ever_stem mother_east_or father_east_or mother_stem_east father_stem_east"
+	local person   = "`baseline' age age_squared migback"
+	local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
+	
+	
+	foreach ind in baseline person state {
+		logit university ``ind'' if female == `female'
+		eststo: margins, dydx(``ind'') post
+	}
+	
 	
 	* direct output in log
 	di "University or Vocational Degree? Female = `female'"
 	esttab, ///
 		b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
-}
-
-
-* define independent variables
-local baseline = "mother_ever_stem father_ever_stem mother_east_or father_east_or mother_stem_east father_stem_east"
-local person   = "`baseline' age age_squared migback"
-local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
-
-forvalues female = 0(1)1 {
-	estimates clear
 	
-	foreach ind in baseline person state {
-		logit university ``ind'' if female == `female'
-		eststo: margins, dydx(``ind'') post
-	}
-	
-	* direct output in log
-	di "University or Vocational Degree (Mother/Father East/West)? Female = `female'"
-	esttab, ///
-		b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
+	esttab using ${tables}extensive_fem`female'.tex, ///
+		b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+		booktabs replace
 }
 
 }
@@ -133,43 +137,47 @@ rename stem_edu_max stem_edu
 do ${do}bula_17.do
 
 
-* define independent variables
-local baseline = "mother_ever_stem father_ever_stem"
-local person   = "`baseline' age age_squared migback"
-local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
-
-forvalues female = 0(1)1 {
-	estimates clear
-	
-	foreach ind in baseline person state {
-		logit stem_edu ``ind'' if female == `female'
-		eststo: margins, dydx(``ind'') post
-	}
-	
-	* direct output in log
-	di "Female = `female'"
-	esttab, ///
-		b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
+* summary statistics estimation sample
+foreach var in stem_edu age partner_bin hhgr west mother_east_or father_east_or mother_ever_stem father_ever_stem migback {
+	di "`var'"
+	ttest `var', by(female) reverse
 }
 
 
-* define independent variables
-local baseline = "mother_ever_stem father_ever_stem mother_east_or father_east_or mother_stem_east father_stem_east"
-local person   = "`baseline' age age_squared migback"
-local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
-
 forvalues female = 0(1)1 {
 	estimates clear
+	
+	* define independent variables
+	local baseline = "mother_ever_stem father_ever_stem"
+	local person   = "`baseline' age age_squared migback"
+	local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
 	
 	foreach ind in baseline person state {
 		logit stem_edu ``ind'' if female == `female'
 		eststo: margins, dydx(``ind'') post
 	}
 	
+
+	* redefine independent variables (with parents east/west)
+	local baseline = "mother_ever_stem father_ever_stem mother_east_or father_east_or mother_stem_east father_stem_east"
+	local person   = "`baseline' age age_squared migback"
+	local state    = "`person' unemp gdp popdens netcommuting firstsemstud bula_17_flag"
+	
+	
+	foreach ind in baseline person state {
+		logit stem_edu ``ind'' if female == `female'
+		eststo: margins, dydx(``ind'') post
+	}
+	
+	
 	* direct output in log
-	di "Female = `female'"
+	di "STEM or non-STEM University Degree? Female = `female'"
 	esttab, ///
 		b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N)
+	
+	esttab using ${tables}intensive_fem`female'.tex, ///
+		b(4) se(4) label nomtitle keep(`baseline') star(* 0.10 ** 0.05 *** 0.01) stats(rank N) ///
+		booktabs replace
 }
 
 }

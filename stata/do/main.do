@@ -68,9 +68,7 @@ do ${do}validity.do
 ** EPIDEMIOLOGICAL APPROACH **
 * prepare data
 do ${do}prepare_epid_data.do
-* summary statistics
-do ${do}epid_summary.do
-* main findings / robustness
+* summary statistics / main findings / robustness
 do ${do}regression_analysis.do
 * extension: comparing the blocs
 do ${do}extension.do

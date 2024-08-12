@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+\midrule
+Mother: Ever STEM Profession&     -0.1601         &     -0.1593         &     -0.1595         &     -0.1724         &     -0.1636         &     -0.1542         \\
+                    &    (0.1087)         &    (0.1086)         &    (0.1094)         &    (0.1416)         &    (0.1418)         &    (0.1415)         \\
+\addlinespace
+Father: Ever STEM Profession&      0.1661\sym{***}&      0.1674\sym{***}&      0.1465\sym{**} &      0.2076\sym{***}&      0.2106\sym{***}&      0.1931\sym{***}\\
+                    &    (0.0592)         &    (0.0594)         &    (0.0601)         &    (0.0666)         &    (0.0672)         &    (0.0679)         \\
+\addlinespace
+Mother: Eastern Origin&                     &                     &                     &      0.0848         &      0.1178         &      0.1236         \\
+                    &                     &                     &                     &    (0.2266)         &    (0.2398)         &    (0.2452)         \\
+\addlinespace
+Father: Eastern Origin&                     &                     &                     &      0.0437         &      0.0065         &      0.0014         \\
+                    &                     &                     &                     &    (0.2388)         &    (0.2530)         &    (0.2751)         \\
+\addlinespace
+Mother: Ever STEM Profession $\times$ Mother: Eastern Origin&                     &                     &                     &      0.0430         &      0.0310         &      0.0284         \\
+                    &                     &                     &                     &    (0.2260)         &    (0.2261)         &    (0.2256)         \\
+\addlinespace
+Father: Ever STEM Profession $\times$ Father: Eastern Origin&                     &                     &                     &     -0.1902         &     -0.1999         &     -0.2110         \\
+                    &                     &                     &                     &    (0.1451)         &    (0.1459)         &    (0.1468)         \\
+\midrule
+rank                &      2.0000         &      5.0000         &     10.0000         &      6.0000         &      9.0000         &     14.0000         \\
+N                   &    287.0000         &    287.0000         &    287.0000         &    287.0000         &    287.0000         &    287.0000         \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}
