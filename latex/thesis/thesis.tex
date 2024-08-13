@@ -72,7 +72,7 @@
 	The Faculty of Economics at the Freie Universität Berlin \\
     [\normalbaselineskip]
     In Partial Fulfillment of Requirements for \\
-    The Degree of Master of Science \\
+    The Degree of Master of Science in Public Economics\\
     [\normalbaselineskip]
     Module Examination according to 0353cE1.1P at \\
     The Chair of Empirical Economics and Gender under \\
@@ -116,6 +116,7 @@
 \section*{List of Abbreviations}
 \noindent\begin{tabular}{@{}ll}
 	cdf & cumulative distribution function \\
+	c. p. & ceteris paribus \\
 	DFD & \emph{Demokratischer Frauenbund Deutschlands} \\
     DIW & German Institute for Economic Research \\
     FLFP & Female Labour Force Participation \\
@@ -220,6 +221,11 @@ Despite all the lip service paid by the SED, hardly any females reached leading 
 
 \section{Data and Empirical Approach}
 \label{dataemp}
+
+Section \ref{gsoep} describes the primary data source utilised in this study.
+Section \ref{epid} provides a detailed account of the theoretical framework that is applied in the later part of the analysis.
+Section \ref{epidliterature} gives a non-exhaustive overview of the literature that employs the epidemiological approach.
+Lastly, section \ref{specification} presents the specification of the main regression model used in the analysis.
 
 \subsection{SOEP}
 \label{gsoep}
@@ -347,9 +353,9 @@ Suppose now that the disutility of obtaining a STEM degree can be characterised 
 	S_{k} = \Phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\textnormal{.}
 \end{equation}
 
-\noindent (\ref{eq:sharecdf}) depends on $v^{*}_{k}$, which itself depends only on exogenously given wages in country $k$, therefore making it the environmental factor in the model, but also on $m_{k}$, which reflects the cultural stance of country $k$ towards females obtaining a STEM degree.
+\noindent equation (\ref{eq:sharecdf}) depends on $v^{*}_{k}$, which itself depends only on exogenously given wages in country $k$, therefore making it the environmental factor in the model, but also on $m_{k}$, which reflects the cultural stance of country $k$ towards females obtaining a STEM degree.
 
-Making females having a STEM degree less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus to a decrease of the number of females with a STEM degree as a share of females with a university degree in that country:
+Making females having a STEM degree less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus (c. p. for short) to a decrease of the number of females with a STEM degree as a share of females with a university degree in that country:
 
 \vspace{-8mm}
 
@@ -358,7 +364,7 @@ Making females having a STEM degree less culturally favourable, i. e. marginally
 	\frac{\delta{}S_{k}}{\delta{}m_{k}} = -\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0\textnormal{,}
 \end{equation*}
 
-\noindent where $\phi(x)$ is the probability density function (pdf for short) of the standard normal distribution. Similarly, marginally increasing non-STEM wages $w_{1,k}$ leads ceteris paribus to a decrease as well, i. e.
+\noindent where $\phi(x)$ is the probability density function (pdf for short) of the standard normal distribution. Similarly, marginally increasing non-STEM wages $w_{1,k}$ leads c. p. to a decrease as well, i. e.
 
 \vspace{-8mm}
 
@@ -367,7 +373,7 @@ Making females having a STEM degree less culturally favourable, i. e. marginally
 \frac{\delta{}S_{k}}{\delta{}w_{1,k}} = -u'(w_{1,k})\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} < 0\textnormal{,}
 \end{equation*}
 
-\noindent whereas marginally increasing STEM-wages $w_{1,k,\textnormal{STEM}}$ leads ceteris paribus to an increase, i. e.
+\noindent whereas marginally increasing STEM-wages $w_{1,k,\textnormal{STEM}}$ leads c. p. to an increase, i. e.
 
 \vspace{-8mm}
 
@@ -406,7 +412,7 @@ The logit regression equation is given by
 
 \begin{equation}
 	\begin{split}
-		\label{eq:specsplit}
+		\label{eq:specification}
 		\textnormal{Education}_{itus} &={} \beta_{0} + \beta_{1}\textnormal{MotherEverSTEM}_{i} + \beta_{2}\textnormal{FatherEverSTEM}_{i} \\
 		& + \beta_{3}\textnormal{MotherEast}_{i} + \beta_{4}\textnormal{FatherEast}_{i} \\
 		& + \beta_{5}(\textnormal{MotherEverSTEM}_{i} \times \textnormal{MotherEast}_{i}) \\
@@ -415,7 +421,7 @@ The logit regression equation is given by
 	\end{split}
 \end{equation}
 
-\noindent where MotherEverSTEM$_{i}$ and FatherEverSTEM$_{i}$ indicate whether the parents were ever employed in the STEM sector while particpating in the SOEP. % clear weakness: no info on pre-reunification work
+\noindent where MotherEverSTEM$_{i}$ and FatherEverSTEM$_{i}$ indicate whether the parents were ever employed in the STEM sector while particpating in the SOEP.
 This particular aspect of the specification is inherently problematic because pre-Reunification occupational data is not available for the East German population.
 The utilisation of post-Reunification information introduces the disturbances of the 1990's into the model, which may result in a downward bias in the measured effects.
 MotherEast$_{i}$ and FatherEast$_{i}$ indicate whether the parents are of East German origin.
@@ -435,11 +441,27 @@ This decision was made in order to control for the economic environment in which
 
 Note that for all individuals with nonmissing values in STEM$_{itus}$, University$_{itus} = 1$, that is, the second part of the application is done on a subsample of the first part's sample with University$_{itus} = 1$ for all $i$.
 
-In order to investigate the heterogeneity of the effects regarding sex, the regressions are run separately for females and males.
+In both parts, a restricted version of the model based on equation (\ref{eq:specification}) is initially estimated, which is given by
+
+\vspace{-8mm}
+
+\begin{equation}
+	\begin{split}
+		\label{eq:specificationrestr}
+		\textnormal{Education}_{itus} &={} \beta_{0} + \beta_{1}\textnormal{MotherEverSTEM}_{i} + \beta_{2}\textnormal{FatherEverSTEM}_{i} \\
+		& + \gamma{}X'_{itus} + \epsilon_{itus}\textnormal{.}
+	\end{split}
+\end{equation}
+
+This restricted version is intended to serve as a point of comparison with the unrestriced model, which incorporates the distinctive context of reunified Germany.
+
+In order to investigate the heterogeneity of the effects regarding sex, all regressions are run separately for females and males.
 The standard errors are clustered at the household level to correct for within-household correlation.
 
 \section{Results}
 \label{results}
+
+Section \ref{descriptives} presents the results of the descriptive analysis and section \ref{educational} presents the results from the application of the epidemiological approach.
 
 \subsection{Descriptive Analysis}
 \label{descriptives}
@@ -485,7 +507,7 @@ Column (3) presents the differences in means, i. e. (1) - (2).
 While both East German females and males show statistically identical shares of STEM professionals of 11\%, the difference in shares between West German females and males is -8 percentage points (pp for short).
 
 The proportion of individuals in STEM occupations among both East German females and males is statistically identical, with a figure of 11\%.
-In contrast, there is a notable discrepancy between the sexes in West Germany, with a difference of -8 percentage points (pp for short).
+In contrast, there is a notable discrepancy between the sexes in West Germany, with a difference of -8 pp.
 The East German individuals are approximately 8 years older than their West German peers and therefore also have a higher share of individuals with spouses or life partners.
 The proportion of West German females in a relationship is, on average, significantly higher than that of West German males (68\% versus 62\%), despite the former being, on average, slightly younger than the latter.
 There is no significant difference in the proportion of East German individuals in a relationship between the sexes.
@@ -526,16 +548,71 @@ The net movement from STEM to no regular employment is consistently below the ne
 \subsection{Legacy Effect on Educational Choices}
 \label{educational}
 
+This paper presents a twofold analysis of the effect of parents' upbringing in the GDR on the educational choices of their children in reunified Germany:
+First, the effect on the extensive margin, that is to say, whether an adult child has obtained a university degree rather than a vocational degree, is examined.
+Second, the effect on the instensive margin, namely whether an adult child has a STEM university degree rather than a non-STEM university degree, is investigated.
+
+Table \ref{tab:descr_summary_epid_ext} provides summary statistics for the sample of the extensive analysis.
+The sample comprises 880 females and 898 males both around the age of 27.
+Females have a significantly higher share of university graduates (42\%) than males (36\%).
+The remaining 58\% of females and 64\% of males have a vocational degree.
+Females also have a significantly higher share of individuals with a spouse or a life partner (39\% versus 27\%).
+All remaining observed characteristics, including parental origin, show now statistically significant differences.
+
+Table \ref{tab:extdaughters} presents the effects on the extensive educational decision of daughters.
+Columns (1) through (3) show estimates of the restricted model based on equation (\ref{eq:specificationrestr}), while columns (4) through (6) show estimates of the unrestricted model based on equation (\ref{eq:specification}).
+In both the restricted and unrestricted models, person and federal state control are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.
+
+The estimates from the restricted model show that both having a mother who works or used to work in STEM and having a father who works or used to work in STEM significantly increase the probability of the daughter of obtaining a university degree instead of a vocational degree.
+In the case of a mother with STEM experience, the increases measures 9 pp c. p. and in the case of a father with STEM experience, it measures 12 pp c. p.
+
+Taking advantage of the unique setting in reunified Germany and taking into account the parental origin in the unrestricted model, the effect of the father being in STEM at some point in time is reduced to 8 pp, while the effect of the mother being in STEM at some point in time more than doubles in magnitude.
+This is the consequence of addressing the omitted variable biases by adding the variables of parental origin as regressors into the model.
+The results indicate a negative bias for mothers and a positive bias for fathers.
+Specifically, having an East German mother is associated with a 21 pp reduction in the probability of a daughter obtaining a university degree c. p., while having an East German father is associated with a 12 pp increase in this probability c. p.
+However, the latter estimate is not statistically significant.
+
+The additional effects of having an East German mother who has also worked in STEM at some point $(\textnormal{MotherEverSTEM}_{i} \times \textnormal{MotherEast}_{i})$  and having an East German father who has also worked in STEM at some point $(\textnormal{FatherEverSTEM}_{i} \times \textnormal{FatherEast}_{i})$ show in opposite directions:
+It is a negative additional effect of 31 pp for the mothers, whereas for the fathers, it is a positive additional effect of 17 pp.
+Both effects are statistically significant at the 5\% level.
+Therefore, while East German female STEM professionals appear to be inclined towards encouraging their daughters to pursue a non-academic career, East German male STEM professionals seem to show the opposite tendency.
+
+Table \ref{tab:extdaughters} presents the effects on the extensive educational decision of sons.
+Starting with the restrictive model again, columns (1) through (3) show that, for sons, having a mother who worked in STEM at some point in time and having a father who worked in STEM at some point in time both significantly increase the probability of the son obtaining a university degree rather than a vocational degree.
+Interestingly, the effect is higher for mothers than for fathers (12 pp versus 10 pp).
+Looking back to the daughters, the opposite is true.
+Comparing the results from the restricted model in column (3) to the results from the unrestricted model in column (6) reveals that, for sons, the omitted variable bias from the parental origin is not nearly as high nor as significant as for daughters.
+Further, the omitted variable bias is now positive not only for the fathers, but also for the mothers:
+The effect for mothers decreases to 11 pp and for fathers to 8 pp.
+This indicates that the parental origin is more influential for daughters in their educational choices than for sons.
+Furthermore, the findings indicate that Eastern mothers do exert a significant negative effect on their sons' decision to pursue an academic education, but they do exert it on their daughters'.
+
+The following part investigates the effect on the intensive margin, specifically whether daughters and sons choose to obtain a STEM university degree in preference to a non-STEM university degree.
+For this part of the analysis, the sample size is notably reduced with 298 females and 287 males, as the sample employed in this part constitutes a subsample of the sample utilised in the extensive analysis.
+Table \ref{tab:descr_summary_epid_int} provides summary statistics for the sample of the intensive analysis.
+Comparing these statistics to the ones from table \ref{tab:descr_summary_epid_ext} shows that the analysis is done on a non-random subsample of the sample employed in the extensive analysis.
+First, the individuals are older on average with approximately 29 years of age as opposed to 27 years.
+In fact, using age as the single regressor for estimating whether an individual in the larger sample has a missing value in the dependent variable of the intensive analysis (STEM degree versus non-STEM degree) reveals that age is a highly significant predictor for having non-valid information in this variable.\footnote{The logit regression $\textnormal{UniFieldMissing}_{it} = \textnormal{Age}_{it} + u_{it}$ was run on the sample described in table \ref{tab:descr_summary_epid_ext}. Standard errors were clustered at the household level.}
+However, males and females within the subsample are statistically of the same age.
+Females still have a higher share of individuals with a spouse or life partner in comparison to males (13 pp difference).
+All the remaining characteristics  show no statistically significant differences between the sexes and also remain comparable in magnitude with the values in the larger sample of the intensive sample.
+The share of individuals with a mother or a father of Eastern origin are now slightly lower than in the larger sample, while the share of individuals with parents who worked in STEM at some point in time are now slightly higher.
+
+Table \ref{tab:intdaughters} presents the effects on the intensive educational decision of daughters.
+
 \section{Discussion}
 \label{discussion}
 
-\section{Robustness: Different Model Specifications}
+\section{Robustness}
 \label{robustness}
 
-\section{Extension: A Broader Definition of STEM}
+% add parental hhincome
+
+\section{Extension: A White- and Blue-Collar Definition of STEM}
 \label{Extension}
 
 % Due to the high focus on blue-collar work in the GDR, it makes sense to include technical blue-collar jobs into the STEM category.
+% cure small sample size of intensive analysis in the main results
 
 \section{Conclusion}
 \label{conclusion}
@@ -730,7 +807,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 			\toprule
 			& (1) & (2) & (1) - (2) \\
 			\midrule
-			STEM Tertiary Education & 0.42  & 0.36 & 0.06\sym{**}    \\
+			University Degree instead of Vocational Degree & 0.42  & 0.36 & 0.06\sym{**}    \\
 			&   (0.02)  & (0.02) & (0.02) \\
 			\addlinespace
 			Age         &   26.79   &  26.88   &  -0.09    \\
@@ -772,6 +849,92 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\end{center}
 \end{table}
 
+\begin{landscape}
+	\begin{table}[ht]
+		\caption[Extensive Margins for Daughters]{Extensive Margins (University Degree or Vocational Degree) for Daughters}
+		\label{tab:extdaughters}
+		\begin{center}
+			\resizebox{1.24\textwidth}{!}{\begin{tabular}{l*{6}{c}}
+				\toprule
+				&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+				\midrule
+				Mother: Ever STEM Profession&      0.1159\sym{*}  &      0.0789         &      0.0943\sym{*}  &      0.2025\sym{***}&      0.2017\sym{***}&      0.2081\sym{***}\\
+				&    (0.0602)         &    (0.0573)         &    (0.0561)         &    (0.0768)         &    (0.0730)         &    (0.0734)         \\
+				\addlinespace
+				Father: Ever STEM Profession&      0.1487\sym{***}&      0.1382\sym{***}&      0.1238\sym{***}&      0.1028\sym{**} &      0.0919\sym{**} &      0.0842\sym{**} \\
+				&    (0.0352)         &    (0.0335)         &    (0.0332)         &    (0.0403)         &    (0.0380)         &    (0.0380)         \\
+				\addlinespace
+				Mother: Eastern Origin&                     &                     &                     &     -0.2449\sym{**} &     -0.2194\sym{**} &     -0.2145\sym{**} \\
+				&                     &                     &                     &    (0.1213)         &    (0.1100)         &    (0.1092)         \\
+				\addlinespace
+				Father: Eastern Origin&                     &                     &                     &      0.0709         &      0.0511         &      0.1228         \\
+				&                     &                     &                     &    (0.1258)         &    (0.1144)         &    (0.1193)         \\
+				\addlinespace
+				Mother: Ever STEM Profession $\times$ Mother: Eastern Origin&                     &                     &                     &     -0.2121         &     -0.2979\sym{**} &     -0.3129\sym{**} \\
+				&                     &                     &                     &    (0.1309)         &    (0.1222)         &    (0.1222)         \\
+				\addlinespace
+				Father: Ever STEM Profession $\times$ Father: Eastern Origin&                     &                     &                     &      0.1513\sym{*}  &      0.1535\sym{*}  &      0.1736\sym{**} \\
+				&                     &                     &                     &    (0.0852)         &    (0.0810)         &    (0.0806)         \\
+				\midrule
+				Person Controls & & X  & X & & X & X \\
+				Federal State Controls & & & X & & & X \\
+				Rank                &      2         &      5         &     10         &      6         &      9         &     14         \\
+				Observations                   &    880         &    880         &    880         &    880         &    880         &    880         \\
+				\bottomrule
+			\end{tabular}}
+			
+			\vspace{2mm}
+			
+			\parbox{15cm}{
+				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses. Columns (1) through (3) show estimates of the restricted model based on equation (\ref{eq:specificationrestr}), while columns (4) through (6) show estimates of the unrestricted model based on equation (\ref{eq:specification}). In both the restricted and unrestricted models, person and federal state control are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.}
+			
+		\end{center}
+	\end{table}
+\end{landscape}
+
+\begin{landscape}
+	\begin{table}[ht]
+		\caption[Extensive Margins for Sons]{Extensive Margins (University Degree or Vocational Degree) for Sons}
+		\label{tab:extsons}
+		\begin{center}
+			\resizebox{1.24\textwidth}{!}{\begin{tabular}{l*{6}{c}}
+					\toprule
+					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+					\midrule
+					Mother: Ever STEM Profession&      0.0835         &      0.0810         &      0.1157\sym{*}  &      0.0844         &      0.1122         &      0.1086         \\
+					&    (0.0653)         &    (0.0622)         &    (0.0617)         &    (0.0878)         &    (0.0827)         &    (0.0812)         \\
+					\addlinespace
+					Father: Ever STEM Profession&      0.1166\sym{***}&      0.1078\sym{***}&      0.0978\sym{***}&      0.0903\sym{**} &      0.0848\sym{**} &      0.0790\sym{**} \\
+					&    (0.0343)         &    (0.0326)         &    (0.0321)         &    (0.0395)         &    (0.0373)         &    (0.0368)         \\
+					\addlinespace
+					Mother: Eastern Origin&                     &                     &                     &     -0.0922         &     -0.1082         &     -0.0802         \\
+					&                     &                     &                     &    (0.0996)         &    (0.0940)         &    (0.0914)         \\
+					\addlinespace
+					Father: Eastern Origin&                     &                     &                     &     -0.0394         &     -0.0420         &      0.1257         \\
+					&                     &                     &                     &    (0.1038)         &    (0.0981)         &    (0.1038)         \\
+					\addlinespace
+					Mother: Ever STEM Profession $\times$ Mother: Eastern Origin&                     &                     &                     &      0.0371         &     -0.0191         &      0.0132         \\
+					&                     &                     &                     &    (0.1328)         &    (0.1257)         &    (0.1275)         \\
+					\addlinespace
+					Father: Ever STEM Profession $\times$ Father: Eastern Origin&                     &                     &                     &      0.0853         &      0.0674         &      0.0890         \\
+					&                     &                     &                     &    (0.0822)         &    (0.0771)         &    (0.0771)         \\
+					\midrule
+					Person Controls & & X  & X & & X & X \\
+					Federal State Controls & & & X & & & X \\
+					Rank                &      2         &      5         &     10         &      6         &      9         &     14         \\
+					Observations   &    898         &    898         &    898         &    898         &    898         &    898         \\
+					\bottomrule
+			\end{tabular}}
+			
+			\vspace{2mm}
+			
+			\parbox{15cm}{
+				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses. Columns (1) through (3) show estimates of the restricted model based on equation (\ref{eq:specificationrestr}), while columns (4) through (6) show estimates of the unrestricted model based on equation (\ref{eq:specification}). In both the restricted and unrestricted models, person and federal state control are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.}
+			
+		\end{center}
+	\end{table}
+\end{landscape}
+
 \begin{table}[ht]
 	\caption{Summary Statistics for Adult Children (Intensive Analysis)}
 	\label{tab:descr_summary_epid_int}
@@ -780,7 +943,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 			\toprule
 			& (1) & (2) & (1) - (2) \\
 			\midrule
-			STEM Tertiary Education & 0.26  & 0.47  &  -0.21\sym{***}   \\
+			STEM University Degree instead of non-STEM Degree & 0.26  & 0.47  &  -0.21\sym{***}   \\
 			&   (0.03)  & (0.03) & (0.04) \\
 			\addlinespace
 			Age         &  28.56    &  28.80   &   -0.24   \\
@@ -822,93 +985,6 @@ The net movement from STEM to no regular employment is consistently below the ne
 	\end{center}
 \end{table}
 
-
-\begin{landscape}
-	\begin{table}[ht]
-		\caption[Extensive Margins for Daughters]{Extensive Margins (University Degree or Vocational Degree) for Daughters}
-		\label{tab:extdaughters}
-		\begin{center}
-			\resizebox{1.24\textwidth}{!}{\begin{tabular}{l*{6}{c}}
-				\toprule
-				&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
-				\midrule
-				Mother: Ever STEM Profession&      0.1159\sym{*}  &      0.0789         &      0.0943\sym{*}  &      0.2025\sym{***}&      0.2017\sym{***}&      0.2081\sym{***}\\
-				&    (0.0602)         &    (0.0573)         &    (0.0561)         &    (0.0768)         &    (0.0730)         &    (0.0734)         \\
-				\addlinespace
-				Father: Ever STEM Profession&      0.1487\sym{***}&      0.1382\sym{***}&      0.1238\sym{***}&      0.1028\sym{**} &      0.0919\sym{**} &      0.0842\sym{**} \\
-				&    (0.0352)         &    (0.0335)         &    (0.0332)         &    (0.0403)         &    (0.0380)         &    (0.0380)         \\
-				\addlinespace
-				Mother: Eastern Origin&                     &                     &                     &     -0.2449\sym{**} &     -0.2194\sym{**} &     -0.2145\sym{**} \\
-				&                     &                     &                     &    (0.1213)         &    (0.1100)         &    (0.1092)         \\
-				\addlinespace
-				Father: Eastern Origin&                     &                     &                     &      0.0709         &      0.0511         &      0.1228         \\
-				&                     &                     &                     &    (0.1258)         &    (0.1144)         &    (0.1193)         \\
-				\addlinespace
-				Mother: Ever STEM Profession $\times$ Mother: Eastern Origin&                     &                     &                     &     -0.2121         &     -0.2979\sym{**} &     -0.3129\sym{**} \\
-				&                     &                     &                     &    (0.1309)         &    (0.1222)         &    (0.1222)         \\
-				\addlinespace
-				Father: Ever STEM Profession $\times$ Father: Eastern Origin&                     &                     &                     &      0.1513\sym{*}  &      0.1535\sym{*}  &      0.1736\sym{**} \\
-				&                     &                     &                     &    (0.0852)         &    (0.0810)         &    (0.0806)         \\
-				\midrule
-				Person Controls & & X  & X & & X & X \\
-				Federal State Controls & & & X & & & X \\
-				Rank                &      2         &      5         &     10         &      6         &      9         &     14         \\
-				Observations                   &    880         &    880         &    880         &    880         &    880         &    880         \\
-				\bottomrule
-			\end{tabular}}
-			
-			\vspace{2mm}
-			
-			\parbox{15cm}{
-				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses.}
-			
-		\end{center}
-	\end{table}
-\end{landscape}
-
-\begin{landscape}
-	\begin{table}[ht]
-		\caption[Extensive Margins for Sons]{Extensive Margins (University Degree or Vocational Degree) for Sons}
-		\label{tab:extsons}
-		\begin{center}
-			\resizebox{1.24\textwidth}{!}{\begin{tabular}{l*{6}{c}}
-					\toprule
-					&\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
-					\midrule
-					Mother: Ever STEM Profession&      0.0835         &      0.0810         &      0.1157\sym{*}  &      0.0844         &      0.1122         &      0.1086         \\
-					&    (0.0653)         &    (0.0622)         &    (0.0617)         &    (0.0878)         &    (0.0827)         &    (0.0812)         \\
-					\addlinespace
-					Father: Ever STEM Profession&      0.1166\sym{***}&      0.1078\sym{***}&      0.0978\sym{***}&      0.0903\sym{**} &      0.0848\sym{**} &      0.0790\sym{**} \\
-					&    (0.0343)         &    (0.0326)         &    (0.0321)         &    (0.0395)         &    (0.0373)         &    (0.0368)         \\
-					\addlinespace
-					Mother: Eastern Origin&                     &                     &                     &     -0.0922         &     -0.1082         &     -0.0802         \\
-					&                     &                     &                     &    (0.0996)         &    (0.0940)         &    (0.0914)         \\
-					\addlinespace
-					Father: Eastern Origin&                     &                     &                     &     -0.0394         &     -0.0420         &      0.1257         \\
-					&                     &                     &                     &    (0.1038)         &    (0.0981)         &    (0.1038)         \\
-					\addlinespace
-					Mother: Ever STEM Profession $\times$ Mother: Eastern Origin&                     &                     &                     &      0.0371         &     -0.0191         &      0.0132         \\
-					&                     &                     &                     &    (0.1328)         &    (0.1257)         &    (0.1275)         \\
-					\addlinespace
-					Father: Ever STEM Profession $\times$ Father: Eastern Origin&                     &                     &                     &      0.0853         &      0.0674         &      0.0890         \\
-					&                     &                     &                     &    (0.0822)         &    (0.0771)         &    (0.0771)         \\
-					\midrule
-					Person Controls & & X  & X & & X & X \\
-					Federal State Controls & & & X & & & X \\
-					Rank                &      2         &      5         &     10         &      6         &      9         &     14         \\
-					Observations   &    898.         &    898         &    898         &    898         &    898         &    898         \\
-					\bottomrule
-			\end{tabular}}
-			
-			\vspace{2mm}
-			
-			\parbox{15cm}{
-				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses.}
-			
-		\end{center}
-	\end{table}
-\end{landscape}
-
 \begin{landscape}
 	\begin{table}[ht]
 		\caption[Intensive Margins for Daughters]{Intensive Margins (STEM University Degree or non-STEM University Degree) for Daughters}
@@ -946,7 +1022,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 			\vspace{2mm}
 			
 			\parbox{15cm}{
-				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses.}
+				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses. Columns (1) through (3) show estimates of the restricted model based on equation (\ref{eq:specificationrestr}), while columns (4) through (6) show estimates of the unrestricted model based on equation (\ref{eq:specification}). In both the restricted and unrestricted models, person and federal state control are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.}
 			
 		\end{center}
 	\end{table}
@@ -989,7 +1065,7 @@ The net movement from STEM to no regular employment is consistently below the ne
 			\vspace{2mm}
 			
 			\parbox{15cm}{
-				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses.}
+				\linespread{1}\footnotesize Note: \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\). Margins (dy/dx) of a Logistic Regression Model. The data come from the \cite{SOEP2023}. The sample is restricted to individuals who were born in Germany. Standard errors clustered at the household level are given in parentheses. Columns (1) through (3) show estimates of the restricted model based on equation (\ref{eq:specificationrestr}), while columns (4) through (6) show estimates of the unrestricted model based on equation (\ref{eq:specification}). In both the restricted and unrestricted models, person and federal state control are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.}
 			
 		\end{center}
 	\end{table}

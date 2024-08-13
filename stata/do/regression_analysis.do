@@ -77,6 +77,16 @@ foreach var in university age partner_bin hhgr west mother_east_or father_east_o
 }
 
 
+* show that higher age reduces the probability of missing information in stem_edu variable (non-random subsample in 2b.)
+gen missing_stem_edu_flag = 0
+replace missing_stem_edu_flag = 1 if mi(stem_edu)
+
+logit missing_stem_edu_flag age, vce(cluster hid)
+margins, dydx(age)
+
+drop missing_stem_edu_flag
+
+
 forvalues female = 0(1)1 {
 	estimates clear
 	
