@@ -281,7 +281,7 @@ While a country might have significantly changed in several dimensions since the
 
 % application on former gdr citizens in reunified germany (simple model)
 Before specifying a regression model for the purpose of this paper, it is first  beneficial to discuss the epidemiological approach in further detail, following the description of Fernández but modifying her theoretical model of a female's extensive work decision to fit the subject of this paper.
-Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whether to study a STEM subject or a non-STEM subject at university can be thought of as a maximisation problem of the two-period model
+Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whether to obtain a STEM degree or a non-STEM degree at university can be thought of as a maximisation problem of the two-period model
 
 \vspace{-8mm}
 
@@ -290,7 +290,7 @@ Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whe
 	U = u(c_{0,k}) - \mathds{1}v_{i} + \beta{}u(c_{1,k})\textnormal{,}
 \end{equation}
 
-\noindent where $u$ is a strictly increasing and concave function, $\mathds{1}$ is an indicator function which equals one if the female $i$ is enrolled in a STEM subject and zero if she is enrolled in a non-STEM subject, $v_{i}$ is the disutility of studying a STEM subject, $\beta \in (0,1)$ is an exogenously given discount factor of future consumption that does not vary across individuals or countries,
+\noindent where $u$ is a strictly increasing and concave function, $\mathds{1}$ is an indicator function which equals one if the female $i$ obtained a STEM degree and zero if she obtained a non-STEM degree, $v_{i}$ is the disutility of obtaining a STEM degree, $\beta \in (0,1)$ is an exogenously given discount factor of future consumption that does not vary across individuals or countries,
 
 \vspace{-8mm}
 
@@ -312,13 +312,13 @@ Suppose the decision of a female living in $k \in \{\textnormal{GDR, FRG}\}$ whe
 For simplicity, the incomes $w_{0,k}$ (income as a student in period 0), $w_{1,k}$ (working in non-STEM in period 1), and $w_{1,k,\textnormal{STEM}}$ (working in STEM in period 1) are taken as exogenous and do not vary across individuals.
 Further, assume that $w_{0,k} < w_{1,k} < w_{1,k,\textnormal{STEM}}$ holds and all females who study a STEM subject in period 0 will work in STEM in period 1, while all females who study a non-STEM subject in period 0 will work in non-STEM in period 1.
 
-The disutility of studying a STEM subject $v_{i}$ varies across females and is assumed to be a random draw from a country-specific distribution with mean $m_{k}$ and variance $\sigma^{2}$.
+The disutility of obtaining a STEM degree $v_{i}$ varies across females and is assumed to be a random draw from a country-specific distribution with mean $m_{k}$ and variance $\sigma^{2}$.
 $\sigma^{2}$ is assumed to be constant across countries.
 The cumulative distribution function (cdf for short) is denoted by $G_{k}(m_{k}, \sigma)$.
-Therefore, cultural differences between the GDR and the FRG with respect to females studying STEM subjects are modelled as an exogenous difference in the mean of the distribution that characterises the disutility of studying a STEM subject.
+Therefore, cultural differences between the GDR and the FRG with respect to females obtaining STEM degrees are modelled as an exogenous difference in the mean of the distribution that characterises the disutility of obtaining a STEM degree.
 Fernández points out that there are two sources of heterogeneity in the model, namely a within-country heterogeneity given by the fact that females from the same country receive different draws from the same distribution and a cross-country heterogeneity that is reflected in the mean of the distribution from which the females draw their disutility levels.
 
-Given wages in country $k$ and the distribution of disutility $G_{k}$, one can solve for the share of enrolled females who study a STEM subject in that country, $S_{k}$. It is given by the cdf evaluated at $v^{*}_{k}$, i. e.
+Given wages in country $k$ and the distribution of disutility $G_{k}$, one can solve for the number of females with a STEM degree as a share of females with a university degree in that country, $S_{k}$. It is given by the cdf evaluated at $v^{*}_{k}$, i. e.
 
 \vspace{-8mm}
 
@@ -336,9 +336,9 @@ Given wages in country $k$ and the distribution of disutility $G_{k}$, one can s
 	v^{*}_{k} \equiv v^{*}(w_{1,k}, w_{1,k,\textnormal{STEM}}) = u(w_{1,k,\textnormal{STEM}}) - u(w_{1,k})
 \end{equation*}
 
-\noindent is the level of disutility from studying a STEM subject in country $k$ which makes a female indifferent between studying a STEM subject or studying a non-STEM subject.
+\noindent is the level of disutility from obtaining a STEM degree in country $k$ which makes a female indifferent between obtaining a STEM degree or obtaining a non-STEM degree.
 
-Suppose now that the disutility of studying a STEM subject can be characterised by the standard normal cdf $\Phi{}(x)$ evaluated at $x$, then
+Suppose now that the disutility of obtaining a STEM degree can be characterised by the standard normal cdf $\Phi{}(x)$ evaluated at $x$, then
 
 \vspace{-8mm}
 
@@ -347,9 +347,9 @@ Suppose now that the disutility of studying a STEM subject can be characterised 
 	S_{k} = \Phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\textnormal{.}
 \end{equation}
 
-\noindent (\ref{eq:sharecdf}) depends on $v^{*}_{k}$, which itself only depends only on exogenously given wages in country $k$, therefore making it the environmental factor in the model, but also on $m_{k}$, which reflects the cultural stance of country $k$ towards females studying STEM subjects.
+\noindent (\ref{eq:sharecdf}) depends on $v^{*}_{k}$, which itself depends only on exogenously given wages in country $k$, therefore making it the environmental factor in the model, but also on $m_{k}$, which reflects the cultural stance of country $k$ towards females obtaining a STEM degree.
 
-Making females studying a STEM subject less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus to a decrease of the share of enrolled females who study a STEM subject in that country:
+Making females having a STEM degree less culturally favourable, i. e. marginally increasing $m_{k}$, leads ceteris paribus to a decrease of the number of females with a STEM degree as a share of females with a university degree in that country:
 
 \vspace{-8mm}
 
@@ -376,10 +376,10 @@ Making females studying a STEM subject less culturally favourable, i. e. margina
 	\frac{\delta{}S_{k}}{\delta{}w_{1,k,\textnormal{STEM}}} = u'(w_{1,k,\textnormal{STEM}})\phi\left(\frac{v^{*}_{k} - m_{k}}{\sigma}\right)\frac{1}{\sigma} > 0\textnormal{.}
 \end{equation*}
 
-Finally, consider the situation of females in reunified Germany $j$ with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to study a STEM subject or not. Suppose these females are identical except for their cultural beliefs and culture is transmitted perfectly, i. e. they inherit the same $v_{i}$ that their mothers drew in the Cold War era.
+Finally, consider the situation of females in reunified Germany $j$ with parental roots $k \in \{\textnormal{GDR, FRG}\}$ who are confronted with the same decision regarding whether to obtain a STEM degree or a non-STEM degree. Suppose these females are identical except for their cultural beliefs and culture is transmitted perfectly, i. e. they inherit the same $v_{i}$ that their mothers drew in the Cold War era.
 Assume again that $G$ is a normal distribution.
 Thus, while $v^{*}$ will be identical for all females in reunified Germany, since this threshold parameter only depends on wages in $j$, the individuals inherit their draws from their mothers who drew from two different distributions, namely $\phi(m_{\textnormal{GDR}},\sigma^{2})$ and $\phi(m_{\textnormal{FRG}},\sigma^{2})$.
-The females with ancestry $k$ who study a STEM subject as a share of all enrolled females with ancestry $k$ is given by
+The females with ancestry $k$ who obtain a STEM degree as a share of all females with a degree with ancestry $k$ is given by
 
 \vspace{-8mm}
 
@@ -388,7 +388,7 @@ The females with ancestry $k$ who study a STEM subject as a share of all enrolle
 	S_{k,j} = \Phi\left(\frac{v^{*}_{j} - m_{k}}{\sigma}\right)\textnormal{.}
 \end{equation}
 
-Fernández points out that culture not mattering would require that $m_{GDR} = m_{FRG}$, i. e. there was the same cultural appreciation for females studying STEM subjects both in the GDR and the FRG.
+Fernández points out that culture not mattering would require that $m_{GDR} = m_{FRG}$, i. e. there was the same cultural appreciation for females with a STEM degree both in the GDR and the FRG.
 
 \subsection{Epidemiological Approach in Economic Literature}
 \label{epidliterature}
