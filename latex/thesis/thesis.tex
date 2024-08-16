@@ -561,10 +561,10 @@ All remaining observed characteristics, including parental origin, show now stat
 
 Table \ref{tab:extdaughters} presents the effects on the extensive educational decision of daughters.
 Columns (1) through (3) show estimates of the restricted model based on equation (\ref{eq:specificationrestr}), while columns (4) through (6) show estimates of the unrestricted model based on equation (\ref{eq:specification}).
-In both the restricted and unrestricted models, person and federal state control are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.
+In both the restricted and unrestricted models, person and federal state controls are incorporated in a stepwise manner, with the baseline model initially estimated without any controls.
 
 The estimates from the restricted model show that both having a mother who works or used to work in STEM and having a father who works or used to work in STEM significantly increase the probability of the daughter of obtaining a university degree instead of a vocational degree.
-In the case of a mother with STEM experience, the increases measures 9 pp c. p. and in the case of a father with STEM experience, it measures 12 pp c. p.
+In the case of a mother with STEM experience, the increase measures 9 pp c. p. and in the case of a father with STEM experience, it measures 12 pp c. p.
 
 Taking advantage of the unique setting in reunified Germany and taking into account the parental origin in the unrestricted model, the effect of the father being in STEM at some point in time is reduced to 8 pp, while the effect of the mother being in STEM at some point in time more than doubles in magnitude.
 This is the consequence of addressing the omitted variable biases by adding the variables of parental origin as regressors into the model.
@@ -585,25 +585,25 @@ Comparing the results from the restricted model in column (3) to the results fro
 Further, the omitted variable bias is now positive not only for the fathers, but also for the mothers:
 The effect for mothers decreases to 11 pp and for fathers to 8 pp.
 This indicates that the parental origin is more influential for daughters in their educational choices than for sons.
-Furthermore, the findings indicate that Eastern mothers do exert a significant negative effect on their sons' decision to pursue an academic education, but they do exert it on their daughters'.
+Furthermore, the findings indicate that Eastern mothers do not exert a significant negative effect on their sons' decision to pursue an academic education, but they do exert it on their daughters'.
 
 The following part investigates the effect on the intensive margin, specifically whether daughters and sons choose to obtain a STEM university degree in preference to a non-STEM university degree.
-For this part of the analysis, the sample size is notably reduced with 298 females and 287 males, as the sample employed in this part constitutes a subsample of the sample utilised in the extensive analysis.
+For this part of the analysis, the sample size is notably reduced with 298 females and 287 males, as the sample employed in this part constitutes a subsample of the sample utilised before.
 Table \ref{tab:descr_summary_epid_int} provides summary statistics for the sample of the intensive analysis.
 Comparing these statistics to the ones from table \ref{tab:descr_summary_epid_ext} shows that the analysis is done on a non-random subsample of the sample employed in the extensive analysis.
 First, the individuals are older on average with approximately 29 years of age as opposed to 27 years.
 In fact, using age as the single regressor for estimating whether an individual in the larger sample has a missing value in the dependent variable of the intensive analysis (STEM degree versus non-STEM degree) reveals that age is a highly significant predictor for having non-valid information in this variable.\footnote{The logit regression $\textnormal{UniFieldMissing}_{it} = \textnormal{Age}_{it} + u_{it}$ was run on the sample described in table \ref{tab:descr_summary_epid_ext}. Standard errors were clustered at the household level.}
 However, males and females within the subsample are statistically of the same age.
 Females still have a higher share of individuals with a spouse or life partner in comparison to males (13 pp difference).
-All the remaining characteristics  show no statistically significant differences between the sexes and also remain comparable in magnitude with the values in the larger sample of the intensive sample.
-The share of individuals with a mother or a father of Eastern origin are now slightly lower than in the larger sample, while the share of individuals with parents who worked in STEM at some point in time are now slightly higher.
+All the remaining characteristics  show no statistically significant differences between the sexes and also remain comparable in magnitude with the values in the larger sample.
+The shares of individuals with a mother or a father of Eastern origin are now slightly lower than in the larger sample, while the shares of individuals with parents who worked in STEM at some point in time are now slightly higher.
 
 Table \ref{tab:intdaughters} presents the effects on the intensive educational decision of daughters.
 The first thing to note is that none of the regressors in both the restricted and unrestricted models have significant coefficients, except for the interaction $(\textnormal{FatherEverSTEM}_{i} \times \textnormal{FatherEast}_{i})$  in the baseline stage of the unrestricted model in column (4).
 This may be due to the small sample size.
 However, when this result is later compared with the effects on sons, where the sample size is even smaller, the lack of significant predictors may not only be due to high imprecision.
 There is little change in the coefficients between the restricted and the unrestricted model, suggesting that parental origin is not as influential in the intensive decision as it is in the extensive decision for daughters.
-The effect of having a mother from the East still reads 21 pp, however, the effect of having a mother who worked in STEM at some point in time is reduced to 8 pp for the intensive decision.
+The effect of having a mother from the East still reads -21 pp, however, the effect of having a mother who worked in STEM at some point in time is reduced to 8 pp for the intensive decision.
 This suggests that STEM mothers are supportive of their daughters pursuing a university degree, but are less concerned about whether it should be a STEM degree.
 Additionally, the interactive effect of having an East German STEM mother reads 1 pp.
 Keeping in mind that all of these effects are not statistically different from zero on all common confidence levels, this means that there is no evidence to support the theory that females are influenced by their East German STEM mothers to obtain a STEM degreee instead of a non-STEM degree at university.
@@ -613,13 +613,36 @@ In the full unrestricted model presented in column (6), the interaction effect r
 It appears that it is the East German STEM fathers rather than the mothers who are more likely to encourage their daughters to not only pursue a university degree, but to study a STEM subject at university.
 
 Lastly, table \ref{tab:intsons} presents the effects on the intensive educational decision of sons.
-
+The first thing that catches the eye is the highly significant effect that STEM fathers exert on their sons' decision on whether to follow their career path.
+This effect is present throughout all stages of both the restricted and the unrestricted model and reads 19 pp in the full unrestricted model.
+However, this effect cancels out if the father is from the East, as the effect of that reads 0 pp and the effect from the interaction term $(\textnormal{FatherEverSTEM}_{i} \times \textnormal{FatherEast}_{i})$  reads -21 pp.
+It is again important to note that the sample size is relatively small, which limits the scope of the findings.
+However, they indicate that the influence of a father's involvement in STEM has a significant positive impact only on the sons of Western fathers.
+Having a STEM mother initially decreases the probability of a positive outcome, however, if the mother is from the East, the negative effect cancels out.
 
 \section{Discussion}
 \label{discussion}
 
-\section{Robustness}
-\label{robustness}
+The results of the extensive and the intensive analysis regarding educational choices show a pattern of the opposite-sex parent having a positive impact on their children's decisions.
+The fact that Eastern STEM fathers have a positive effect on the choice their daughters make on whether to follow their career path in STEM needs to be pointed out.
+This effect was negative when investigating Eastern STEM mothers and their daughters.
+The results of the analysis, when considered alongside the findings of the descriptive analysis, suggest the following working theory:
+that, following rejection from the STEM sector immediately after the Reunification, mothers who had worked in that sector in the GDR advised their daughters against pursuing the career path they had taken.
+However, there was no such sharp decline in the share of males from the former GDR working in STEM.
+Given the socialist upbringing of these males and their possible lack of disillusionment when compared to their female counterparts after the Reunification, it seems reasonable to suggest that they transmitted the socialist emphasis on STEM to their daughters.
+
+A further perspective on the results can be provided by the fact that the political and cultural values in the GDR were communicated strictly top to bottom.
+The loss of the motor that facilitates this transmission, namely the socialist system of the SED, leads to a complete failure of spreading the ideas of socialism into the wider society.
+This top-to-bottom design was necessary in the GDR because socialism did not ``organically'' grew, but was imposed from above by the Soviet Union in order to maintain a firm grip on the former enemy.
+
+Added to this is the fact that the people in the GDR were oppressed by their political system and that the economic system led to constant shortages in supplies, which led to general dissatisfaction.
+It is therefore hardly surprising that a large share of individuals from the former GDR rejected the ideology of their failed state and did not allow it to influence their decisions in their own lives.
+So, alongside the state of the GDR, its ideology failed as well.
+
+The findings contrast the conclusions of \cite{FriedmanSokuler2020}, who suggest that socialist ideas are retained by post-Cold War generations in Israel and disseminated to peers with no parental background in a socialist state.
+
+%\section{Robustness}
+%\label{robustness}
 
 % add parental hhincome
 
