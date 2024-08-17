@@ -68,8 +68,10 @@ do ${do}validity.do
 ** EPIDEMIOLOGICAL APPROACH **
 * prepare data
 do ${do}prepare_epid_data.do
-* summary statistics / main findings / robustness
+* summary statistics / main findings
 do ${do}regression_analysis.do
+* robustness
+do ${do}robustness.do
 * extension: a white- and blue collar definition of stem
 do ${do}extension.do
 **
