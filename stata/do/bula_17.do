@@ -21,7 +21,9 @@ rename syear_17 syear
 
 rename bula bula_now
 
-merge 1:1 pid syear using ${data}children, keep(1 3) keepusing(bula) nogen
+* the local `file' is defined either in regression_analysis.do or robustness.do to make this script applicable for both!
+* the value is either "children" or "children_robust"
+merge 1:1 pid syear using ${data}${file}, keep(1 3) keepusing(bula) nogen
 
 rename bula bula_17
 label variable bula_17 "Federal State of Residency when 17 years old"

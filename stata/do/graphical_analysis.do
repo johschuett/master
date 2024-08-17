@@ -48,7 +48,7 @@ twoway (connected stem syear if female == 0 & east_origin == 1, mcolor(gs6) lcol
 		   order(4 3 1 2)) ///
 	name(trend, replace)
 
-graph export "${figures}trend.pdf", replace
+graph export ${figures}trend.pdf, replace
 
 
 * trend, zoomed
@@ -79,7 +79,7 @@ twoway (connected stem syear if east_origin == 0, mcolor(gs6) lcolor(gs6) msymbo
 		   order(2 1)) ///
 	name(trend_zoomed, replace)
 
-graph export "${figures}trend_zoomed.pdf", replace
+graph export ${figures}trend_zoomed.pdf, replace
 
 }
 
@@ -259,6 +259,6 @@ twoway (line unemp_switch syear, lcolor(black) lpattern(solid)) ///
 		   position(6)) ///
 	name(net_switches, replace)
 
-graph export "${figures}net_switches.pdf", replace
+graph export ${figures}net_switches.pdf, replace
 
 }

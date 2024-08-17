@@ -70,7 +70,7 @@ do ${do}validity.do
 do ${do}prepare_epid_data.do
 * summary statistics / main findings / robustness
 do ${do}regression_analysis.do
-* extension: comparing the blocs
+* extension: a white- and blue collar definition of stem
 do ${do}extension.do
 **
 
@@ -87,6 +87,9 @@ erase ${data}information.dta
 erase ${data}parents.dta
 erase ${data}potential_fathers.dta
 erase ${data}potential_mothers.dta
+
+erase ${data}parents_robust.dta
+erase ${data}children_robust.dta
 
 erase ${data}extension.dta
 erase ${data}extension_children.dta

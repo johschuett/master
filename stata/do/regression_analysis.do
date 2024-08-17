@@ -144,6 +144,8 @@ drop stem_edu
 rename stem_edu_max stem_edu
 
 
+* state controls
+global file = "children"
 do ${do}bula_17.do
 
 

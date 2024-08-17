@@ -51,6 +51,9 @@ keep if female == 0
 egen ever_stem = max(stem), by(pid)
 drop stem
 
+label define ever_stem 0 "[0] Never had a STEM Profession", modify
+label define ever_stem 1 "[1] Has or had a STEM Profession", modify
+
 duplicates drop pid, force
 
 rename pid fnr
