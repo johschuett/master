@@ -93,9 +93,7 @@ erase ${data}potential_mothers.dta
 erase ${data}parents_robust.dta
 erase ${data}children_robust.dta
 
-erase ${data}extension.dta
-erase ${data}extension_children.dta
-erase ${data}extension_parents.dta
+erase ${data}children_ext.dta
 
 erase ${data}state.dta
 
