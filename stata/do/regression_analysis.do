@@ -67,6 +67,7 @@ rename university_max university
 
 * add state controls of the point in time when the individual was 17 years old
 * (usually the time of deciding whether to study at uni or not)
+global file = "children"
 do ${do}bula_17.do
 
 

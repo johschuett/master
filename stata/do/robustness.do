@@ -191,7 +191,7 @@ rename stem_edu_max stem_edu
 
 
 * state controls
-global file = "children"
+global file = "children_robust"
 do ${do}bula_17.do
 
 
