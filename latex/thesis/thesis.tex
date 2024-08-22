@@ -682,7 +682,34 @@ The findings indicate that this preservation can be shown to be achieved only th
 \label{robustness}
 
 % any parent instead of mother/father. cure small sample size and see whether opposite-sex parent effects mean out.
+In an attempt to alleviate the problem of small sample sizes in the estimates presented above, I modify the regressors presented in equation (\ref{eq:specification}) as follows:
 
+\vspace{-8mm}
+
+\begin{equation}
+	\begin{split}
+		\label{eq:specificationrobust}
+		\textnormal{Education}_{itus} &={} \beta_{0} + \beta_{1}\textnormal{AnyParentEverSTEM}_{i} + \beta_{2}\textnormal{AnyParentEast}_{i} \\
+		& + \beta_{4}(\textnormal{AnyParentEverSTEM}_{i} \times \textnormal{AnyParentEast}_{i}) \\
+		& + \gamma{}X'_{itus} + \epsilon_{itus}\textnormal{.}
+	\end{split}
+\end{equation}
+
+\noindent The use of this alternative specification allows individuals to be included in the sample who have only one parent with valid information on origin and occupation instead of both parents.
+Now it is no longer possible to distinguish between maternal and paternal influence, as they are merged into one parental influence stream.
+Therefore, the coefficients of the regressor defined in equation (\ref{eq:specificationrobust}) are expected to lie between the coefficients of the maternal and paternal regressors in the original specification.
+
+Table \ref{tab:intdaughtersrobust} shows the results of the intensive analysis on daughters using this alternative specification.
+The sample size increases by 29\%.
+As expected, the coefficents always fall between the coefficients of the regressors from the original analysis:
+For example, in the full unrestricted model of the original analysis, the effect of having a mother from the East reads -21 pp and the effect of having a father from the East reads 6 pp (see table \ref{tab:intdaughters}).
+Now, the effect of having any parent from the East reads -12 pp in the full unrestricted model.
+This result confirms that these more generally defined coefficients are the means of the more nuanced effects of the original model.
+
+The same result can be observed for the sons in table \ref{tab:intsonsrobust}:
+For example, having a mother with a STEM background has an effect of -15 pp, while having a father with a STEM background has an effect of 19 pp.
+Now, the effect of having any parent with a STEM background reads 8 pp.
+The effect (which was highly significant on the paternal side) lost its significance due to the balancing of the opposing effects.
 
 \section{Extension: A White- and Blue-Collar Definition of STEM}
 \label{Extension}
