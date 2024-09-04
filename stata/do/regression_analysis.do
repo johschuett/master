@@ -1,55 +1,7 @@
 ** DO NOT EXECUTE THIS DO-FILE ON ITS OWN, DO MAIN.DO !! **
 
 /*
-1. is there a correlation between parents having an eastern origin and having worked in stem at some point?
-*/
-{
-
-* MOTHERS *
-use ${data}potential_mothers, clear
-
-* keep only individuals who are mothers of the children in the estimation sample
-merge 1:m mnr using ${data}children, keepusing(mnr)
-keep if _merge == 3
-drop _merge
-
-
-* some are mothers of multiple children -> drop duplicates
-sort mnr
-duplicates drop mnr, force
-
-
-* run simple logit model
-logit mother_ever_stem mother_east_or
-margins, dydx(mother_east_or)
-*--> Female focus on STEM can be (partly) explained through the socialisation in the GDR.
-**
-
-
-* FATHERS *
-use ${data}potential_fathers, clear
-
-* keep only individuals who are fathers of the children in the estimation sample
-merge 1:m fnr using ${data}children, keepusing(fnr)
-keep if _merge == 3
-drop _merge
-
-
-* some are fathers of multiple children -> drop duplicates
-sort fnr
-duplicates drop fnr, force
-
-
-* run simple logit model
-logit father_ever_stem father_east_or
-margins, dydx(father_east_or)
-**
-
-}
-
-
-/*
-2a. extensive margin: do their children have a university or vocational degree?
+extensive margin: do their children have a university or vocational degree?
 */
 {
 
@@ -76,6 +28,37 @@ foreach var in university age partner_bin hhgr west mother_east_or father_east_o
 	di "`var'"
 	ttest `var', by(female) reverse
 }
+
+* full summary statistics for appendix
+local vlist university age partner_bin hhgr west mother_east_or father_east_or mother_ever_stem father_ever_stem migback unemp gdp popdens netcommuting firstsemstud
+
+table (var female) (result), ///
+    stat(mean `vlist') ///
+	stat(sd `vlist') ///
+	stat(min `vlist') ///
+	stat(max `vlist') ///
+	stat(n `vlist') ///
+	name(by) ///
+	replace
+
+
+* reorder the levels of 'foreign' and hide the 'Total' level
+collect levelsof female
+collect style autolevels female .m `s(levels)', clear
+collect style header female[.m], level(hide)
+
+* change the result labels to match the original LaTeX example
+collect label levels result sd "Std. Dev." min "Min" max "Max" n "Obs.", modify
+
+* other style changes
+collect style cell result[mean sd min max], nformat(%12.2fc)
+collect style header female, title(hide)
+
+* review table look
+collect preview
+
+* export to LaTeX file
+collect export ${tables}appendix_summary_ext.tex, replace
 
 
 * show that higher age reduces the probability of missing information in stem_edu variable (non-random subsample in 2b.)
@@ -129,7 +112,7 @@ forvalues female = 0(1)1 {
 
 
 /*
-2b. intensive margin: do their children have a stem or non-stem university degree?
+intensive margin: do their children have a stem or non-stem university degree?
 */
 {
 
@@ -155,6 +138,37 @@ foreach var in stem_edu age partner_bin hhgr west mother_east_or father_east_or 
 	di "`var'"
 	ttest `var', by(female) reverse
 }
+
+* full summary statistics for appendix
+local vlist stem_edu age partner_bin hhgr west mother_east_or father_east_or mother_ever_stem father_ever_stem migback unemp gdp popdens netcommuting firstsemstud
+
+table (var female) (result), ///
+    stat(mean `vlist') ///
+	stat(sd `vlist') ///
+	stat(min `vlist') ///
+	stat(max `vlist') ///
+	stat(n `vlist') ///
+	name(by) ///
+	replace
+
+
+* reorder the levels of 'foreign' and hide the 'Total' level
+collect levelsof female
+collect style autolevels female .m `s(levels)', clear
+collect style header female[.m], level(hide)
+
+* change the result labels to match the original LaTeX example
+collect label levels result sd "Std. Dev." min "Min" max "Max" n "Obs.", modify
+
+* other style changes
+collect style cell result[mean sd min max], nformat(%12.2fc)
+collect style header female, title(hide)
+
+* review table look
+collect preview
+
+* export to LaTeX file
+collect export ${tables}appendix_summary_int.tex, replace
 
 
 forvalues female = 0(1)1 {
