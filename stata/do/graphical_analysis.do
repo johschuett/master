@@ -240,8 +240,11 @@ bysort pid (syear): replace stem_unemp_switch = -1 if inrange(pgemplst, 1, 2) & 
 
 collapse (sum) stem_switch unemp_switch stem_unemp_switch (count) pid [aw = phrf], by(syear)
 
-di "`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM."
 
+* generate constant for aux line in graph
+gen const = 0
+
+di "`fmt_sumpid' Obs. in 1990, thereof `sumstem' in STEM."
 
 twoway (line unemp_switch syear, lcolor(black) lpattern(solid)) ///
 ||     (line stem_unemp_switch syear, lcolor(gs9) lpattern(solid)) ///
